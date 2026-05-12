@@ -12,7 +12,7 @@ const navLinks = [
   { label: "About", target: "#about" },
   { label: "Work", target: "#work" },
   { label: "Skills", target: "#skills" },
-  { label: "Timeline", target: "#timeline" },
+  { label: "Achievements", target: "#achievements" },
 ];
 
 export default function FloatingPillNavbar({
@@ -65,7 +65,7 @@ export default function FloatingPillNavbar({
           <MenuItem onClick={() => handleNav("#about")} icon={<User size={22} strokeWidth={1.5} />} />
           <MenuItem onClick={() => handleNav("#work")} icon={<Briefcase size={22} strokeWidth={1.5} />} />
           <MenuItem onClick={() => handleNav("#skills")} icon={<Code size={22} strokeWidth={1.5} />} />
-          <MenuItem onClick={() => handleNav("#timeline")} icon={<Clock size={22} strokeWidth={1.5} />} />
+          <MenuItem onClick={() => handleNav("#achievements")} icon={<Clock size={22} strokeWidth={1.5} />} />
           <MenuItem onClick={() => handleNav("#contact")} icon={<Mail size={22} strokeWidth={1.5} />} />
         </MenuContainer>
       </div>

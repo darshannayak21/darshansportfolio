@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
 import OrangeCTAButton from "@/components/OrangeCTAButton";
+import { AnimatedDock } from "@/components/ui/animated-dock";
+import { Github, Twitter, Youtube, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -150,6 +152,32 @@ export default function Contact() {
           >
             darshan@example.com
           </a>
+          <div className="mt-20 flex justify-center w-full">
+            <AnimatedDock
+              items={[
+                {
+                  link: "https://github.com",
+                  target: "_blank",
+                  Icon: <Github size={24} />,
+                },
+                {
+                  link: "https://twitter.com",
+                  target: "_blank",
+                  Icon: <Twitter size={24} />,
+                },
+                {
+                  link: "https://youtube.com",
+                  target: "_blank",
+                  Icon: <Youtube size={24} />,
+                },
+                {
+                  link: "https://linkedin.com",
+                  target: "_blank",
+                  Icon: <Linkedin size={24} />,
+                },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </section>

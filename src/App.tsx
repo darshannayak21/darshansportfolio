@@ -1,5 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
-import Lenis from "lenis";
+import { useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -15,37 +14,11 @@ import Contact from "@/sections/Contact";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  const lenisRef = useRef<Lenis | null>(null);
-
-  // Initialize Lenis smooth scroll
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.08,
-      smoothWheel: true,
-    });
-
-    lenisRef.current = lenis;
-
-    // Bridge Lenis with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    return () => {
-      lenis.destroy();
-      lenisRef.current = null;
-    };
-  }, []);
-
-  // Navigation handler
+  // Navigation handler — uses native smooth scroll
   const handleNavigate = useCallback((target: string) => {
     const el = document.querySelector(target);
     if (el) {
-      lenisRef.current?.scrollTo(el as HTMLElement, { offset: 0 });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, []);
 

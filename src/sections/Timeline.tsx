@@ -1,7 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+
+const InfiniteGallery = lazy(() => import("@/components/ui/3d-gallery-photography"));
+
+const galleryImages = [
+  { src: 'https://picsum.photos/seed/img1/600/800', alt: 'Image 1' },
+  { src: 'https://picsum.photos/seed/img2/800/600', alt: 'Image 2' },
+  { src: 'https://picsum.photos/seed/img3/600/800', alt: 'Image 3' },
+  { src: 'https://picsum.photos/seed/img4/800/600', alt: 'Image 4' },
+  { src: 'https://picsum.photos/seed/img5/600/800', alt: 'Image 5' },
+  { src: 'https://picsum.photos/seed/img6/800/600', alt: 'Image 6' },
+  { src: 'https://picsum.photos/seed/img7/600/800', alt: 'Image 7' },
+  { src: 'https://picsum.photos/seed/img8/800/600', alt: 'Image 8' },
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,6 +56,7 @@ export default function Timeline() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -110,6 +125,19 @@ export default function Timeline() {
           );
         }
       });
+
+      if (galleryRef.current) {
+        ScrollTrigger.create({
+          trigger: galleryRef.current,
+          start: "center center",
+          end: "+=1500",
+          pin: true,
+          scrub: true,
+          onToggle: (self) => {
+            window.dispatchEvent(new CustomEvent('gallery-toggle', { detail: { isActive: self.isActive } }));
+          }
+        });
+      }
     }, section);
 
     return () => ctx.revert();
@@ -117,15 +145,15 @@ export default function Timeline() {
 
   return (
     <section
-      id="experience"
+      id="achievements"
       ref={sectionRef}
       className="bg-black"
     >
       <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,12vh,160px)]">
         <div className="max-w-[1400px] mx-auto">
-          <SectionLabel text="EXPERIENCE" className="mb-6 block" />
+          <SectionLabel text="ACHIEVEMENTS" className="mb-6 block" />
           <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-16">
-            Journey So Far
+            My Achievements
           </h2>
 
           <div className="relative pl-10 md:pl-16">
@@ -168,6 +196,29 @@ export default function Timeline() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+        
+        {/* Integrated Gallery */}
+        <div ref={galleryRef} className="w-full mt-32 max-w-[1400px] mx-auto pb-12">
+          <h3 className="font-display text-3xl font-bold text-white mb-8">Visual Memories</h3>
+          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] rounded-3xl overflow-hidden">
+            <ErrorBoundary fallback={<div className="h-full w-full flex items-center justify-center text-white bg-white/5">Gallery failed to load images. Please check the URLs.</div>}>
+              <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-white/30"><span className="text-sm font-body">Loading gallery...</span></div>}>
+                <InfiniteGallery
+                  images={galleryImages}
+                  speed={0.4}
+                  zSpacing={3}
+                  visibleCount={8}
+                  falloff={{ near: 0.8, far: 14 }}
+                  className="w-full h-full"
+                />
+              </Suspense>
+            </ErrorBoundary>
+            
+            {/* Subtle overlay gradients for depth */}
+            <div className="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-[10%] bg-gradient-to-l from-black to-transparent pointer-events-none" />
           </div>
         </div>
       </div>

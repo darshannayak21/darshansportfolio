@@ -15,4 +15,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three': ['three', '@react-three/fiber', '@react-three/drei'],
+          'gsap': ['gsap'],
+          'framer': ['framer-motion', 'motion'],
+        },
+      },
+    },
+  },
 });
