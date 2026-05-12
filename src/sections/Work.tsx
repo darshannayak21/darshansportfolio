@@ -247,7 +247,7 @@ export default function Work() {
     if (panels.length === 0) return;
 
     const ctx = gsap.context(() => {
-      panels.forEach((panel, i) => {
+      panels.forEach((panel) => {
         // Entrance animation
         gsap.fromTo(
           panel,

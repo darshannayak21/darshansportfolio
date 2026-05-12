@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { MenuItem, MenuContainer } from "./ui/fluid-menu";
+import { Menu as MenuIcon, X, Briefcase, User, Code, Clock, Mail } from "lucide-react";
 
 interface FloatingPillNavbarProps {
   onNavigate: (target: string) => void;
@@ -17,7 +19,6 @@ export default function FloatingPillNavbar({
   onNavigate,
 }: FloatingPillNavbarProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,6 @@ export default function FloatingPillNavbar({
   const handleNav = useCallback(
     (target: string) => {
       onNavigate(target);
-      setMobileOpen(false);
     },
     [onNavigate]
   );
@@ -46,11 +46,36 @@ export default function FloatingPillNavbar({
 
   return (
     <>
+      {/* Mobile Fluid Menu (Top Right) */}
+      <div className="fixed top-6 right-6 z-[60] md:hidden">
+        <MenuContainer>
+          <MenuItem 
+            icon={
+              <div className="relative w-6 h-6">
+                <div className="absolute inset-0 transition-all duration-300 ease-in-out origin-center opacity-100 scale-100 rotate-0 [div[data-expanded=true]_&]:opacity-0 [div[data-expanded=true]_&]:scale-0 [div[data-expanded=true]_&]:rotate-180 text-white group-hover:text-[#ff5500]">
+                  <MenuIcon size={24} strokeWidth={1.5} />
+                </div>
+                <div className="absolute inset-0 transition-all duration-300 ease-in-out origin-center opacity-0 scale-0 -rotate-180 [div[data-expanded=true]_&]:opacity-100 [div[data-expanded=true]_&]:scale-100 [div[data-expanded=true]_&]:rotate-0 text-[#ff5500]">
+                  <X size={24} strokeWidth={1.5} />
+                </div>
+              </div>
+            } 
+          />
+          <MenuItem onClick={() => handleNav("#hero")} icon={<span className="font-logo font-bold text-lg tracking-[-0.08em]">DN</span>} />
+          <MenuItem onClick={() => handleNav("#about")} icon={<User size={22} strokeWidth={1.5} />} />
+          <MenuItem onClick={() => handleNav("#work")} icon={<Briefcase size={22} strokeWidth={1.5} />} />
+          <MenuItem onClick={() => handleNav("#skills")} icon={<Code size={22} strokeWidth={1.5} />} />
+          <MenuItem onClick={() => handleNav("#timeline")} icon={<Clock size={22} strokeWidth={1.5} />} />
+          <MenuItem onClick={() => handleNav("#contact")} icon={<Mail size={22} strokeWidth={1.5} />} />
+        </MenuContainer>
+      </div>
+
+      {/* Desktop Bottom Navbar */}
       <motion.nav
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="fixed bottom-8 md:bottom-12 left-0 right-0 z-50 flex justify-center items-center gap-2 md:gap-3 px-4 pointer-events-none"
+        className="fixed bottom-8 md:bottom-12 left-0 right-0 z-50 flex justify-center items-center gap-2 md:gap-3 px-4 pointer-events-none hidden md:flex"
       >
         {/* PILL 1: Logo */}
         <div
@@ -78,7 +103,7 @@ export default function FloatingPillNavbar({
             }
           `}
         >
-          <div className="hidden md:flex items-center gap-5 lg:gap-6">
+          <div className="flex items-center gap-5 lg:gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.label}
@@ -90,26 +115,6 @@ export default function FloatingPillNavbar({
               </button>
             ))}
           </div>
-
-          {/* Mobile Hamburger (visible only on mobile) */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex flex-col gap-[4px] p-1.5"
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-[16px] h-[1.5px] bg-white transition-all duration-300 origin-center ${mobileOpen ? "rotate-45 translate-y-[5.5px]" : ""
-                }`}
-            />
-            <span
-              className={`block w-[16px] h-[1.5px] bg-white transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""
-                }`}
-            />
-            <span
-              className={`block w-[16px] h-[1.5px] bg-white transition-all duration-300 origin-center ${mobileOpen ? "-rotate-45 -translate-y-[5.5px]" : ""
-                }`}
-            />
-          </button>
         </div>
 
         {/* PILL 3: CTA */}
@@ -129,52 +134,6 @@ export default function FloatingPillNavbar({
           </button>
         </div>
       </motion.nav>
-
-      {/* Mobile Overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8"
-            style={{
-              background: "rgba(0,0,0,0.92)",
-              backdropFilter: "blur(30px)",
-              WebkitBackdropFilter: "blur(30px)",
-            }}
-          >
-            {navLinks.map((link, i) => (
-              <motion.button
-                key={link.label}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{
-                  delay: i * 0.07,
-                  duration: 0.35,
-                  ease: "easeOut",
-                }}
-                onClick={() => handleNav(link.target)}
-                className="font-display text-3xl font-bold text-white hover:text-[#ff5500] transition-colors duration-200"
-              >
-                {link.label}
-              </motion.button>
-            ))}
-            <motion.button
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ delay: 0.32, duration: 0.35, ease: "easeOut" }}
-              onClick={() => handleNav("#contact")}
-              className="mt-4 font-marker text-xl tracking-widest bg-[#fff8eb] text-black rounded-full px-10 py-3 font-semibold hover:bg-white transition-colors duration-200 pt-4"
-            >
-              CONNECT
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
