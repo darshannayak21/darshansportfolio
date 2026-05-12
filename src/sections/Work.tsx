@@ -94,6 +94,10 @@ function ImageMarquee({
     const track = trackRef.current;
     if (!track) return;
 
+    let tween: gsap.core.Tween;
+    let handleMouseEnter: () => void;
+    let handleMouseLeave: () => void;
+
     const timer = setTimeout(() => {
       const totalWidth = track.scrollWidth / 2;
       if (totalWidth <= 0) return;
@@ -101,7 +105,7 @@ function ImageMarquee({
       const from = direction === "left" ? 0 : -totalWidth;
       const to = direction === "left" ? -totalWidth : 0;
 
-      const tween = gsap.fromTo(
+      tween = gsap.fromTo(
         track,
         { x: from },
         {
@@ -112,12 +116,32 @@ function ImageMarquee({
         }
       );
 
-      return () => {
-        tween.kill();
+      // Smoothly slow down the animation on hover
+      handleMouseEnter = () => {
+        if (tween) gsap.to(tween, { timeScale: 0.60, duration: 0.6, ease: "power2.out" });
       };
+      // Smoothly return to normal speed
+      handleMouseLeave = () => {
+        if (tween) gsap.to(tween, { timeScale: 1.6, duration: 0.6, ease: "power2.out" });
+      };
+
+      track.addEventListener("mouseenter", handleMouseEnter);
+      track.addEventListener("mouseleave", handleMouseLeave);
+      // For mobile support
+      track.addEventListener("touchstart", handleMouseEnter, { passive: true });
+      track.addEventListener("touchend", handleMouseLeave);
     }, 100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (tween) tween.kill();
+      if (track && handleMouseEnter && handleMouseLeave) {
+        track.removeEventListener("mouseenter", handleMouseEnter);
+        track.removeEventListener("mouseleave", handleMouseLeave);
+        track.removeEventListener("touchstart", handleMouseEnter);
+        track.removeEventListener("touchend", handleMouseLeave);
+      }
+    };
   }, [direction, speed]);
 
   const doubled = [...images, ...images];

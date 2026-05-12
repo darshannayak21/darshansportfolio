@@ -9,8 +9,8 @@ interface FloatingPillNavbarProps {
 }
 
 const navLinks = [
-  { label: "Work", target: "#work" },
   { label: "About", target: "#about" },
+  { label: "Work", target: "#work" },
   { label: "Skills", target: "#skills" },
   { label: "Timeline", target: "#timeline" },
 ];
@@ -49,7 +49,7 @@ export default function FloatingPillNavbar({
       {/* Mobile Fluid Menu (Top Right) */}
       <div className="fixed top-6 right-6 z-[60] md:hidden">
         <MenuContainer>
-          <MenuItem 
+          <MenuItem
             icon={
               <div className="relative w-6 h-6">
                 <div className="absolute inset-0 transition-all duration-300 ease-in-out origin-center opacity-100 scale-100 rotate-0 [div[data-expanded=true]_&]:opacity-0 [div[data-expanded=true]_&]:scale-0 [div[data-expanded=true]_&]:rotate-180 text-white group-hover:text-[#ff5500]">
@@ -59,7 +59,7 @@ export default function FloatingPillNavbar({
                   <X size={24} strokeWidth={1.5} />
                 </div>
               </div>
-            } 
+            }
           />
           <MenuItem onClick={() => handleNav("#hero")} icon={<span className="font-logo font-bold text-lg tracking-[-0.08em]">DN</span>} />
           <MenuItem onClick={() => handleNav("#about")} icon={<User size={22} strokeWidth={1.5} />} />
@@ -75,14 +75,14 @@ export default function FloatingPillNavbar({
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="fixed bottom-8 md:bottom-12 left-0 right-0 z-50 flex justify-center items-center gap-2 md:gap-3 px-4 pointer-events-none hidden md:flex"
+        className="fixed bottom-10 md:bottom-16 left-0 right-0 z-50 flex justify-center items-center gap-2 md:gap-3 px-4 pointer-events-none hidden md:flex"
       >
         {/* PILL 1: Logo */}
         <div
           className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500
             ${scrolled
               ? "bg-[#1c1c1c] shadow-[0_8px_32px_rgba(0,0,0,0.6)] px-4 md:px-5 py-2 md:py-2.5"
-              : "bg-[#1c1c1c]/90 backdrop-blur-md px-4 md:px-5 py-2.5 md:py-3"
+              : "bg-[#1c1c1c] px-4 md:px-5 py-2.5 md:py-3"
             }
           `}
         >
@@ -96,10 +96,10 @@ export default function FloatingPillNavbar({
 
         {/* PILL 2: Nav Links */}
         <div
-          className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500
+          className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500 border border-transparent
             ${scrolled
-              ? "bg-[#1c1c1c] shadow-[0_8px_32px_rgba(0,0,0,0.6)] px-4 md:px-6 py-2.5 md:py-3"
-              : "bg-[#1c1c1c]/90 backdrop-blur-md px-4 md:px-6 py-3 md:py-3.5"
+              ? "bg-transparent px-4 md:px-6 py-2.5 md:py-3"
+              : "bg-transparent px-4 md:px-6 py-3 md:py-3.5"
             }
           `}
         >
@@ -121,7 +121,7 @@ export default function FloatingPillNavbar({
         <div className="pointer-events-auto">
           <button
             onClick={() => handleNav("#contact")}
-            className={`flex items-center justify-center rounded-full bg-[#fff8eb] text-black hover:bg-white hover:animate-vibrate origin-center transition-colors duration-300
+            className={`flex items-center justify-center rounded-full bg-[#fff8eb] text-black hover:bg-[#ff5500] hover:text-white hover:animate-vibrate origin-center transition-colors duration-300
               ${scrolled
                 ? "px-4 md:px-5 py-2 md:py-2.5 shadow-[0_8px_32px_rgba(255,248,235,0.15)]"
                 : "px-4 md:px-5 py-2.5 md:py-3"
