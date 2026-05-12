@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Outfit:wght@800&family=Rock+Salt&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 16 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 16 100% 50%;
+    --radius: 0.625rem;
+    --orange: #ff5500;
+    --orange-dim: rgba(255, 85, 0, 0.2);
+    --surface: #0a0a0a;
+    --surface-light: #111111;
+    --txt-primary: #ffffff;
+    --txt-secondary: #555555;
+    --txt-tertiary: #888888;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: "DM Sans", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-white/[0.08];
+  }
+
+  ::selection {
+    background: rgba(255, 85, 0, 0.3);
+    color: #ffffff;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: "Inter Tight", system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .font-logo {
+    font-family: "Fredoka", system-ui, sans-serif;
+  }
+
+  .font-marker {
+    font-family: "Rock Salt", cursive;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes vibrate {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(4deg);
+    }
+    75% {
+      transform: rotate(-4deg);
+    }
+  }
+
+  .animate-vibrate {
+    animation: vibrate 0.35s cubic-bezier(.36, .07, .19, .97) both;
+  }
+}
