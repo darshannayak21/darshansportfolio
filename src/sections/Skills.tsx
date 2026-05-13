@@ -101,7 +101,7 @@ export default function Skills() {
       className="bg-black border-t border-white/[0.08]"
     >
       <div className="w-full px-6 md:px-12 lg:px-20 pt-12 md:pt-16 pb-[clamp(80px,12vh,160px)]">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto text-center">
           <SectionLabel text="SKILLS" className="mb-6 block" />
           <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-16">
             Technologies & Tools

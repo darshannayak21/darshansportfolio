@@ -150,7 +150,7 @@ export default function Timeline() {
       className="bg-black"
     >
       <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,12vh,160px)]">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-[1400px] mx-auto text-center">
           <SectionLabel text="ACHIEVEMENTS" className="mb-6 block" />
           <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-16">
             My Achievements

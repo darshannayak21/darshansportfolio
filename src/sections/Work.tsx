@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionLabel from "@/components/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -272,41 +273,34 @@ export default function Work() {
 
     const ctx = gsap.context(() => {
       panels.forEach((panel) => {
-        // Entrance animation
+        // Entrance animation — fast and early
         gsap.fromTo(
           panel,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: 0.4,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: panel,
-              start: "top 85%",
+              start: "top 80%",
               toggleActions: "play none none none",
             },
           }
         );
 
-        // Snap/Push up animation for ALL panels, including the last one.
-        // Shrinking the last panel's image will automatically pull up the next section (Skills/Tools).
+        // Smooth scrub-based push-up that happens AS you scroll (simultaneous)
         const marqueeWrapper = panel.querySelector(".marquee-wrapper");
         if (marqueeWrapper) {
-          // Instead of scrub: true (which goes gradually with scroll),
-          // this uses a fixed duration and an expo ease.
-          // When you scroll past the start point, it rapidly collapses the image,
-          // which "snaps" or "pushes" the next section up into view satisfyingly.
           gsap.to(marqueeWrapper, {
             height: 0,
-            duration: 0.9,
-            ease: "power3.inOut", // Smoother, luxurious fluid push rather than a sharp snap
-            onComplete: () => ScrollTrigger.refresh(), // Ensures following sections stay synced
-            onReverseComplete: () => ScrollTrigger.refresh(),
+            ease: "none",
             scrollTrigger: {
               trigger: marqueeWrapper,
-              start: "top 20%", // Triggers later, when the image is near the top, so the next section is visible
-              toggleActions: "play none none reverse", // Play instantly, reverse if scrolled back
+              start: "top 40%",
+              end: "top 10%",
+              scrub: 0.5,
             },
           });
         }
@@ -323,11 +317,12 @@ export default function Work() {
       className="relative bg-black pt-16 md:pt-24"
     >
       {/* Section Header */}
-      <div className="px-5 md:px-10 lg:px-16">
+      <div className="px-5 md:px-10 lg:px-16 mb-10">
         <div className="max-w-[1400px] mx-auto text-center">
-          <span className="font-mono text-[10px] md:text-xs tracking-[0.3em] text-white/30 uppercase">
-            Projects
-          </span>
+          <SectionLabel text="PROJECTS" className="mb-6 block" />
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white">
+            Selected Work
+          </h2>
         </div>
       </div>
 

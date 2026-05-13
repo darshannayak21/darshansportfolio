@@ -10,7 +10,7 @@ interface FloatingPillNavbarProps {
 
 const navLinks = [
   { label: "About", target: "#about" },
-  { label: "Work", target: "#work" },
+  { label: "Projects", target: "#work" },
   { label: "Skills", target: "#skills" },
   { label: "Achievements", target: "#achievements" },
 ];
@@ -81,8 +81,8 @@ export default function FloatingPillNavbar({
         <div
           className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500
             ${scrolled
-              ? "bg-[#1c1c1c] shadow-[0_8px_32px_rgba(0,0,0,0.6)] px-4 md:px-5 py-2 md:py-2.5"
-              : "bg-[#1c1c1c] px-4 md:px-5 py-2.5 md:py-3"
+              ? "bg-white/[0.08] backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/[0.06] px-4 md:px-5 py-2 md:py-2.5"
+              : "bg-white/[0.08] backdrop-blur-md border border-white/[0.06] px-4 md:px-5 py-2.5 md:py-3"
             }
           `}
         >
@@ -96,10 +96,10 @@ export default function FloatingPillNavbar({
 
         {/* PILL 2: Nav Links */}
         <div
-          className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500 border border-transparent
+          className={`pointer-events-auto flex items-center justify-center rounded-full transition-all duration-500 border border-white/[0.06]
             ${scrolled
-              ? "bg-transparent px-4 md:px-6 py-2.5 md:py-3"
-              : "bg-transparent px-4 md:px-6 py-3 md:py-3.5"
+              ? "bg-white/[0.06] backdrop-blur-md px-4 md:px-6 py-2.5 md:py-3"
+              : "bg-white/[0.06] backdrop-blur-md px-4 md:px-6 py-3 md:py-3.5"
             }
           `}
         >
