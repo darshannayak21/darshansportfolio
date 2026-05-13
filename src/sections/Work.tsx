@@ -290,17 +290,19 @@ export default function Work() {
           }
         );
 
-        // Smooth scrub-based push-up that happens AS you scroll (simultaneous)
+        // Push-up: collapse the marquee quickly, then recalculate page positions
         const marqueeWrapper = panel.querySelector(".marquee-wrapper");
         if (marqueeWrapper) {
           gsap.to(marqueeWrapper, {
             height: 0,
-            ease: "none",
+            duration: 0.6,
+            ease: "power3.inOut",
+            onComplete: () => ScrollTrigger.refresh(),
+            onReverseComplete: () => ScrollTrigger.refresh(),
             scrollTrigger: {
               trigger: marqueeWrapper,
-              start: "top 40%",
-              end: "top 10%",
-              scrub: 0.5,
+              start: "top 25%",
+              toggleActions: "play none none reverse",
             },
           });
         }

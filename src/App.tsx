@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,6 +14,19 @@ import Contact from "@/sections/Contact";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
+  // Recalculate all ScrollTrigger positions once everything is loaded
+  useEffect(() => {
+    const handleLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("load", handleLoad);
+    // Also refresh after a delay for lazy-loaded content
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 2000);
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(timer);
+    };
+  }, []);
   // Navigation handler — uses native smooth scroll
   const handleNavigate = useCallback((target: string) => {
     const el = document.querySelector(target);

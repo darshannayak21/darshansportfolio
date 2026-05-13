@@ -133,6 +133,8 @@ export default function Timeline() {
           end: "+=1500",
           pin: true,
           scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
           onToggle: (self) => {
             window.dispatchEvent(new CustomEvent('gallery-toggle', { detail: { isActive: self.isActive } }));
           }
