@@ -7,14 +7,14 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 const InfiniteGallery = lazy(() => import("@/components/ui/3d-gallery-photography"));
 
 const galleryImages = [
-  { src: 'https://picsum.photos/seed/img1/600/800', alt: 'Image 1' },
-  { src: 'https://picsum.photos/seed/img2/800/600', alt: 'Image 2' },
-  { src: 'https://picsum.photos/seed/img3/600/800', alt: 'Image 3' },
-  { src: 'https://picsum.photos/seed/img4/800/600', alt: 'Image 4' },
-  { src: 'https://picsum.photos/seed/img5/600/800', alt: 'Image 5' },
-  { src: 'https://picsum.photos/seed/img6/800/600', alt: 'Image 6' },
-  { src: 'https://picsum.photos/seed/img7/600/800', alt: 'Image 7' },
-  { src: 'https://picsum.photos/seed/img8/800/600', alt: 'Image 8' },
+  { src: '/images/gallery/Untitled3.webp', alt: 'Image 1' },
+  { src: '/images/gallery/Untitled1.webp', alt: 'Image 2' },
+  { src: '/images/gallery/Untitled7.webp', alt: 'Image 3' },
+  { src: '/images/gallery/Untitled.webp', alt: 'Image 4' },
+  { src: '/images/gallery/Untitled4.webp', alt: 'Image 5' },
+  { src: '/images/gallery/Untitled5.webp', alt: 'Image 6' },
+  { src: '/images/gallery/Untitled6.webp', alt: 'Image 7' },
+  { src: '/images/gallery/Untitled2.webp', alt: 'Image 8' },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
