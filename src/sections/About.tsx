@@ -1,25 +1,55 @@
 import SectionLabel from "@/components/SectionLabel";
+import { TextRevealByWord } from "@/components/ui/text-reveal";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center bg-black py-24"
+      className="flex flex-col bg-black"
     >
-      <div className="w-full px-6 md:px-12 lg:px-20 mb-12">
-        <div className="max-w-[900px] mx-auto text-center">
-          <SectionLabel text="ABOUT ME" className="mb-8 mx-auto block" />
-          <p
-            className="text-[clamp(1.1rem,2vw,1.5rem)] font-light leading-[1.7] text-white/70 max-w-[700px] mx-auto"
-            style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif' }}
-          >
-            I build intelligent systems that blend machine learning, intuitive design, and scalable architecture to create experiences that stand out.
-          </p>
+      {/* ── Text Reveal Area ── */}
+      <div className="w-full">
+        <div className="max-w-[1400px] mx-auto lg:px-20">
+          <div className="flex flex-col lg:flex-row items-start gap-0 lg:gap-16 px-6 md:px-12 lg:px-0">
+            {/* Left side — Text Reveal */}
+            <div className="w-full lg:w-[58%]">
+              <div className="hidden lg:block pt-24 pb-4">
+                <SectionLabel text="ABOUT ME" className="mb-6 block" />
+              </div>
+              <TextRevealByWord
+                text="I build intelligent systems that blend machine learning, intuitive design, and scalable architecture to create experiences that stand out."
+                className="h-[200vh] lg:h-[150vh]"
+                header={
+                  <div className="flex lg:hidden flex-col items-center pt-16 pb-6">
+                    <SectionLabel text="ABOUT ME" className="mb-4 block" />
+                    <div className="w-full max-w-[220px] rounded-2xl overflow-hidden">
+                      <img
+                        src="/darshan.png"
+                        alt="Darshan Nayak"
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                  </div>
+                }
+              />
+            </div>
+
+            {/* Right side — Photo (desktop only, sticky) */}
+            <div className="hidden lg:flex w-full lg:w-[42%] sticky top-0 h-screen items-center justify-center">
+              <div className="w-full max-w-[380px] rounded-3xl overflow-hidden">
+                <img
+                  src="/darshan.png"
+                  alt="Darshan Nayak"
+                  className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bento Grid */}
-      <div className="w-full px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+      {/* ── Bento Grid ── */}
+      <div className="w-full px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto pb-24">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px]">
           
           {/* Work Experience - Biggest Box */}
