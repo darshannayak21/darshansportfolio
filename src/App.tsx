@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,6 +15,20 @@ import Contact from "@/sections/Contact";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
+  const location = useLocation();
+
+  // Instant scroll on mount if hash is present
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "auto", block: "start" });
+        }
+      }, 0);
+    }
+  }, [location]);
+
   // Recalculate all ScrollTrigger positions once everything is loaded
   useEffect(() => {
     const handleLoad = () => {
