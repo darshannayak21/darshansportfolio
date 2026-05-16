@@ -6,8 +6,8 @@ export default function MoreAbout() {
   const location = useLocation();
 
   useEffect(() => {
-    // If there's a hash, scroll to that section instantly
-    if (location.hash) {
+    // If there's a specific hash other than the first section, scroll to it
+    if (location.hash && location.hash !== '#more-about') {
       // Small timeout to ensure DOM is ready and layout is settled
       setTimeout(() => {
         const id = location.hash.replace('#', '');
@@ -18,7 +18,8 @@ export default function MoreAbout() {
         }
       }, 50);
     } else {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      // Force absolute top for the first section to avoid layout offset glitches
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
   }, [location]);
 
