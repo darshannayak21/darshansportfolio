@@ -1,7 +1,6 @@
 import { useEffect, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionLabel from "@/components/SectionLabel";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const InfiniteGallery = lazy(() => import("@/components/ui/3d-gallery-photography"));
