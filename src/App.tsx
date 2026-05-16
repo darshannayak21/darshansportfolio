@@ -43,12 +43,23 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Instant scroll on mount if hash is present
+  // Force scroll to top on refresh/load
   useLayoutEffect(() => {
-    if (location.hash && !isLoading) {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    
+    // If it's a fresh load (loader is showing), clear hash and scroll to top
+    if (!hasShownLoader) {
+      window.scrollTo(0, 0);
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    } else if (location.hash && !isLoading) {
+      // If navigating internally with a hash after loaded
       const el = document.querySelector(location.hash);
       if (el) {
-        el.scrollIntoView({ behavior: "auto", block: "center" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }, [location.hash, isLoading]);

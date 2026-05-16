@@ -27,28 +27,24 @@ interface TimelineEntry {
 
 const entries: TimelineEntry[] = [
   {
-    period: "2025 — Present",
-    title: "AI Engineer & Creative Developer",
-    description:
-      "Building intelligent applications and exploring the frontiers of machine learning, creative coding, and human-AI interaction.",
+    period: "January 2024",
+    title: "1st Place — Global AI Hackathon",
+    description: "Developed 'Neural Canvas', an AI architecture tool, winning 1st place out of 500+ international teams. Awarded $20,000 and featured in TechCrunch.",
   },
   {
-    period: "2023 — 2025",
-    title: "Machine Learning Specialist",
-    description:
-      "Developed and deployed NLP models, built recommendation systems, and automated data pipelines for production environments.",
+    period: "November 2023",
+    title: "Published Research at NeurIPS",
+    description: "First author on 'Efficient Transformer Architectures for Real-Time Mobile Inference'. Presented findings to an audience of 2,000+ researchers.",
   },
   {
-    period: "2021 — 2023",
-    title: "Software Developer",
-    description:
-      "Full-stack development with a growing focus on AI integration. Built web applications and began specializing in intelligent systems.",
+    period: "August 2023",
+    title: "Open Source Contributor of the Year",
+    description: "Recognized by the TensorFlow community for critical optimization patches improving mobile deployment speeds by 40%.",
   },
   {
-    period: "2019 — 2021",
-    title: "Computer Science Student",
-    description:
-      "Foundational years in algorithms, data structures, and software engineering. Discovered a passion for artificial intelligence.",
+    period: "May 2023",
+    title: "Best Startup Pitch — Tech Disrupt",
+    description: "Secured seed funding and the 'Most Innovative MVP' award for building a decentralized emergency response network.",
   },
 ];
 
@@ -63,63 +59,69 @@ export default function Timeline() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Timeline line draws as user scrolls
+      // Timeline line draws as user scrolls smoothly
       if (lineRef.current) {
         gsap.fromTo(
           lineRef.current,
-          { scaleY: 0 },
+          { height: "0%" },
           {
-            scaleY: 1,
+            height: "100%",
             ease: "none",
             scrollTrigger: {
-              trigger: section,
-              start: "top 70%",
-              end: "bottom 70%",
-              scrub: true,
+              trigger: ".timeline-container",
+              start: "top 65%",
+              end: "bottom 65%",
+              scrub: 1.5, // Super smooth falling motion
             },
           }
         );
-        lineRef.current.style.transformOrigin = "top";
       }
 
-      // Each entry animates in
+      // Each entry animates in with premium sleekness
       entryRefs.current.forEach((entry) => {
         if (!entry) return;
 
         const node = entry.querySelector(".timeline-node");
+        const innerNode = entry.querySelector(".timeline-node-inner");
         const text = entry.querySelector(".timeline-text");
 
-        if (node) {
-          gsap.fromTo(
-            node,
-            { scale: 0 },
-            {
-              scale: 1,
-              duration: 0.3,
-              ease: "back.out(2)",
-              scrollTrigger: {
-                trigger: entry,
-                start: "top 75%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
+        if (node && innerNode) {
+          gsap.to(node, {
+            borderColor: "rgba(255, 85, 0, 0.8)",
+            backgroundColor: "rgba(255, 85, 0, 0.1)",
+            duration: 0.4,
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 65%",
+              toggleActions: "play none none reverse",
+            },
+          });
+          gsap.to(innerNode, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "back.out(2)",
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 65%",
+              toggleActions: "play none none reverse",
+            },
+          });
         }
 
         if (text) {
           gsap.fromTo(
             text,
-            { opacity: 0, x: 30 },
+            { opacity: 0, y: 30 },
             {
               opacity: 1,
-              x: 0,
-              duration: 0.5,
-              delay: 0.1,
+              y: 0,
+              duration: 0.8,
               ease: "power3.out",
               scrollTrigger: {
                 trigger: entry,
-                start: "top 75%",
-                toggleActions: "play none none none",
+                start: "top 65%",
+                toggleActions: "play none none reverse",
               },
             }
           );
@@ -149,49 +151,54 @@ export default function Timeline() {
     <section
       id="achievements"
       ref={sectionRef}
-      className="bg-black"
+      className="bg-[#050505] relative"
     >
-      <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,12vh,160px)]">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,12vh,160px)] relative z-10">
         <div className="max-w-[1400px] mx-auto text-center">
-          <SectionLabel text="ACHIEVEMENTS" className="mb-6 block" />
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-16">
-            My Achievements
+          
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-20 tracking-tight">
+            Key Milestones
           </h2>
 
-          <div className="relative pl-10 md:pl-16">
-            {/* Timeline line */}
+          <div className="relative pl-12 md:pl-20 max-w-3xl mx-auto text-left timeline-container pb-8">
+            {/* Subtle Background Track */}
+            <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
+            
+            {/* Animated Glowing Fill Line */}
             <div
               ref={lineRef}
-              className="absolute left-0 top-0 bottom-0 w-0.5"
-              style={{
-                background:
-                  "linear-gradient(to bottom, #ff5500, rgba(255,85,0,0.1))",
-              }}
+              className="absolute left-[-1px] top-0 w-[3px] bg-gradient-to-b from-transparent via-[#ff5500] to-[#ff5500] origin-top shadow-[0_0_15px_rgba(255,85,0,0.6)]"
             />
 
             {/* Entries */}
-            <div className="space-y-16">
+            <div className="space-y-24">
               {entries.map((entry, i) => (
                 <div
                   key={i}
                   ref={(el) => { entryRefs.current[i] = el; }}
-                  className="relative"
+                  className="relative group"
                 >
-                  {/* Node */}
+                  {/* Outer Sleek Node */}
                   <div
-                    className="timeline-node absolute -left-10 md:-left-16 top-1 w-3 h-3 rounded-full bg-orange border-2 border-black"
+                    className="timeline-node absolute -left-12 md:-left-20 top-2 w-4 h-4 rounded-full bg-[#0a0a0a] border border-white/20 transition-colors duration-500 z-10"
                     style={{ transform: "translateX(calc(-50% + 1px))" }}
                   />
+                  
+                  {/* Inner Glowing Node (Lights up on scroll) */}
+                  <div
+                    className="timeline-node-inner absolute -left-12 md:-left-20 top-2 w-4 h-4 rounded-full bg-[#ff5500] opacity-0 shadow-[0_0_15px_#ff5500] z-20"
+                    style={{ transform: "translateX(calc(-50% + 1px)) scale(0.3)" }}
+                  />
 
-                  {/* Text */}
+                  {/* Text Content */}
                   <div className="timeline-text">
-                    <span className="font-mono text-sm text-orange block mb-2">
+                    <span className="font-mono text-sm tracking-wider text-[#ff5500] block mb-3">
                       {entry.period}
                     </span>
-                    <h3 className="font-body text-2xl font-semibold text-white mb-3">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
                       {entry.title}
                     </h3>
-                    <p className="font-body text-base text-txt-tertiary max-w-[560px] leading-relaxed">
+                    <p className="font-body text-base md:text-lg text-white/60 max-w-[600px] leading-relaxed">
                       {entry.description}
                     </p>
                   </div>

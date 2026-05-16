@@ -136,8 +136,8 @@ export default function Contact() {
             opacity: 1,
             scale: 1,
             rotationX: 0,
-            duration: 1.5,
-            delay: 1.0, // 1 second delay as requested
+            duration: 1.2,
+            delay: 0.2, // Drastically reduced delay so phone pops up instantly
             ease: "expo.out",
             scrollTrigger: {
               trigger: sectionRef.current,
@@ -206,10 +206,10 @@ export default function Contact() {
 
                 <a
                   ref={emailRef}
-                  href="mailto:darshan@example.com"
+                  href="mailto:ndarshan507@gmail.com"
                   className="font-mono text-base md:text-lg text-white/40 hover:text-white transition-colors duration-300"
                 >
-                  darshan@example.com
+                  ndarshan507@gmail.com
                 </a>
               </div>
 

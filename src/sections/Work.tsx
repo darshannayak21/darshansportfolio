@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
@@ -14,14 +15,15 @@ interface ProjectCategory {
   detailLeft: string;
   detailRight: string;
   images: string[];
+  link: string;
 }
 
 const categories: ProjectCategory[] = [
   {
     tags: ["AI Engineering", "Deep Learning", "Computer Vision"],
-    titleBold: "Neural Canvas:",
-    titleNormal:
-      "an intelligent creative platform where AI generates art from natural language descriptions",
+    titleBold: "AI & Intelligent Systems",
+    titleNormal: "",
+    link: "/aisystems",
     description:
       "Neural Canvas is an AI-powered image generation platform that understands artistic intent. Users describe their vision in natural language, and the system composes original artwork using a custom-trained diffusion model with precise style control.",
     detailLeft:
@@ -39,9 +41,9 @@ const categories: ProjectCategory[] = [
   },
   {
     tags: ["NLP", "Analytics", "Real-time Systems"],
-    titleBold: "Sentiment Engine:",
-    titleNormal:
-      "real-time sentiment analysis for understanding brand perception across digital channels",
+    titleBold: "Hackathon winning Projects",
+    titleNormal: "",
+    link: "/hackathonprojects",
     description:
       "Sentiment Engine processes social media streams, news feeds, and customer feedback to deliver actionable brand intelligence dashboards. Built on transformer architectures with fine-tuned BERT models for domain-specific accuracy.",
     detailLeft:
@@ -59,9 +61,9 @@ const categories: ProjectCategory[] = [
   },
   {
     tags: ["Machine Learning", "Automation", "Cloud"],
-    titleBold: "Predictive Analytics:",
-    titleNormal:
-      "end-to-end ML pipelines for time-series forecasting and intelligent business automation",
+    titleBold: "Experimental Builds",
+    titleNormal: "",
+    link: "/experimental",
     description:
       "A production-grade ML pipeline that processes historical data, automatically selects optimal models, and delivers predictions with confidence intervals. Deployed on cloud infrastructure with auto-scaling capabilities.",
     detailLeft:
@@ -197,8 +199,8 @@ function ProjectPanel({
                 </span>
               ))}
             </div>
-            <button className="group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium text-black bg-white border border-white rounded-full px-5 py-2 hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-2 tracking-wide">
-              See Full Case
+            <Link to={category.link} className="group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium text-black bg-white border border-white rounded-full px-5 py-2 hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-2 tracking-wide">
+              See all projects
               <svg
                 width="12"
                 height="12"
@@ -210,7 +212,7 @@ function ProjectPanel({
               >
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
 

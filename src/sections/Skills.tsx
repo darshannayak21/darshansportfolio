@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import SectionLabel from "@/components/SectionLabel";
 import IntegrationHero from "@/components/ui/integration-hero";
 
 export default function Skills() {
