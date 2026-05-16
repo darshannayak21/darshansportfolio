@@ -42,11 +42,14 @@ export function ShaderAnimation() {
         vec3 color = vec3(0.0);
         for(int j = 0; j < 3; j++){
           for(int i=0; i < 5; i++){
-            color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));
+            // mod(x * 5.0, 2.2) keeps the exact same speed (5.0) but resets at 2.2 
+            // instead of 5.0, drastically reducing the gap between waves.
+            color[j] += lineWidth*float(i*i) / abs(mod((t - 0.01*float(j)+float(i)*0.01)*5.0, 2.2) - length(uv) + mod(uv.x+uv.y, 0.2));
           }
         }
         
-        gl_FragColor = vec4(color[0],color[1],color[2],1.0);
+        // Apply an orange tint to the final color to match the #ff5500 brand color
+        gl_FragColor = vec4(color[0] * 1.0, color[1] * 0.4, color[2] * 0.1, 1.0);
       }
     `
 
