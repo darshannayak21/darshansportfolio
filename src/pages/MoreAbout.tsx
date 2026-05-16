@@ -8,16 +8,17 @@ export default function MoreAbout() {
   useEffect(() => {
     // If there's a hash, scroll to that section instantly
     if (location.hash) {
-      // Small timeout to ensure DOM is ready
+      // Small timeout to ensure DOM is ready and layout is settled
       setTimeout(() => {
         const id = location.hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ behavior: 'auto' });
+          const topPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: topPosition, behavior: 'instant' });
         }
-      }, 0);
+      }, 50);
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [location]);
 
