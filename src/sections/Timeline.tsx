@@ -1,20 +1,6 @@
-import { useEffect, useRef, lazy, Suspense } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-
-const InfiniteGallery = lazy(() => import("@/components/ui/3d-gallery-photography"));
-
-const galleryImages = [
-  { src: '/images/gallery/Untitled3.webp', alt: 'Image 1' },
-  { src: '/images/gallery/Untitled1.webp', alt: 'Image 2' },
-  { src: '/images/gallery/Untitled7.webp', alt: 'Image 3' },
-  { src: '/images/gallery/Untitled.webp', alt: 'Image 4' },
-  { src: '/images/gallery/Untitled4.webp', alt: 'Image 5' },
-  { src: '/images/gallery/Untitled5.webp', alt: 'Image 6' },
-  { src: '/images/gallery/Untitled6.webp', alt: 'Image 7' },
-  { src: '/images/gallery/Untitled2.webp', alt: 'Image 8' },
-];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +37,6 @@ export default function Timeline() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -126,21 +111,6 @@ export default function Timeline() {
           );
         }
       });
-
-      if (galleryRef.current) {
-        ScrollTrigger.create({
-          trigger: galleryRef.current,
-          start: "center center",
-          end: "+=1500",
-          pin: true,
-          scrub: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onToggle: (self) => {
-            window.dispatchEvent(new CustomEvent('gallery-toggle', { detail: { isActive: self.isActive } }));
-          }
-        });
-      }
     }, section);
 
     return () => ctx.revert();
@@ -204,29 +174,6 @@ export default function Timeline() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        
-        {/* Integrated Gallery */}
-        <div ref={galleryRef} className="w-full mt-32 max-w-[1400px] mx-auto pb-12">
-          <h3 className="font-display text-3xl font-bold text-white mb-8">Visual Memories</h3>
-          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] rounded-3xl overflow-hidden">
-            <ErrorBoundary fallback={<div className="h-full w-full flex items-center justify-center text-white bg-white/5">Gallery failed to load images. Please check the URLs.</div>}>
-              <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-white/30"><span className="text-sm font-body">Loading gallery...</span></div>}>
-                <InfiniteGallery
-                  images={galleryImages}
-                  speed={0.4}
-                  zSpacing={3}
-                  visibleCount={8}
-                  falloff={{ near: 0.8, far: 14 }}
-                  className="w-full h-full"
-                />
-              </Suspense>
-            </ErrorBoundary>
-            
-            {/* Subtle overlay gradients for depth */}
-            <div className="absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-black to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-[10%] bg-gradient-to-l from-black to-transparent pointer-events-none" />
           </div>
         </div>
       </div>

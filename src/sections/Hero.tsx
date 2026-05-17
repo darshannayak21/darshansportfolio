@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
-import OrangeCTAButton from "@/components/OrangeCTAButton";
 import { ShaderAnimation } from "@/components/ui/shader-animation";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -100,16 +99,20 @@ export default function Hero({ isLoaded }: HeroProps) {
           artificial intelligence and human-centered design.
         </p>
 
-        <div ref={ctaRef} className="pointer-events-auto">
-          <OrangeCTAButton
-            text="View My Work"
-            href="#work"
+        <div ref={ctaRef} className="pointer-events-auto mt-2">
+          <button
             onClick={() => {
               document
                 .getElementById("work")
-                ?.scrollIntoView({ behavior: "smooth" });
+                ?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-          />
+            className="group relative flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md px-6 py-3 md:px-8 md:py-3.5 transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_32px_rgba(255,85,0,0.15)]"
+          >
+            <span className="relative font-body text-[12px] md:text-[13px] font-medium tracking-wide text-white transition-colors duration-300">
+              View My Work
+              <span className="absolute -bottom-1.5 left-0 w-full h-[1.5px] bg-[#ff5500] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+            </span>
+          </button>
         </div>
       </div>
 

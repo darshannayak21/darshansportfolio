@@ -22,6 +22,12 @@ const PageLoader = () => (
   </div>
 );
 
+// If the user lands on any subpage via a hard refresh or direct link, 
+// force the URL back to the root hero section before React Router initializes.
+if (window.location.pathname !== '/') {
+  window.history.replaceState(null, '', '/');
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
