@@ -1,9 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import FlowArt, { FlowSection } from '@/components/ui/story-scroll';
 
 export default function MoreAbout() {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     // If there's a specific hash other than the first section, scroll to it
@@ -26,7 +35,14 @@ export default function MoreAbout() {
   return (
     <div className="bg-black text-white min-h-screen">
       
-      {/* Back Button */}
+      {/* Scroll Indicator */}
+      <div 
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-2 pointer-events-none transition-opacity duration-500 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
+      >
+        <span className="font-mono text-[10px] uppercase tracking-widest text-white/40">Scroll</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/40 animate-bounce-subtle"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+
       {/* Back Button */}
       <Link 
         to="/#bento-grid" 
