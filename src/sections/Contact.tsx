@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
 import ContactPopup from "@/components/ui/contact-popup";
 import { AnimatedDock } from "@/components/ui/animated-dock";
+import { Typewriter } from "@/components/ui/typewriter";
 import { Github, Twitter, Youtube, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -152,7 +153,7 @@ export default function Contact() {
     return () => ctx.revert();
   }, []);
 
-  const headlineWords = "Let's Build Something Intelligent".split(" ");
+  const headlineWords = "Let's Build Something".split(" ");
 
   return (
     <section
@@ -170,13 +171,28 @@ export default function Contact() {
 
             <h2
               ref={headlineRef}
-              className="font-display text-[clamp(2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.1] mb-2"
+              className="font-display text-[clamp(2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.1] mb-2 flex items-center justify-center flex-wrap"
             >
               {headlineWords.map((word, i) => (
                 <span key={i} className="word inline-block mr-[0.3em]">
                   {word}
                 </span>
               ))}
+              <span className="word inline-block text-[#ff5500]">
+                <Typewriter
+                  text={[
+                    "Intelligent.",
+                    "Impactful.",
+                    "Beautiful.",
+                    "Scalable.",
+                    "Creative.",
+                  ]}
+                  speed={70}
+                  waitTime={2000}
+                  deleteSpeed={40}
+                  cursorChar={"_"}
+                />
+              </span>
             </h2>
           </div>
 

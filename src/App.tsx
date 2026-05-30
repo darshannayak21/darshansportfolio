@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ReactLenis } from 'lenis/react';
 
 import FloatingPillNavbar from "@/components/FloatingPillNavbar";
 import Footer from "@/components/Footer";
@@ -130,7 +131,8 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-black min-h-screen">
+    <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+      <div className="bg-black min-h-screen">
       <AnimatePresence>
         {isLoading && (
           <motion.div
@@ -159,5 +161,6 @@ export default function App() {
 
       <Footer />
     </div>
+    </ReactLenis>
   );
 }

@@ -29,19 +29,19 @@ export default function IntegrationHero() {
       {/* Carousel */}
       <div className="overflow-hidden relative pb-2 w-full max-w-[100vw]">
         {/* Row 1 */}
-        <div className="flex gap-10 whitespace-nowrap animate-scroll-left">
+        <div className="flex gap-6 md:gap-10 whitespace-nowrap animate-scroll-left">
           {repeatedIcons(ICONS_ROW1, 4).map((src, i) => (
-            <div key={i} className="h-20 w-20 flex-shrink-0 rounded-full bg-white shadow-xl shadow-black/10 flex items-center justify-center">
-              <img src={src} alt="icon" className="h-10 w-10 object-contain" />
+            <div key={i} className="h-14 w-14 md:h-20 md:w-20 flex-shrink-0 rounded-full bg-white shadow-xl shadow-black/10 flex items-center justify-center">
+              <img src={src} alt="icon" className="h-7 w-7 md:h-10 md:w-10 object-contain" />
             </div>
           ))}
         </div>
 
         {/* Row 2 */}
-        <div className="flex gap-10 whitespace-nowrap mt-8 animate-scroll-right">
+        <div className="flex gap-6 md:gap-10 whitespace-nowrap mt-6 md:mt-8 animate-scroll-right">
           {repeatedIcons(ICONS_ROW2, 4).map((src, i) => (
-            <div key={i} className="h-20 w-20 flex-shrink-0 rounded-full bg-white shadow-xl shadow-black/10 flex items-center justify-center">
-              <img src={src} alt="icon" className="h-10 w-10 object-contain" />
+            <div key={i} className="h-14 w-14 md:h-20 md:w-20 flex-shrink-0 rounded-full bg-white shadow-xl shadow-black/10 flex items-center justify-center">
+              <img src={src} alt="icon" className="h-7 w-7 md:h-10 md:w-10 object-contain" />
             </div>
           ))}
         </div>
@@ -61,10 +61,18 @@ export default function IntegrationHero() {
           100% { transform: translateX(0); }
         }
         .animate-scroll-left {
-          animation: scroll-left 40s linear infinite;
+          animation: scroll-left 15s linear infinite;
         }
         .animate-scroll-right {
-          animation: scroll-right 40s linear infinite;
+          animation: scroll-right 15s linear infinite;
+        }
+        @media (min-width: 768px) {
+          .animate-scroll-left {
+            animation: scroll-left 40s linear infinite;
+          }
+          .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
+          }
         }
       ` }} />
     </div>
