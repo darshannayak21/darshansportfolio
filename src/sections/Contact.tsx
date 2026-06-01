@@ -201,10 +201,10 @@ export default function Contact() {
 
             {/* Left Column - Clean Premium Box */}
             <div className="w-full h-full min-h-[580px] lg:col-span-7 bg-[#050505] border border-white/[0.08] shadow-2xl rounded-[2.5rem] p-10 md:p-14 lg:p-16 flex flex-col relative overflow-hidden">
-              
+
               {/* Extremely subtle top highlight */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent"></div>
-              
+
               {/* Subtle radial gradient background for depth */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none"></div>
 
@@ -260,7 +260,7 @@ export default function Contact() {
 
             {/* Right Column - Mobile Phone Mockup */}
             <div className="flex lg:col-span-5 items-center justify-center relative w-full h-[580px] perspective-[1000px] mt-10 lg:mt-0 transform scale-90 sm:scale-100">
-              
+
               <div
                 ref={mockupRef}
                 className="relative w-[280px] h-[580px] rounded-[3rem] iphone-bezel flex flex-col will-change-transform transform-style-3d opacity-0"
