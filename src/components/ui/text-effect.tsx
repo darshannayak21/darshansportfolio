@@ -168,7 +168,8 @@ export function TextEffect({
   } else if (per === 'word') {
     segments = children.split(/(\s+)/);
   } else {
-    segments = children.split('');
+    // For 'char', split by words first to preserve word-wrapping, then char
+    segments = children.split(/(\s+)/);
   }
 
   const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
@@ -208,15 +209,20 @@ export function TextEffect({
           className={cn('whitespace-pre-wrap', className)}
           onAnimationComplete={onAnimationComplete}
         >
-          {segments.map((segment, index) => (
-            <AnimationComponent
-              key={`${per}-${index}-${segment}`}
-              segment={segment}
-              variants={itemVariants}
-              per={per}
-              segmentWrapperClassName={segmentWrapperClassName}
-            />
-          ))}
+          {segments.map((segment, index) => {
+            if (per === 'char' && !segment.trim()) {
+              return <span key={`space-${index}`}>{segment}</span>;
+            }
+            return (
+              <AnimationComponent
+                key={`${per}-${index}-${segment}`}
+                segment={segment}
+                variants={itemVariants}
+                per={per}
+                segmentWrapperClassName={segmentWrapperClassName}
+              />
+            );
+          })}
         </MotionTag>
       )}
     </AnimatePresence>

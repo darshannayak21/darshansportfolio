@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { TextEffect } from "@/components/ui/text-effect";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,7 +86,7 @@ export default function Hero({ isLoaded }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 text-center flex flex-col items-center justify-center pointer-events-none">
-        
+
         <TextEffect
           as="h1"
           per="char"
@@ -119,18 +120,17 @@ export default function Hero({ isLoaded }: HeroProps) {
         </TextEffect>
 
         <div ref={ctaRef} className="pointer-events-auto mt-6">
-          <button
+          <LiquidButton
+            size="xl"
+            className="text-white/90 group-hover:text-white font-body tracking-wide"
             onClick={() => {
               document
                 .getElementById("work")
                 ?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="group relative flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md border border-white/10 px-8 py-3.5 md:px-10 md:py-4 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-[1.05] hover:bg-white/10 hover:border-white/20 active:scale-[0.95]"
           >
-            <span className="relative font-body text-[13px] md:text-[14px] font-medium tracking-wide text-white/90 group-hover:text-white transition-colors duration-300">
-              View My Work
-            </span>
-          </button>
+            View My Work
+          </LiquidButton>
         </div>
       </div>
 
