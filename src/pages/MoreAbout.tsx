@@ -92,26 +92,14 @@ export default function MoreAbout() {
           {/* Scrolling content */}
           <div className="relative z-30 w-full px-5 md:px-12 pb-20 md:pb-32 mt-0 pt-8 md:pt-16 pointer-events-auto">
 
-            {/* Stylish "More About Me" Grid */}
-            <div className="w-full mb-8 md:mb-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-16 text-white/80 font-body text-sm md:text-lg leading-relaxed">
-                <div className="space-y-1.5 md:space-y-3">
-                  <h4 className="text-white font-display text-lg md:text-2xl font-bold tracking-wide">The Journey Begins</h4>
-                  <p>Growing up across three countries — Phnom Penh, Singapore, and Pune — taught me to adapt fast and think differently. That global upbringing combined with an obsession for technology pushed me toward building things that actually matter, from embedded circuits to intelligent AI systems.</p>
-                </div>
-                <div className="space-y-1.5 md:space-y-3">
-                  <h4 className="text-white font-display text-lg md:text-2xl font-bold tracking-wide">Engineering with Purpose</h4>
-                  <p>I don't just write code — I engineer experiences. Whether it's a computer vision rehabilitation assistant, an AI memory architecture, or a full-stack web platform, every system I build is driven by one question: does this actually solve something real?</p>
-                </div>
-                <div className="space-y-1.5 md:space-y-3">
-                  <h4 className="text-white font-display text-lg md:text-2xl font-bold tracking-wide">Constant Evolution</h4>
-                  <p>Four national hackathon wins, a published research paper, and a filed patent — all before finishing my degree. I'm not waiting to be ready. I'm learning by shipping, pushing boundaries, and figuring things out faster than most.</p>
-                </div>
-                <div className="space-y-1.5 md:space-y-3">
-                  <h4 className="text-white font-display text-lg md:text-2xl font-bold tracking-wide">The Bigger Picture</h4>
-                  <p>I believe the most powerful technology is the kind that disappears into the background and just works. My goal is to build intelligent systems that are so well designed, so thoughtful, that they feel less like software and more like a natural extension of how people live and work.</p>
-                </div>
-              </div>
+            {/* Stylish "More About Me" Paragraphs */}
+            <div className="w-full max-w-5xl mx-auto text-center mb-12 md:mb-16 space-y-6 md:space-y-8 text-white/80 font-body text-sm md:text-lg lg:text-xl leading-relaxed">
+              <p>
+                Growing up across three countries — Phnom Penh, Singapore, and Pune — taught me to adapt fast and think differently. That global upbringing combined with an obsession for technology pushed me toward building things that actually matter, from embedded circuits to intelligent AI systems. I don't just write code — I engineer experiences. Whether it's a computer vision rehabilitation assistant, an AI memory architecture, or a full-stack web platform, every system I build is driven by one question: does this actually solve something real?
+              </p>
+              <p>
+                Four national hackathon wins, a published research paper, and a filed patent — all before finishing my degree. I'm not waiting to be ready. I'm learning by shipping, pushing boundaries, and figuring things out faster than most. I believe the most powerful technology is the kind that disappears into the background and just works. My goal is to build intelligent systems that are so well designed, so thoughtful, that they feel less like software and more like a natural extension of how people live and work.
+              </p>
             </div>
 
             {/* Split Layout: Football on left, Text on right */}
