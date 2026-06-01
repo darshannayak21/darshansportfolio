@@ -1,5 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLenis } from 'lenis/react';
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { 
@@ -17,24 +18,18 @@ export default function FolderInteraction() {
     spring: { type: "spring" as const, duration: 0.6 },
   };
 
-  const handleClick = () => {
-    if (!isOpen) {
-      setIsOpen(true);
-    } else {
-      setIsModalOpen(true);
-    }
-  };
-
   return (
     <>
       <div className="w-full flex justify-center items-center py-8 cursor-pointer relative z-20">
         <div
-          onClick={handleClick}
+          onClick={() => setIsModalOpen(true)}
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
           className="w-80 h-52 relative wrapper group"
         >
           {/* Tooltip hint */}
           <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-mono tracking-widest whitespace-nowrap bg-black/50 px-4 py-1 rounded-full pointer-events-none">
-            {!isOpen ? "Click to Open" : "Click to View Certificates"}
+            Click to View Certificates
           </div>
 
           <div
@@ -110,6 +105,7 @@ export default function FolderInteraction() {
               <foreignObject x="-13" y="-13" width="262.4" height="148.4">
                 <div
                   style={{
+                    WebkitBackdropFilter: "blur(6.5px)",
                     backdropFilter: "blur(6.5px)",
                     clipPath: "url(#bgblur_0_1_106_clip_path)",
                     height: "100%",
@@ -170,14 +166,13 @@ export default function FolderInteraction() {
 
 // Windows 11 File Explorer Replica rendered in a React Portal
 const WindowsExplorerModal = ({ onClose }: { onClose: () => void }) => {
+  const lenis = useLenis();
+  
   useEffect(() => {
-    // Nuclear scroll lock — works on every browser including iOS Safari
-    const scrollY = window.scrollY;
+    // Stop lenis smooth scrolling completely while modal is open
+    if (lenis) lenis.stop();
 
-    // 1. Pin body in place
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
+    // 1. Lock overflow
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
 
@@ -194,14 +189,17 @@ const WindowsExplorerModal = ({ onClose }: { onClose: () => void }) => {
     return () => {
       document.removeEventListener('touchmove', blockScroll);
       document.removeEventListener('wheel', blockScroll);
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
-      window.scrollTo(0, scrollY);
+      
+      // Resume lenis scrolling
+      if (lenis) lenis.start();
+
+      // Dispatching a resize event ensures that Lenis and GSAP ScrollTrigger 
+      // completely recalculate their layouts properly.
+      window.dispatchEvent(new Event('resize'));
     };
-  }, []);
+  }, [lenis]);
 
   // Using portal so it escapes all clipping and stacking contexts
   return createPortal(
@@ -344,15 +342,14 @@ const FileItem = ({ title, date, imgColor }: { title: string, date: string, imgC
 );
 
 const Page = () => (
-  <div className="w-full h-full bg-gradient-to-b from-[#E8E7F0] to-[#DCDAE8] rounded-xl shadow-lg p-3 sm:p-4 border border-white/20">
-    <div className="flex flex-col gap-1.5 sm:gap-2">
-      <div className="w-full h-1 sm:h-1.5 bg-[#CFCDE0] rounded-full" />
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div key={i} className="flex gap-1.5 sm:gap-2">
-          <div className="flex-1 h-1 sm:h-1.5 bg-[#CFCDE0] rounded-full" />
-          <div className="flex-1 h-1 sm:h-1.5 bg-[#CFCDE0] rounded-full" />
-        </div>
-      ))}
-    </div>
+  <div className="w-full h-[140px] bg-gradient-to-b from-[#F2F1F8] to-[#E3E1F0] rounded-xl shadow-lg p-3 border border-white/40 flex flex-col gap-1.5 z-0 relative">
+    {/* Page content representation */}
+    <div className="w-full h-1.5 bg-[#CFCDE0] rounded-full mb-1" />
+    {Array.from({ length: 6 }).map((_, i) => (
+      <div key={i} className="flex gap-2">
+        <div className="flex-1 h-1 bg-[#CFCDE0] rounded-full" />
+        <div className="flex-1 h-1 bg-[#CFCDE0] rounded-full" />
+      </div>
+    ))}
   </div>
 );
