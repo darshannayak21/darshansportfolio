@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import FlowArt, { FlowSection } from '@/components/ui/story-scroll';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const ScrollReveal = ({ children, direction = 'up', delay = 0, className = '' }: { children: React.ReactNode, direction?: 'up' | 'down' | 'left' | 'right' | 'fade', delay?: number, className?: string }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const isInView = useInView(ref, { once: false, margin: '-40px' });
   const variants: Record<string, { x?: number; y?: number; opacity: number }> = {
     up: { y: 50, opacity: 0 },
     down: { y: -50, opacity: 0 },
@@ -58,6 +58,13 @@ const Counter = ({ end, suffix = "", prefix = "", duration = 2000 }: { end: numb
 export default function MoreAbout() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end 80%"]
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,7 +129,7 @@ export default function MoreAbout() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2.0, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15]"
+              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15] translate-y-16 md:translate-y-0"
             />
 
             {/* Profile Image */}
@@ -183,6 +190,7 @@ export default function MoreAbout() {
                   <img
                     src="/football.PNG"
                     alt="Football"
+                    loading="lazy"
                     className="w-full max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] scale-110 md:scale-[1.3] lg:scale-[1.4] origin-bottom"
                   />
                 </div>
@@ -537,16 +545,131 @@ export default function MoreAbout() {
         <FlowSection
           id="journey"
           aria-label="My Journey"
-          className="min-h-[150vh] md:min-h-[200vh]"
-          style={{ backgroundColor: '#ffffff', color: '#000' }}
+          className="min-h-[100vh] md:min-h-[120vh]"
+          style={{ backgroundColor: '#ffffff', color: '#111827' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24 pb-[50vh] md:pb-32">
-            <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight">
-              My<br />Journey
-            </h1>
-            {/* Content Placeholder */}
-            <div className="mt-16 max-w-2xl text-black/70 font-body text-lg">
-              {/* Add your content here */}
+          <div className="flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
+
+            {/* Section Header */}
+            <ScrollReveal direction="up" delay={0.1}>
+              <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-6 md:mb-8 text-gray-900">
+                My<br />Journey
+              </h1>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 w-full mt-4 md:mt-8">
+
+              {/* Left Column: Intro & Philosophy */}
+              <div className="lg:col-span-5 flex flex-col space-y-8">
+                <ScrollReveal direction="up" delay={0.2}>
+                  <h3 className="font-display font-bold text-2xl md:text-3xl text-gray-900 leading-tight">
+                    From Curiosity to Building Intelligent Systems
+                  </h3>
+                  <p className="font-body text-base md:text-lg text-[#ff5500] font-medium mt-4">
+                    A story of how curiosity evolved into a passion for Artificial Intelligence, software engineering, research, and innovation.
+                  </p>
+                </ScrollReveal>
+
+                <ScrollReveal direction="fade" delay={0.3}>
+                  <div className="space-y-5 font-body text-sm md:text-base text-gray-600 leading-relaxed border-l-2 border-gray-100 pl-6">
+                    <p className="hover:text-gray-900 transition-colors duration-300">
+                      My interest in computer science truly began after 10th grade when I was introduced to the world of Artificial Intelligence and Data Science. I instantly realized this was the future—and the space where I wanted to make my mark.
+                    </p>
+                    <p className="hover:text-gray-900 transition-colors duration-300">
+                      The idea of building intelligent systems capable of learning, reasoning, and solving real-world problems fascinated me. What started as curiosity quickly evolved into a passion for creating meaningful technology.
+                    </p>
+                    <p className="hover:text-gray-900 transition-colors duration-300">
+                      Since then, I have dedicated myself to mastering AI, software engineering, and innovation through projects, research, hackathons, and real-world development experiences. My goal is to become among the first in my family to pursue a career in Artificial Intelligence while building technologies that create meaningful impact on people's lives.
+                    </p>
+                  </div>
+                </ScrollReveal>
+              </div>
+
+              {/* Right Column: Education Timeline */}
+              <div className="lg:col-span-7 relative">
+
+                {/* Timeline Line */}
+                <div ref={timelineRef} className="absolute left-[15px] md:left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-gray-200 via-gray-200 to-transparent z-0">
+                  <motion.div
+                    style={{ height: lineHeight }}
+                    className="absolute top-0 left-0 w-full bg-[#ff5500] rounded-full shadow-[0_0_8px_rgba(255,85,0,0.8)]"
+                  />
+                </div>
+
+                <div className="flex flex-col space-y-10 md:space-y-12 relative z-10">
+
+                  {/* Timeline Item 1 */}
+                  <ScrollReveal direction="up" delay={0.2}>
+                    <div className="relative pl-12 md:pl-16 group">
+                      <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-[#ff5500] ring-4 ring-white group-hover:scale-125 transition-transform duration-300" />
+                      </div>
+                      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-xl hover:border-gray-200 transition-all duration-500">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                          <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">MIT World Peace University, Pune</h4>
+                          <span className="font-body text-[11px] md:text-xs font-semibold text-[#ff5500] bg-[#ff5500]/10 px-3 py-1 rounded-full w-fit">2023 – Present</span>
+                        </div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="font-body text-xs md:text-sm font-medium text-gray-700">Integrated B.Tech Computer Science & Engineering (AI & Data Science)</span>
+                        </div>
+                        <p className="font-body text-sm text-gray-500">Current Degree</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  {/* Timeline Item 2 */}
+                  <ScrollReveal direction="up" delay={0.3}>
+                    <div className="relative pl-12 md:pl-16 group">
+                      <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-gray-300 ring-4 ring-white group-hover:bg-gray-900 transition-colors duration-300" />
+                      </div>
+                      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-xl hover:border-gray-200 transition-all duration-500">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                          <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">BK Birla Centre of Education, Pune</h4>
+                          <span className="font-body text-[11px] md:text-xs font-semibold text-gray-600 bg-gray-200/50 px-3 py-1 rounded-full w-fit">2021 – 2023</span>
+                        </div>
+                        <p className="font-body text-xs md:text-sm font-medium text-gray-700 mb-1">Secondary Education (Grade 9–10)</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  {/* Timeline Item 3 */}
+                  <ScrollReveal direction="up" delay={0.4}>
+                    <div className="relative pl-12 md:pl-16 group">
+                      <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-gray-300 ring-4 ring-white group-hover:bg-gray-900 transition-colors duration-300" />
+                      </div>
+                      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-xl hover:border-gray-200 transition-all duration-500">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                          <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">British International School of Phnom Penh</h4>
+                          <span className="font-body text-[11px] md:text-xs font-semibold text-gray-600 bg-gray-200/50 px-3 py-1 rounded-full w-fit">2010 – 2021</span>
+                        </div>
+                        <p className="font-body text-xs md:text-sm font-medium text-gray-700 mb-3">Primary & Middle School (Kindergarten – Grade 8)</p>
+                        <p className="font-body text-sm text-gray-500">International education experience that helped develop a global perspective.</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  {/* Timeline Item 4 */}
+                  <ScrollReveal direction="up" delay={0.5}>
+                    <div className="relative pl-12 md:pl-16 group">
+                      <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-full bg-gray-300 ring-4 ring-white group-hover:bg-gray-900 transition-colors duration-300" />
+                      </div>
+                      <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-xl hover:border-gray-200 transition-all duration-500">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                          <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">Global Indian International School, Singapore</h4>
+                          <span className="font-body text-[11px] md:text-xs font-semibold text-gray-600 bg-gray-200/50 px-3 py-1 rounded-full w-fit">2014 – 2016</span>
+                        </div>
+                        <p className="font-body text-xs md:text-sm font-medium text-gray-700 mb-3">Primary School (Grade 2 – 3)</p>
+                        <p className="font-body text-sm text-gray-500">Strong early academic foundation.</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </FlowSection>
