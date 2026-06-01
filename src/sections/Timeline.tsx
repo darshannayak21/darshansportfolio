@@ -1,188 +1,100 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionLabel from "@/components/SectionLabel";
-
-gsap.registerPlugin(ScrollTrigger);
-
-interface TimelineEntry {
-  period: string;
-  title: string;
-  description: string;
-}
-
-const entries: TimelineEntry[] = [
-  {
-    period: "January 2024",
-    title: "1st Place — Global AI Hackathon",
-    description: "Developed 'Neural Canvas', an AI architecture tool, winning 1st place out of 500+ international teams. Awarded $20,000 and featured in TechCrunch.",
-  },
-  {
-    period: "November 2023",
-    title: "Published Research at NeurIPS",
-    description: "First author on 'Efficient Transformer Architectures for Real-Time Mobile Inference'. Presented findings to an audience of 2,000+ researchers.",
-  },
-  {
-    period: "August 2023",
-    title: "Open Source Contributor of the Year",
-    description: "Recognized by the TensorFlow community for critical optimization patches improving mobile deployment speeds by 40%.",
-  },
-  {
-    period: "May 2023",
-    title: "Best Startup Pitch — Tech Disrupt",
-    description: "Secured seed funding and the 'Most Innovative MVP' award for building a decentralized emergency response network.",
-  },
-];
+import { Timeline as AceternityTimeline } from "@/components/ui/timeline";
 
 export default function Timeline() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      // Timeline line draws as user scrolls smoothly
-      if (lineRef.current) {
-        gsap.fromTo(
-          lineRef.current,
-          { height: "0%" },
-          {
-            height: "100%",
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".timeline-container",
-              start: "top 65%",
-              end: "bottom 65%",
-              scrub: 1.5, // Super smooth falling motion
-            },
-          }
-        );
-      }
-
-      // Each entry animates in with premium sleekness
-      entryRefs.current.forEach((entry) => {
-        if (!entry) return;
-
-        const node = entry.querySelector(".timeline-node");
-        const innerNode = entry.querySelector(".timeline-node-inner");
-        const text = entry.querySelector(".timeline-text");
-
-        if (node && innerNode) {
-          gsap.to(node, {
-            borderColor: "rgba(255, 85, 0, 0.8)",
-            backgroundColor: "rgba(255, 85, 0, 0.1)",
-            duration: 0.4,
-            scrollTrigger: {
-              trigger: entry,
-              start: "top 65%",
-              toggleActions: "play none none reverse",
-            },
-          });
-          gsap.to(innerNode, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(2)",
-            scrollTrigger: {
-              trigger: entry,
-              start: "top 65%",
-              toggleActions: "play none none reverse",
-            },
-          });
-        }
-
-        if (text) {
-          gsap.fromTo(
-            text,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: entry,
-                start: "top 65%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        }
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section
-      id="achievements"
-      ref={sectionRef}
-      className="bg-[#050505] relative"
-    >
-      <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,12vh,160px)] relative z-10">
-        <div className="max-w-[1400px] mx-auto text-center">
-          
-          <div className="flex justify-center mb-6">
-            <SectionLabel text="ACHIEVEMENTS" className="block" />
-          </div>
-
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white mb-20 tracking-tight">
-            Key Milestones
-          </h2>
-
-          <div className="relative pl-12 md:pl-20 max-w-3xl mx-auto text-left timeline-container pb-8 mb-20">
-            {/* Subtle Background Track */}
-            <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white/[0.08]" />
-            
-            {/* Animated Glowing Fill Line */}
-            <div
-              ref={lineRef}
-              className="absolute left-[-1px] top-0 w-[3px] bg-gradient-to-b from-transparent via-[#ff5500] to-[#ff5500] origin-top shadow-[0_0_15px_rgba(255,85,0,0.6)]"
-            />
-
-            {/* Entries */}
-            <div className="space-y-24">
-              {entries.map((entry, i) => (
-                <div
-                  key={i}
-                  ref={(el) => { entryRefs.current[i] = el; }}
-                  className="relative group"
-                >
-                  {/* Outer Sleek Node */}
-                  <div
-                    className="timeline-node absolute -left-12 md:-left-20 top-2 w-4 h-4 rounded-full bg-[#0a0a0a] border border-white/20 transition-colors duration-500 z-10"
-                    style={{ transform: "translateX(calc(-50% + 1px))" }}
-                  />
-                  
-                  {/* Inner Glowing Node (Lights up on scroll) */}
-                  <div
-                    className="timeline-node-inner absolute -left-12 md:-left-20 top-2 w-4 h-4 rounded-full bg-[#ff5500] opacity-0 shadow-[0_0_15px_#ff5500] z-20"
-                    style={{ transform: "translateX(calc(-50% + 1px)) scale(0.3)" }}
-                  />
-
-                  {/* Text Content */}
-                  <div className="timeline-text">
-                    <span className="font-mono text-sm tracking-wider text-[#ff5500] block mb-3">
-                      {entry.period}
-                    </span>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
-                      {entry.title}
-                    </h3>
-                    <p className="font-body text-base md:text-lg text-white/60 max-w-[600px] leading-relaxed">
-                      {entry.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+  const data = [
+    {
+      title: "January 2024",
+      content: (
+        <div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+            1st Place — Global AI Hackathon
+          </h3>
+          <p className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
+            Developed 'Neural Canvas', an AI architecture tool, winning 1st place out of 500+ international teams. Awarded $20,000 and featured in TechCrunch.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 3</span>
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 4</span>
             </div>
           </div>
-
-
         </div>
+      ),
+    },
+    {
+      title: "November 2023",
+      content: (
+        <div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+            Published Research at NeurIPS
+          </h3>
+          <p className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
+            First author on 'Efficient Transformer Architectures for Real-Time Mobile Inference'. Presented findings to an audience of 2,000+ researchers.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "August 2023",
+      content: (
+        <div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+            Open Source Contributor of the Year
+          </h3>
+          <p className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
+            Recognized by the TensorFlow community for critical optimization patches improving mobile deployment speeds by 40%.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "May 2023",
+      content: (
+        <div>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+            Best Startup Pitch — Tech Disrupt
+          </h3>
+          <p className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
+            Secured seed funding and the 'Most Innovative MVP' award for building a decentralized emergency response network.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="col-span-2 h-32 md:h-56 lg:h-80 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Feature Image</span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section id="achievements" className="bg-[#050505] relative w-full overflow-clip">
+      <div className="w-full relative z-10">
+        <AceternityTimeline data={data} />
       </div>
     </section>
   );

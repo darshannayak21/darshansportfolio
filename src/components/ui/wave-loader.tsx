@@ -50,7 +50,7 @@ export function WaveLoader({
           .map((_, index) => (
             <motion.div
               key={index}
-              className={cn("w-2 h-5 bg-black origin-bottom", className)} // Hardcoded to bg-black as requested by user
+              className={cn("w-2 h-5 bg-white origin-bottom", className)} 
               animate={{ scaleY: [1, 1.5, 1] }}
               transition={{
                 duration: 1,
@@ -61,7 +61,7 @@ export function WaveLoader({
             />
           ))}
       </div>
-      {message && <div className="text-black font-mono font-bold tracking-widest">{message}</div>}
+      {message && <div className="text-white font-mono font-bold tracking-widest">{message}</div>}
     </div>
   )
 }

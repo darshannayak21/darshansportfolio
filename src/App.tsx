@@ -139,7 +139,7 @@ export default function App() {
             initial={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-orange"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
           >
             <div className="scale-125 md:scale-150">
               <WaveLoader bars={5} />
