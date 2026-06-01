@@ -161,7 +161,7 @@ export default function MoreAbout() {
           </div>
 
           {/* Scrolling content */}
-          <div className="relative z-30 w-full px-5 md:px-12 pb-[20vh] md:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
+          <div className="relative z-30 w-full px-5 md:px-12 pb-[35vh] md:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
 
             {/* Stylish "More About Me" Paragraphs */}
             <ScrollReveal direction="fade" delay={0}>
