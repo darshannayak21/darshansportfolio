@@ -1,6 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import FlowArt, { FlowSection } from '@/components/ui/story-scroll';
+
+const Counter = ({ end, suffix = "", prefix = "", duration = 2000 }: { end: number, suffix?: string, prefix?: string, duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        let startTime: number | null = null;
+        const animate = (time: number) => {
+          if (!startTime) startTime = time;
+          const progress = Math.min((time - startTime) / duration, 1);
+          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          setCount(Math.floor(easeProgress * end));
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        };
+        requestAnimationFrame(animate);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end, duration]);
+  
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+};
 
 export default function MoreAbout() {
   const location = useLocation();
@@ -90,7 +119,7 @@ export default function MoreAbout() {
           </div>
 
           {/* Scrolling content */}
-          <div className="relative z-30 w-full px-5 md:px-12 pb-20 md:pb-32 mt-0 pt-8 md:pt-16 pointer-events-auto">
+          <div className="relative z-30 w-full px-5 md:px-12 pb-[50vh] md:pb-32 mt-0 pt-8 md:pt-16 pointer-events-auto">
 
             {/* Stylish "More About Me" Paragraphs */}
             <div className="w-full max-w-5xl mx-auto text-center mb-12 md:mb-16 space-y-6 md:space-y-8 text-white/80 font-body text-sm md:text-lg lg:text-xl leading-relaxed">
@@ -141,7 +170,7 @@ Music is a big part of my life too — I play drums, piano, guitar, ukulele, and
           className="min-h-[150vh] md:min-h-[200vh]"
           style={{ backgroundColor: '#1d4ed8', color: '#fff' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
+          <div className="flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full pb-[50vh] md:pb-32">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
               Current<br />Interests
             </h1>
@@ -196,10 +225,69 @@ Music is a big part of my life too — I play drums, piano, guitar, ukulele, and
             </div>
 
             {/* Closing Line */}
-            <div className="mt-12 md:mt-16 mb-20 text-center lg:text-left">
+            <div className="mt-12 md:mt-16 text-center lg:text-left">
               <p className="font-body italic text-sm md:text-base text-white/70">
                 "The goal isn't artificial general intelligence. It's artificial genuine helpfulness."
               </p>
+            </div>
+
+            {/* Quick Stats & Currently Exploring */}
+            <div className="mt-12 md:mt-16 mb-24 w-full flex flex-col gap-6 md:gap-8">
+              
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                {[
+                  { value: 4, suffix: "", label: "National Awards" },
+                  { value: 3, suffix: "", label: "Articles Written" },
+                  { value: 20, suffix: "+", label: "Projects Completed" },
+                  { value: 2022, suffix: "", label: "Journey Started" }
+                ].map((stat, idx) => (
+                  <div key={idx} className="bg-white/10 border border-white/20 rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center text-center hover:bg-white/15 transition-colors duration-300">
+                    <span className="font-display text-4xl md:text-5xl lg:text-6xl text-white mb-2 md:mb-3 font-light tracking-tight">
+                      <Counter end={stat.value} suffix={stat.suffix} duration={2000} />
+                    </span>
+                    <span className="font-body text-[10px] md:text-xs tracking-[0.2em] text-white/50 uppercase font-semibold">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Currently Exploring Box - Ultra Clean & Professional */}
+              <div className="bg-white/10 border border-white/20 rounded-2xl md:rounded-[2rem] p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 hover:bg-white/15 transition-colors duration-300">
+                
+                {/* Left Side: Title vertically centered */}
+                <div className="flex flex-col justify-center shrink-0 text-center lg:text-left lg:max-w-[280px] h-full">
+                  <h4 className="font-display font-medium text-2xl md:text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-4">
+                    Currently<br className="hidden lg:block" /> Exploring
+                  </h4>
+                  <div className="w-12 h-[2px] bg-white/20 mx-auto lg:mx-0 mb-4 hidden lg:block" />
+                  <p className="font-body text-sm md:text-base text-white/50 leading-relaxed">
+                    Pushing the boundaries of cutting-edge tech and intelligent systems.
+                  </p>
+                </div>
+
+                {/* Right Side: Clean Structured Tags */}
+                <div className="w-full flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 items-center">
+                  {[
+                    "Edge AI & IoT", 
+                    "AI Memory Architectures", 
+                    "Knowledge Graphs",
+                    "Production-Level RAG",
+                    "Human-Robot Interaction", 
+                    "Generative Models", 
+                    "Predictive Healthcare"
+                  ].map((tech, idx) => (
+                    <div 
+                      key={idx} 
+                      className="group px-5 py-2.5 md:px-6 md:py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/15 transition-all duration-300 cursor-default shadow-sm hover:shadow-md"
+                    >
+                      <span className="font-body text-xs md:text-sm font-semibold tracking-wide text-white/70 group-hover:text-white transition-colors">
+                        {tech}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
             </div>
           </div>
         </FlowSection>
@@ -211,7 +299,7 @@ Music is a big part of my life too — I play drums, piano, guitar, ukulele, and
           className="min-h-[150vh] md:min-h-[200vh]"
           style={{ backgroundColor: 'var(--orange, #ff5500)', color: '#fff' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24">
+          <div className="flex flex-col pt-12 md:pt-24 pb-[50vh] md:pb-32">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight">
               Work<br />Experience
             </h1>
@@ -229,7 +317,7 @@ Music is a big part of my life too — I play drums, piano, guitar, ukulele, and
           className="min-h-[150vh] md:min-h-[200vh]"
           style={{ backgroundColor: '#ffffff', color: '#000' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24">
+          <div className="flex flex-col pt-12 md:pt-24 pb-[50vh] md:pb-32">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight">
               My<br />Journey
             </h1>
