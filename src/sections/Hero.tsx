@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
-import { Component as EtheralShadow } from "@/components/ui/etheral-shadow";
+import { MeshGradient } from "@paper-design/shaders-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,13 +69,19 @@ export default function Hero({ isLoaded }: HeroProps) {
       ref={sectionRef}
       className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
     >
-      {/* Interactive Etheral Shadow Background */}
+      {/* Interactive Mesh Gradient Background */}
       <div className="absolute inset-0 z-0">
-        <EtheralShadow 
-            color="rgba(255, 85, 0, 1)"
-            animation={{ scale: 100, speed: 90 }}
-            noise={{ opacity: 1, scale: 1.2 }}
-            sizing="fill" 
+        <MeshGradient
+          className="absolute inset-0 w-full h-full"
+          colors={["#000000", "#000000", "#000000", "#ff5500", "#000000"]}
+          speed={0.3}
+          {...({ backgroundColor: "#000000" } as any)}
+        />
+        <MeshGradient
+          className="absolute inset-0 w-full h-full opacity-60"
+          colors={["#000000", "#000000", "#ff5500", "#000000"]}
+          speed={0.2}
+          {...({ wireframe: true, backgroundColor: "transparent" } as any)}
         />
       </div>
 
