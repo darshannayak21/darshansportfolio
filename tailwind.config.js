@@ -68,6 +68,9 @@ module.exports = {
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       },
+      transitionTimingFunction: {
+        'liquid': 'cubic-bezier(0.23, 1, 0.32, 1)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

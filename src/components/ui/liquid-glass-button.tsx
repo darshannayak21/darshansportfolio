@@ -59,7 +59,7 @@ Button.displayName = "Button"
 export { Button, buttonVariants, liquidbuttonVariants, LiquidButton }
 
 const liquidbuttonVariants = cva(
-  "group inline-flex items-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "group inline-flex items-center transition-all duration-700 ease-liquid justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -114,13 +114,13 @@ function LiquidButton({
       >
         <div className="absolute top-0 left-0 z-0 h-full w-full rounded-full overflow-hidden
             shadow-[0_4px_30px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.05),inset_0_-1px_1px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.02)] 
-        transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
+        transition-all duration-700 ease-liquid
         dark:shadow-[0_4px_30px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.05),inset_0_-1px_1px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.02)]">
           {/* Smooth, slow orange ripple effect on hover */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[250%] bg-[radial-gradient(circle,rgba(255,85,0,0.2)_0%,transparent_60%)] scale-0 opacity-0 transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-100 group-hover:opacity-100 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[250%] bg-[radial-gradient(circle,rgba(255,85,0,0.2)_0%,transparent_60%)] scale-0 opacity-0 transition-all duration-1000 ease-liquid group-hover:scale-100 group-hover:opacity-100 pointer-events-none" />
         </div>
         <div
-          className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:bg-white/[0.03]"
+          className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full transition-all duration-700 ease-liquid group-hover:bg-white/[0.03]"
           style={{ backdropFilter: 'url("#container-glass")' }}
         />
 

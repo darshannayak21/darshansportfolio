@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Outfit:wght@800&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Lacquer&family=Outfit:wght@800&family=Rock+Salt&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -86,6 +86,10 @@
 
   .font-marker {
     font-family: "Rock Salt", cursive;
+  }
+
+  .font-lacquer {
+    font-family: "Lacquer", system-ui, sans-serif;
   }
 }
 

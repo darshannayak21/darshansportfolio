@@ -123,12 +123,12 @@ export default function FloatingPillNavbar({
             onClick={() => handleNav("#contact")}
             className={`flex items-center justify-center rounded-full bg-[#fff8eb] text-black hover:bg-[#ff5500] hover:text-white hover:animate-vibrate origin-center transition-colors duration-300
               ${scrolled
-                ? "px-4 md:px-5 py-2 md:py-2.5 shadow-[0_8px_32px_rgba(255,248,235,0.15)]"
-                : "px-4 md:px-5 py-2.5 md:py-3"
+                ? "px-4 md:px-6 py-2.5 md:py-3 shadow-[0_8px_32px_rgba(255,248,235,0.15)]"
+                : "px-4 md:px-6 py-3 md:py-3.5"
               }
             `}
           >
-            <span className="font-marker text-[11px] md:text-[13px] leading-none tracking-widest pt-[2px]">
+            <span className="font-lacquer text-[14px] leading-none tracking-widest pt-[2px]">
               CONNECT
             </span>
           </button>

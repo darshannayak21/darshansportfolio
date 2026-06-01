@@ -105,7 +105,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           delay={1.2}
           className="font-body text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/80 font-light mb-6 pointer-events-auto"
         >
-          Creative Problem Solver
+          Aspiring AI Engineer and Creative Problem Solver  
         </TextEffect>
 
         <TextEffect
@@ -116,7 +116,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           delay={1.8}
           className="font-body text-base md:text-lg text-white/50 max-w-[500px] leading-relaxed mb-10 pointer-events-auto"
         >
-          Building intelligent digital experiences at the intersection of artificial intelligence and human-centered design.
+          From embedded electronics to intelligent agents — engineering AI systems that think, adapt, and make a real difference.
         </TextEffect>
 
         <div ref={ctaRef} className="pointer-events-auto mt-6">
