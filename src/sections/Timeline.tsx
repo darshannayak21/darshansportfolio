@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/SectionLabel";
-import FolderInteraction from "@/components/ui/folder-interaction";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -183,40 +182,6 @@ export default function Timeline() {
             </div>
           </div>
 
-          {/* Premium Certificate Box */}
-          <div className="w-full max-w-5xl mx-auto mt-16 md:mt-20 pb-12 overflow-visible px-4 md:px-0">
-            <motion.div 
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-[2.5rem] md:rounded-[3rem] w-full bg-[#ff5500] shadow-2xl py-6 md:py-16 px-4 md:px-12 text-[#111] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-16"
-            >
-              {/* CERTIFICATES text */}
-              <motion.h1 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] font-bold tracking-tighter leading-none text-white text-center relative z-20"
-              >
-                CERTIFICATES
-              </motion.h1>
-              
-              {/* Folder Interaction */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="flex-shrink-0 mt-2 sm:mt-4 md:mt-0 relative z-10"
-              >
-                <div className="scale-75 sm:scale-90 md:scale-100 origin-center flex items-center justify-center">
-                  <FolderInteraction />
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
 
         </div>
       </div>
