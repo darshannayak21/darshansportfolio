@@ -78,46 +78,78 @@ const FlowArt: React.FC<FlowArtProps> = ({
       );
       if (sections.length === 0) return;
 
-      const triggers: ScrollTrigger[] = [];
+      const mm = gsap.matchMedia();
 
-      sections.forEach((section, i) => {
-        gsap.set(section, { zIndex: i + 1 });
+      // Mobile view: slide from right
+      mm.add("(max-width: 767px)", () => {
+        sections.forEach((section, i) => {
+          gsap.set(section, { zIndex: i + 1 });
 
-        const inner = section.querySelector<HTMLElement>('.flow-art-container');
-        if (!inner) return;
+          const inner = section.querySelector<HTMLElement>('.flow-art-container');
+          if (!inner) return;
 
-        if (i > 0) {
-          gsap.set(inner, { rotation: 30, transformOrigin: 'bottom left' });
-          const tween = gsap.to(inner, {
-            rotation: 0,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top bottom',
-              end: 'top 25%',
-              scrub: true,
-            },
-          });
-          if (tween.scrollTrigger) triggers.push(tween.scrollTrigger);
-        }
+          if (i > 0) {
+            gsap.set(inner, { x: '100vw', rotation: 0 });
+            gsap.to(inner, {
+              x: 0,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'top top',
+                scrub: true,
+              },
+            });
+          }
 
-        if (i < sections.length - 1) {
-          triggers.push(
+          if (i < sections.length - 1) {
             ScrollTrigger.create({
               trigger: section,
               start: 'bottom bottom',
               end: 'bottom top',
               pin: true,
               pinSpacing: false,
-            }),
-          );
-        }
+            });
+          }
+        });
       });
 
-      ScrollTrigger.refresh();
+      // Desktop view: rotate from bottom left
+      mm.add("(min-width: 768px)", () => {
+        sections.forEach((section, i) => {
+          gsap.set(section, { zIndex: i + 1 });
+
+          const inner = section.querySelector<HTMLElement>('.flow-art-container');
+          if (!inner) return;
+
+          if (i > 0) {
+            gsap.set(inner, { rotation: 30, transformOrigin: 'bottom left', x: 0 });
+            gsap.to(inner, {
+              rotation: 0,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'top 25%',
+                scrub: true,
+              },
+            });
+          }
+
+          if (i < sections.length - 1) {
+            ScrollTrigger.create({
+              trigger: section,
+              start: 'bottom bottom',
+              end: 'bottom top',
+              pin: true,
+              pinSpacing: false,
+            });
+          }
+        });
+      });
 
       return () => {
-        triggers.forEach((t) => t.kill());
+        mm.revert();
       };
     },
     { scope: containerRef, dependencies: [childCount(children), reducedMotion] },

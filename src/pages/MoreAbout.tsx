@@ -141,13 +141,65 @@ Music is a big part of my life too — I play drums, piano, guitar, ukulele, and
           className="min-h-[150vh] md:min-h-[200vh]"
           style={{ backgroundColor: '#1d4ed8', color: '#fff' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24">
-            <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight">
+          <div className="flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
+            <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
               Current<br />Interests
             </h1>
-            {/* Content Placeholder */}
-            <div className="mt-16 max-w-2xl text-white/70 font-body text-lg">
-              {/* Add your content here */}
+            
+            {/* 2-Column Grid Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 w-full">
+              
+              {/* Left Column: Philosophy & Progress Bars */}
+              <div className="flex flex-col space-y-8 md:space-y-12">
+                <p className="font-body text-base md:text-xl lg:text-2xl font-medium leading-snug text-white/90">
+                  AI shouldn't replicate us — it should extend us. I build systems that understand humans deeply enough to fill the gaps we can't fill ourselves. That belief drives everything I research and build.
+                </p>
+                
+                <div className="space-y-5 lg:space-y-6">
+                  {[
+                    { label: "DSA & Problem Solving", percent: 75 },
+                    { label: "Web Development", percent: 85 },
+                    { label: "AI & Machine Learning", percent: 80 },
+                    { label: "Computer Vision", percent: 78 }
+                  ].map((skill, idx) => (
+                    <div key={idx} className="space-y-2">
+                      <div className="flex justify-between font-display text-sm md:text-base font-bold tracking-wide uppercase text-white/90">
+                        <span>{skill.label}</span>
+                        <span>{skill.percent}%</span>
+                      </div>
+                      <div className="w-full h-1.5 md:h-2 bg-white/20 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-white rounded-full transition-all duration-1000 ease-out" 
+                          style={{ width: `${skill.percent}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column: Topic Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                {[
+                  { title: "AI Memory & Knowledge Graphs", desc: "Researching how agents store, reason and retrieve across disconnected information domains." },
+                  { title: "Human-Centered AI Systems", desc: "Building AI that understands human context and intent, not just processes language." },
+                  { title: "Computer Vision & Pose Estimation", desc: "Applying real-time visual intelligence to physiotherapy, sports analytics and beyond." },
+                  { title: "Data Structures & Algorithms", desc: "Sharpening problem-solving fundamentals to build faster, cleaner and more scalable systems." }
+                ].map((card, idx) => (
+                  <div key={idx} className="bg-white/10 border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-colors duration-300 flex flex-col justify-center">
+                    <h4 className="font-display font-bold text-lg md:text-xl mb-3 text-white leading-tight">{card.title}</h4>
+                    <p className="font-body text-sm md:text-base text-white/80 leading-relaxed">{card.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Closing Line */}
+            <div className="mt-12 md:mt-16 mb-20 text-center lg:text-left">
+              <p className="font-body italic text-sm md:text-base text-white/70">
+                "The goal isn't artificial general intelligence. It's artificial genuine helpfulness."
+              </p>
             </div>
           </div>
         </FlowSection>
