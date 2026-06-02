@@ -93,7 +93,7 @@ export default function MoreAbout() {
   }, [location]);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen overflow-x-clip w-full relative">
 
       {/* Scroll Indicator */}
       <div

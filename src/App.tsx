@@ -49,7 +49,7 @@ export default function App() {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-    
+
     // If it's a fresh load (loader is showing), clear hash and scroll to top
     if (!hasShownLoader) {
       window.scrollTo(0, 0);
@@ -82,32 +82,32 @@ export default function App() {
   const handleNavigate = useCallback((target: string) => {
     const el = document.querySelector(target);
     if (!el) return;
-    
+
     const duration = 1200; // 1.2 seconds for a premium smooth feel
     const startY = window.scrollY;
     let startTime: number | null = null;
     let isUserScrolling = false;
-    
+
     // Allow user to break the animation if they start scrolling manually
     const cancelLock = () => { isUserScrolling = true; };
     window.addEventListener("wheel", cancelLock, { once: true });
     window.addEventListener("touchstart", cancelLock, { once: true });
-    
+
     const easeInOutQuart = (t: number) => {
       return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
     };
-    
+
     const animateScroll = (currentTime: number) => {
       if (isUserScrolling) return; // Abort if user takes over
-      
+
       if (!startTime) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       let progress = Math.min(timeElapsed / duration, 1);
       progress = easeInOutQuart(progress);
-      
+
       // Dynamically recalculate the target's position every frame.
       const targetY = el.getBoundingClientRect().top + window.scrollY;
-      
+
       if (progress < 1) {
         const currentScroll = startY + (targetY - startY) * progress;
         window.scrollTo(0, currentScroll);
@@ -117,7 +117,7 @@ export default function App() {
         // We must lock the camera to the target for an extra 2 seconds so it doesn't slide away
         // as the page shrinks beneath it.
         window.scrollTo(0, targetY);
-        
+
         if (timeElapsed < duration + 2000) {
           requestAnimationFrame(animateScroll);
         } else {
@@ -126,41 +126,41 @@ export default function App() {
         }
       }
     };
-    
+
     requestAnimationFrame(animateScroll);
   }, []);
 
   return (
     <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
-      <div className="bg-black min-h-screen">
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
-          >
-            <div className="scale-125 md:scale-150">
-              <WaveLoader bars={5} />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="bg-black min-h-screen overflow-x-clip w-full relative">
+        <AnimatePresence>
+          {isLoading && (
+            <motion.div
+              initial={{ y: 0 }}
+              exit={{ y: "-100%" }}
+              transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+            >
+              <div className="scale-125 md:scale-150">
+                <WaveLoader bars={5} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      <FloatingPillNavbar onNavigate={handleNavigate} />
+        <FloatingPillNavbar onNavigate={handleNavigate} />
 
-      <main>
-        <Hero isLoaded={!isLoading} />
-        <About />
-        <Work />
-        <Skills />
-        <Timeline />
-        <Contact />
-      </main>
+        <main>
+          <Hero isLoaded={!isLoading} />
+          <About />
+          <Work />
+          <Skills />
+          <Timeline />
+          <Contact />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </ReactLenis>
   );
 }
