@@ -129,7 +129,7 @@ export default function MoreAbout() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2.0, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15] translate-y-16 md:translate-y-0"
+              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15] translate-y-40 md:translate-y-0"
             />
 
             {/* Profile Image */}
