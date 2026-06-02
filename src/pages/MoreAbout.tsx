@@ -345,16 +345,16 @@ export default function MoreAbout() {
                   <div className="w-full flex flex-col gap-4 md:gap-5 relative z-10">
 
                     {/* Article 1 */}
-                    <a href="#" target="_blank" rel="noreferrer" className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 overflow-hidden relative">
+                    <a href="https://medium.com/@ndarshan507/from-static-rag-to-systems-that-think-building-a-self-adaptive-hybrid-search-rag-120fb4ce80af" target="_blank" rel="noreferrer" className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 overflow-hidden relative">
                       <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-colors duration-500" />
 
                       <div className="flex flex-col pr-4 relative z-10">
                         <div className="flex items-center gap-3 mb-3">
-                          <span className="font-mono text-[10px] md:text-xs text-white/60 uppercase tracking-wider bg-white/10 px-2 py-1 rounded">Architecture</span>
-                          <span className="font-body text-xs text-white/40">5 min read</span>
+                          <span className="font-mono text-[10px] md:text-xs text-white/60 uppercase tracking-wider bg-white/10 px-2 py-1 rounded">AI Systems</span>
+                          <span className="font-body text-xs text-white/40">8 min read</span>
                         </div>
-                        <h5 className="font-display font-bold text-white text-lg md:text-xl lg:text-2xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all duration-300">Building Dual-Layer Knowledge Graphs</h5>
-                        <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">An architectural breakdown of hybrid memory systems for autonomous AI agents.</p>
+                        <h5 className="font-display font-bold text-white text-lg md:text-xl lg:text-2xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all duration-300">From Static RAG to Systems that Think</h5>
+                        <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">An architectural breakdown of building a self-adaptive hybrid search RAG.</p>
                       </div>
 
                       <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/5 group-hover:bg-white group-hover:text-black transition-all duration-500 text-white">
@@ -363,16 +363,16 @@ export default function MoreAbout() {
                     </a>
 
                     {/* Article 2 */}
-                    <a href="#" target="_blank" rel="noreferrer" className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 overflow-hidden relative">
+                    <a href="https://medium.com/@ndarshan507/navigating-the-unnavigable-building-indias-first-real-time-flood-navigation-system-f31419874f0d" target="_blank" rel="noreferrer" className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 overflow-hidden relative">
                       <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-colors duration-500" />
 
                       <div className="flex flex-col pr-4 relative z-10">
                         <div className="flex items-center gap-3 mb-3">
-                          <span className="font-mono text-[10px] md:text-xs text-white/60 uppercase tracking-wider bg-white/10 px-2 py-1 rounded">Systems</span>
-                          <span className="font-body text-xs text-white/40">7 min read</span>
+                          <span className="font-mono text-[10px] md:text-xs text-white/60 uppercase tracking-wider bg-white/10 px-2 py-1 rounded">Engineering</span>
+                          <span className="font-body text-xs text-white/40">6 min read</span>
                         </div>
-                        <h5 className="font-display font-bold text-white text-lg md:text-xl lg:text-2xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all duration-300">Production-Level RAG Systems</h5>
-                        <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">How to scale retrieval-augmented generation from prototype to enterprise deployment.</p>
+                        <h5 className="font-display font-bold text-white text-lg md:text-xl lg:text-2xl mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/60 transition-all duration-300">Building India's First Flood Navigation System</h5>
+                        <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">A technical deep dive into navigating the unnavigable through real-time systems.</p>
                       </div>
 
                       <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/5 group-hover:bg-white group-hover:text-black transition-all duration-500 text-white">
@@ -445,7 +445,7 @@ export default function MoreAbout() {
                   </div>
                   <div className="lg:col-span-5 flex min-h-[200px]">
                     <div className="w-full h-full bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center overflow-hidden relative group hover:shadow-2xl transition-all duration-500 shadow-lg">
-                      <span className="font-body text-gray-400 text-sm uppercase tracking-[0.2em] relative z-10 group-hover:text-gray-600 transition-colors duration-500">Internships Image</span>
+                      <img src="/images/WORK.jpeg" alt="Internships" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                   </div>
                 </div>
@@ -481,7 +481,7 @@ export default function MoreAbout() {
                   </div>
                   <div className="lg:col-span-5 flex min-h-[200px]">
                     <div className="w-full h-full bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center overflow-hidden relative group hover:shadow-2xl transition-all duration-500 shadow-lg">
-                      <span className="font-body text-gray-400 text-sm uppercase tracking-[0.2em] relative z-10 group-hover:text-gray-600 transition-colors duration-500">Research Image</span>
+                      <img src="/images/RESEARCH.PNG" alt="Research" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                   </div>
                 </div>
@@ -517,7 +517,7 @@ export default function MoreAbout() {
                   </div>
                   <div className="lg:col-span-5 flex min-h-[200px]">
                     <div className="w-full h-full bg-white/90 backdrop-blur-xl rounded-2xl flex items-center justify-center overflow-hidden relative group hover:shadow-2xl transition-all duration-500 shadow-lg">
-                      <span className="font-body text-gray-400 text-sm uppercase tracking-[0.2em] relative z-10 group-hover:text-gray-600 transition-colors duration-500">Competitions Image</span>
+                      <img src="/images/COMPETITIONS.jpeg" alt="Competitions" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                   </div>
                 </div>
@@ -530,7 +530,7 @@ export default function MoreAbout() {
                     <h3 className="font-display font-semibold text-2xl md:text-3xl text-gray-900 mb-2 tracking-tight">Here's my resume for you to look at.</h3>
                     <p className="font-body text-sm md:text-base text-gray-500">Discover my complete story, achievements, and what drives my passion for AI and technology.</p>
                   </div>
-                  <a href="/resume.pdf" target="_blank" rel="noreferrer" className="shrink-0 flex items-center justify-center gap-2.5 px-8 py-4 bg-[#ff5500] text-white font-body font-semibold text-sm md:text-base rounded-full hover:bg-[#e04d00] hover:scale-105 transition-all duration-300 shadow-lg">
+                  <a href="/Darshans%20Resume-2.pdf" download="Darshans_Resume.pdf" target="_blank" rel="noreferrer" className="shrink-0 flex items-center justify-center gap-2.5 px-8 py-4 bg-[#ff5500] text-white font-body font-semibold text-sm md:text-base rounded-full hover:bg-[#e04d00] hover:scale-105 transition-all duration-300 shadow-lg">
                     Download Resume
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                   </a>
