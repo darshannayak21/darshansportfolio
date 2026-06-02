@@ -42,7 +42,7 @@ export default function About() {
                       whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full max-w-[220px] overflow-hidden rounded-2xl"
+                      className="w-full max-w-[260px] overflow-hidden rounded-none"
                     >
                       <img
                         src="/darshan.png"
@@ -62,7 +62,7 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[380px] overflow-hidden rounded-[2rem]"
+                className="w-full max-w-[380px] overflow-hidden rounded-none"
               >
                 <img
                   src="/darshan.png"

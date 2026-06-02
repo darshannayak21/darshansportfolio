@@ -168,13 +168,13 @@ export default function MoreAbout() {
           </div>
 
           {/* Scrolling content */}
-          <div className="relative z-30 w-full px-5 md:px-12 pb-[65vh] md:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
+          <div className="relative z-30 w-full px-5 md:px-12 pb-[65vh] md:pb-10 lg:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
 
             {/* Stylish "More About Me" Paragraphs */}
             <ScrollReveal direction="fade" delay={0}>
-              <div className="w-full max-w-5xl mx-auto text-center mb-12 md:mb-16 space-y-6 md:space-y-8 text-white/80 font-body text-sm md:text-lg lg:text-xl leading-relaxed">
+              <div className="w-full max-w-5xl mx-auto text-center mb-6 md:mb-8 space-y-6 md:space-y-8 text-white/80 font-body text-sm md:text-lg lg:text-xl leading-relaxed">
                 <p>
-                  Growing up across three countries — Phnom Penh, Singapore, and Pune — taught me to adapt fast and think differently. That global upbringing combined with an obsession for technology pushed me toward building things that actually matter, from embedded circuits to intelligent AI systems. I don't just write code — I engineer experiences. Whether it's a computer vision rehabilitation assistant, an AI memory architecture, or a full-stack web platform, every system I build is driven by one question: does this actually solve something real?
+                  Growing up across three countries — Cambodia, Singapore, and India — taught me to adapt fast and think differently. That global upbringing combined with an obsession for technology pushed me toward building things that actually matter, from embedded circuits to intelligent AI systems. I don't just write code — I engineer experiences. Whether it's a computer vision rehabilitation assistant, an AI memory architecture, or a full-stack web platform, every system I build is driven by one question: does this actually solve something real?
                 </p>
                 <p>
                   Four national hackathon wins, a published research paper, and a filed patent — all before finishing my degree. I'm not waiting to be ready. I'm learning by shipping, pushing boundaries, and figuring things out faster than most. I believe the most powerful technology is the kind that disappears into the background and just works. My goal is to build intelligent systems that are so well designed, so thoughtful, that they feel less like software and more like a natural extension of how people live and work.
@@ -183,15 +183,15 @@ export default function MoreAbout() {
             </ScrollReveal>
 
             {/* Split Layout: Football on left, Text on right */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-16 lg:gap-24 relative z-20">
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12 lg:gap-16 relative z-20 mt-4 md:mt-6 lg:mt-8 mb-10 md:mb-12 lg:mb-12">
               {/* Left Side: Football Image */}
               <ScrollReveal direction="left" delay={0.1} className="w-full md:w-[45%]">
-                <div className="flex justify-center md:justify-start -mt-[64px] md:-mt-[64px] lg:-mt-[200px]">
+                <div className="flex justify-center md:justify-end pr-0 md:pr-4">
                   <img
                     src="/football.PNG"
                     alt="Football"
                     loading="lazy"
-                    className="w-full max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] scale-110 md:scale-[1.3] lg:scale-[1.4] origin-bottom"
+                    className="w-full max-w-[380px] md:max-w-[450px] lg:max-w-[600px] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] scale-[1.15] md:scale-100 lg:scale-[1.05] md:translate-y-4 lg:translate-y-6"
                   />
                 </div>
               </ScrollReveal>
