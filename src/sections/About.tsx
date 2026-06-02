@@ -88,7 +88,10 @@ export default function About() {
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
             <Link to="/moreabout#more-about" className="h-full w-full group relative overflow-hidden rounded-[2rem] bg-[#1e4620] p-6 flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] block">
-              <h3 className="font-display text-2xl font-bold text-white mb-2 leading-tight">More about<br />Me!</h3>
+              <div>
+                <h3 className="font-display text-2xl font-bold text-white mb-2 leading-tight">More about<br />Me!</h3>
+                <p className="font-body text-sm text-white/60">Beyond code: Art, Sports & Global upbringing</p>
+              </div>
               <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center self-end group-hover:bg-white/10 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
@@ -104,8 +107,10 @@ export default function About() {
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
             <Link to="/moreabout#interests" className="h-full w-full group relative overflow-hidden rounded-[2rem] bg-[#1d4ed8] p-6 flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] block">
-              <h3 className="font-display text-2xl font-bold text-white mb-2">Current Interests</h3>
-              <p className="font-body text-sm text-white/60">Creative Coding,<br />Gen AI & Design</p>
+              <div>
+                <h3 className="font-display text-2xl font-bold text-white mb-2">Current Interests</h3>
+                <p className="font-body text-sm text-white/60">AI Memory, Human-Centered Systems & Vision</p>
+              </div>
               <div className="absolute bottom-6 right-6 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
@@ -123,7 +128,7 @@ export default function About() {
             <Link to="/moreabout#work" className="h-full w-full group relative overflow-hidden rounded-[2rem] bg-orange p-8 md:p-10 flex flex-col justify-end transition-transform duration-300 hover:scale-[1.02] block">
               <div className="relative z-10">
                 <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">Work Experience</h3>
-                <p className="font-body text-white/90 text-lg max-w-sm">Building intelligent systems for production environments.</p>
+                <p className="font-body text-white/90 text-lg max-w-sm">Internships, Published Research & 10+ Hackathons.</p>
               </div>
               <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/40 transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -142,7 +147,7 @@ export default function About() {
             <Link to="/moreabout#journey" className="h-full w-full group relative overflow-hidden rounded-[2rem] bg-white p-8 flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] block">
               <div>
                 <h3 className="font-display text-3xl font-bold text-black mb-2">My Journey</h3>
-                <p className="font-body text-black/70">From a curious student to an AI engineer pushing boundaries.</p>
+                <p className="font-body text-black/70">A global education shaping a passion for Artificial Intelligence.</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center self-end group-hover:bg-black/10 transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
