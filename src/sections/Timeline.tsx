@@ -71,7 +71,7 @@ export default function Timeline() {
             3rd Place — National Project Expo
           </motion.h3>
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
-            Recognized for innovative engineering and technical leadership among thousands of national-level participants.
+            Recognized for building a highly impactful, production-ready project that demonstrated exceptional real-world utility and feasibility among thousands of national-level participants.
           </motion.p>
           <motion.div variants={itemVariants} className="mt-4">
             <img src="/images/timeline/SIT.png" alt="National Project Expo" className="w-full md:w-3/4 lg:w-2/3 h-auto rounded-2xl shadow-lg object-contain" />
