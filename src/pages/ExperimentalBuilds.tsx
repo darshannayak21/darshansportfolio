@@ -27,130 +27,109 @@ export default function ExperimentalBuilds() {
         {/* Project Grid - 3 in a row, smaller cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 pb-20 justify-items-center">
           
-          {/* Card 1 */}
+          {/* Card 1: Rapid Crisis Response */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Holographic Web
+                Rapid Crisis Platform
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                An experiment using Three.js and WebGL to create purely interactive 3D particle systems responding to user webcam input in real-time.
+                Developed an event-driven emergency response platform bridging custom IoT panic buttons with a Gemini AI backend. Processes hardware payloads in milliseconds, utilizing Vertex AI for pattern analysis and Gemini for instant context generation. Features real-time Socket.io dashboards and zero-latency Firebase dispatch.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/rapid.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="Rapid Crisis Dashboard"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Source →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Launch Lab
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
 
-          {/* Card 2 */}
+          {/* Card 2: BlueTrust AI */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Neuromorphic UI
+                BlueTrust AI
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                Exploring the boundaries of framer-motion physics combined with deep-glassmorphism. A purely aesthetic exploration into the future of UI design.
+                Architected an AI-driven satellite monitoring platform leveraging Sentinel-2 imagery and temporal ML models to track ecological restoration. The system dynamically computes NDVI improvements to classify vegetation health. A blockchain verification layer anchors all environmental gains, ensuring an immutable audit trail for ESG reporting.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/blue.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="BlueTrust Dashboard"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  Read Medium Post →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Preview Component
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
           
-          {/* Card 3 */}
+          {/* Card 3: SAHS RAG */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Physics Engine TS
+                SAHS RAG
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                A lightweight 2D rigid-body physics engine built entirely from scratch in TypeScript for highly performant canvas animations.
+                Engineered a Self-Adaptive Hybrid Search RAG architecture that dynamically assesses query complexity before retrieval. Blends dense semantic vector search with sparse BM25 keyword matching to maximize recall and precision. Incorporates an LLM routing layer to autonomously select retrieval strategies before cross-encoder reranking.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/rag.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="SAHS RAG Architecture"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Code →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Play Sandbox
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>

@@ -17,12 +17,37 @@ export default function ContactPopup() {
     setTimeout(() => setFormStep("idle"), 500)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormStep("submitting")
-    setTimeout(() => {
-      setFormStep("success")
-    }, 1500)
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    // Web3Forms Access Key
+    formData.append("access_key", "747afde0-50a2-4432-ba4d-915f04d66e39");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStep("success");
+        form.reset();
+      } else {
+        console.error("Error", data);
+        setFormStep("idle");
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setFormStep("idle");
+      alert("Something went wrong. Please try again.");
+    }
   }
 
   useEffect(() => {
@@ -186,6 +211,7 @@ export default function ContactPopup() {
                                 required
                                 type="text"
                                 id="name"
+                                name="name"
                                 placeholder="Jane Doe"
                                 className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all text-sm"
                               />
@@ -199,6 +225,7 @@ export default function ContactPopup() {
                                 required
                                 type="email"
                                 id="email"
+                                name="email"
                                 placeholder="jane@example.com"
                                 className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all text-sm"
                               />
@@ -211,6 +238,7 @@ export default function ContactPopup() {
                               <textarea
                                 required
                                 id="message"
+                                name="message"
                                 rows={4}
                                 placeholder="Tell me about your project..."
                                 className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all resize-none text-sm"

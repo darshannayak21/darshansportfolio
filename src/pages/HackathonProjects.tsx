@@ -24,137 +24,118 @@ export default function HackathonProjects() {
         </h1>
         <div className="w-20 h-1 bg-black mb-12"></div>
         
-        {/* Project Grid - 3 in a row, smaller cards */}
+        {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 pb-20 justify-items-center">
           
-          {/* Card 1 */}
+          {/* Card 1: STELLA */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                CodeRed 2024 Winner
+                STELLA: Nurse Robot
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                A decentralized emergency response coordination system built in 36 hours. Secured 1st place out of 250+ participating teams globally.
+                Architected a personalized robotic care system bridging hospital discharge and home recovery. Utilizes real-time facial analysis and biometric streaming (SpO2/HR) to detect patient distress and track 24+ physiotherapy exercises. Features automated health logging and a fully integrated Doctor & Guardian app ecosystem.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/stella.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="STELLA Dashboard"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  Devpost Submission →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Watch Pitch
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
 
-          {/* Card 2 */}
+          {/* Card 2: Shrimati Setu */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                FinTech Disrupt 1st Prize
+                Shrimati Setu
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                Algorithmic trading bot that identifies micro-arbitrage opportunities using Rust and WebSockets. Achieved 99.9% uptime during testing.
+                Architected a dual-component personal safety solution (mobile app + embedded wearable). Features shake-to-trigger SOS, voice command activation, and real-time chunked audio-video cloud streaming. The standalone hardware beacon utilizes satellite GPS and automated SMS/call spamming to guarantee distress signal delivery even without cellular networks.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/shrimati.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="Shrimati Setu Device"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Repository →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Read Paper
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
-          
-          {/* Card 3 */}
+
+          {/* Card 3: ReMotion AI */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Web3 Connect Hack
+                ReMotion AI
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                Decentralized identity verification protocol allowing anonymous yet authenticated interactions across DApps.
+                Engineered a computer vision-powered physiotherapy assistant delivering real-time biomechanical feedback and posture correction. Utilizing any smartphone camera, the system allows clinicians to deploy customized rehabilitation routines, tracking remote patient adherence through scalable cloud infrastructure and multilingual interaction.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1639762681485-074b7f4ec651?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/remotion.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="ReMotion Interface"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Repo →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Demo
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
+
+
 
         </div>
       </div>

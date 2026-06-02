@@ -129,7 +129,7 @@ export default function MoreAbout() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2.0, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15] translate-y-40 md:translate-y-0"
+              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#facc15] mt-48 md:mt-0"
             />
 
             {/* Profile Image */}
@@ -148,7 +148,7 @@ export default function MoreAbout() {
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 2.0, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-0 pt-0"
+                className="mt-32 md:mt-0 pt-0"
               >
                 <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-display font-bold leading-[0.9] uppercase tracking-tight text-white mix-blend-difference">
                   More<br />About<br />Me!

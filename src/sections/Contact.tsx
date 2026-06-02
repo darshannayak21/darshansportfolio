@@ -5,7 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import ContactPopup from "@/components/ui/contact-popup";
 import { AnimatedDock } from "@/components/ui/animated-dock";
 import { Typewriter } from "@/components/ui/typewriter";
-import { Github, Twitter, Youtube, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -234,22 +234,12 @@ export default function Contact() {
                 <AnimatedDock
                   items={[
                     {
-                      link: "https://github.com",
+                      link: "https://github.com/darshannayak21",
                       target: "_blank",
                       Icon: <Github size={24} />,
                     },
                     {
-                      link: "https://twitter.com",
-                      target: "_blank",
-                      Icon: <Twitter size={24} />,
-                    },
-                    {
-                      link: "https://youtube.com",
-                      target: "_blank",
-                      Icon: <Youtube size={24} />,
-                    },
-                    {
-                      link: "https://linkedin.com",
+                      link: "https://www.linkedin.com/in/darshan-nayak-636393346/",
                       target: "_blank",
                       Icon: <Linkedin size={24} />,
                     },

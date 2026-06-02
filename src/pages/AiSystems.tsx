@@ -24,133 +24,148 @@ export default function AiSystems() {
         </h1>
         <div className="w-20 h-1 bg-black mb-12"></div>
         
-        {/* Project Grid - 3 in a row, smaller cards */}
+        {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 pb-20 justify-items-center">
           
-          {/* Card 1 */}
+          {/* Card 1: RainGuard */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Neural Canvas V2
+                RainGuard
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                A generative AI platform leveraging custom Stable Diffusion models to create hyper-realistic architectural renderings from simple text prompts.
+                Engineered India's first real-time flood navigation system for urban resilience. Fuses live data from thousands of satellite radars, IMD weather stations, and NASA elevation models to predict flood zones. Integrates real-time crowd traffic, historical data, and live news scraping to optimize safe routing for emergency services and daily commuters.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/rain.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="RainGuard Navigation Dashboard"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Case Study →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Live Demo
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
 
-          {/* Card 2 */}
+          {/* Card 2: ApexNet F1 Intelligence */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Sentinel NLP
+                ApexNet F1 Intelligence
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                Real-time sentiment analysis engine processing millions of social media streams concurrently with sub-second latency using fine-tuned BERT models.
+                Architected a live F1 race prediction system utilizing a multi-model stacking ensemble and attention-based LSTMs. Ingests real-time FastF1 telemetry—engineering 55+ features including track temperatures and degradation slopes—to forecast finishing positions, optimal pit windows, and lap times with 85% accuracy.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/f1.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="F1 Race Prediction Dashboard"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View GitHub →
+                  View GitHub
                 </CardItem>
+              </div>
+            </CardBody>
+          </CardContainer>
+
+          {/* Card 3: TrafficGuard AI */}
+          <CardContainer className="inter-var w-full">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
+              <CardItem
+                translateZ="50"
+                className="text-xl font-bold text-white shrink-0"
+              >
+                TrafficGuard AI
+              </CardItem>
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
+              >
+                Engineered a real-time computer vision system for traffic enforcement and safety compliance. Deploys advanced deep learning to detect helmetless riders and red-light violations with high accuracy. Integrates ALPR to extract license plates, feeding categorized data and photographic evidence into a centralized police dashboard for seamless verification.
+              </CardItem>
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
+                <img
+                  src="/images/projects/helmet.png"
+                  className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                  alt="TrafficGuard AI Dashboard"
+                />
+              </CardItem>
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
+                  as="a"
+                  href="#"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  Documentation
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>
           </CardContainer>
           
-          {/* Card 3 */}
+          {/* Card 4: VisionGuard AI */}
           <CardContainer className="inter-var w-full">
-            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[30rem] rounded-2xl p-6 border flex flex-col">
+            <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-white shrink-0"
               >
-                Visionary AI
+                VisionGuard AI
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white/60 text-sm max-w-sm mt-2 line-clamp-3 shrink-0"
+                className="text-white/60 text-sm max-w-sm mt-3 shrink-0 leading-relaxed"
               >
-                Advanced computer vision framework for autonomous drone navigation in complex indoor environments.
+                Engineered a high-performance real-time object detection architecture using YOLOv8 and deep CNNs. Employs multi-level feature extraction and anchor-free detection for rapid drone and human tracking, optimized via GPU acceleration for mission-critical outdoor environments.
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 flex-1 min-h-0">
+              <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2560&auto=format&fit=crop"
+                  src="/images/projects/drone.png"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  alt="VisionGuard AI Drone Tracking"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6 shrink-0">
+              <div className="flex justify-end items-center mt-6 shrink-0">
                 <CardItem
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-3 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
                 >
-                  View Case Study →
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
-                >
-                  Live Demo
+                  View GitHub
                 </CardItem>
               </div>
             </CardBody>

@@ -25,87 +25,76 @@ export default function Timeline() {
 
   const data = [
     {
-      title: "January 2024",
+      title: "Vishwakarma Institute of Technology",
       content: (
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={containerVariants}>
           <motion.h3 variants={itemVariants} className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
-            1st Place — Global AI Hackathon
+            1st Place — VIT Code Apex 2.0 National Hackathon
           </motion.h3>
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
-            Developed 'Neural Canvas', an AI architecture tool, winning 1st place out of 500+ international teams. Awarded $20,000 and featured in TechCrunch.
+            Secured top position among 2,800+ participants as a solo competitor in a 24-hour national hackathon, evaluated by industry judges from Google and Figma.
           </motion.p>
           <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <img src="/images/timeline/vit1.png" alt="VIT Code Apex 1" className="w-full h-full object-cover" />
             </div>
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
-            </div>
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 3</span>
-            </div>
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 4</span>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <img src="/images/timeline/vit2.png" alt="VIT Code Apex 2" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>
       ),
     },
     {
-      title: "November 2023",
+      title: "MCOE",
       content: (
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={containerVariants}>
           <motion.h3 variants={itemVariants} className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
-            Published Research at NeurIPS
+            1st Place — Pragyantara National Hackathon
           </motion.h3>
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
-            First author on 'Efficient Transformer Architectures for Real-Time Mobile Inference'. Presented findings to an audience of 2,000+ researchers.
+            Awarded first place among 800+ participants, demonstrating technical excellence and competitive problem-solving at a national level.
           </motion.p>
-          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
-            </div>
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
+          <motion.div variants={itemVariants} className="grid grid-cols-1 gap-4">
+            <div className="h-32 md:h-56 lg:h-80 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <img src="/images/timeline/pragya.png" alt="Pragyantara Hackathon" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>
       ),
     },
     {
-      title: "August 2023",
+      title: "Symbiosis Institute of Technology",
       content: (
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={containerVariants}>
           <motion.h3 variants={itemVariants} className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
-            Open Source Contributor of the Year
+            3rd Place — National Project Expo
           </motion.h3>
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
-            Recognized by the TensorFlow community for critical optimization patches improving mobile deployment speeds by 40%.
+            Recognized for innovative engineering and technical leadership among thousands of national-level participants.
           </motion.p>
-          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 1</span>
-            </div>
-            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Image 2</span>
-            </div>
+          <motion.div variants={itemVariants} className="mt-4">
+            <img src="/images/timeline/SIT.png" alt="National Project Expo" className="w-full md:w-3/4 lg:w-2/3 h-auto rounded-2xl shadow-lg object-contain" />
           </motion.div>
         </motion.div>
       ),
     },
     {
-      title: "May 2023",
+      title: "Pune Institute of Computer Technology",
       content: (
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={containerVariants}>
           <motion.h3 variants={itemVariants} className="font-display text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
-            Best Startup Pitch — Tech Disrupt
+            3rd Place — TechFiesta InC, Impetus & Concepts
           </motion.h3>
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-white/60 mb-8 leading-relaxed">
-            Secured seed funding and the 'Most Innovative MVP' award for building a decentralized emergency response network.
+            Awarded for outstanding technical innovation and solution design among 2,400+ participants across India.
           </motion.p>
           <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
-            <div className="col-span-2 h-32 md:h-56 lg:h-80 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <span className="text-white/20 text-xs uppercase tracking-widest font-mono">Feature Image</span>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <img src="/images/timeline/pict1.png" alt="TechFiesta InC 1" className="w-full h-full object-cover" />
+            </div>
+            <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
+              <img src="/images/timeline/pict2.png" alt="TechFiesta InC 2" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>
