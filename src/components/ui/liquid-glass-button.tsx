@@ -120,64 +120,19 @@ function LiquidButton({
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[250%] bg-[radial-gradient(circle,rgba(255,85,0,0.2)_0%,transparent_60%)] scale-0 opacity-0 transition-all duration-1000 ease-liquid group-hover:scale-100 group-hover:opacity-100 pointer-events-none" />
         </div>
         <div
-          className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full transition-all duration-700 ease-liquid group-hover:bg-white/[0.03]"
-          style={{ backdropFilter: 'url("#container-glass")' }}
+          className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full transition-all duration-700 ease-liquid group-hover:bg-white/[0.03] backdrop-blur-xl bg-white/5 border border-white/10"
         />
 
         <div className="pointer-events-none z-10 ">
           {children}
         </div>
-        <GlassFilter />
       </Comp>
     </>
   )
 }
 
 
-function GlassFilter() {
-  return (
-    <svg className="hidden">
-      <defs>
-        <filter
-          id="container-glass"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%"
-          colorInterpolationFilters="sRGB"
-        >
-          {/* Generate turbulent noise for distortion */}
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.05 0.05"
-            numOctaves="1"
-            seed="1"
-            result="turbulence"
-          />
 
-          {/* Blur the turbulence pattern slightly */}
-          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
-
-          {/* Displace the source graphic with the noise */}
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="blurredNoise"
-            scale="70"
-            xChannelSelector="R"
-            yChannelSelector="B"
-            result="displaced"
-          />
-
-          {/* Apply overall blur on the final result */}
-          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
-
-          {/* Output the result */}
-          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
-        </filter>
-      </defs>
-    </svg>
-  );
-}
 
 type ColorVariant =
   | "default"

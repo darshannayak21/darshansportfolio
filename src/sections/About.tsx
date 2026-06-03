@@ -12,7 +12,7 @@ export default function About() {
       {/* ── Text Reveal Area ── */}
       <div className="w-full">
         <div className="max-w-[1400px] mx-auto lg:px-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function About() {
                     >
                       <SectionLabel text="ABOUT ME" className="mb-4 block" />
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
                       whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                       viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function About() {
 
             {/* Left side — Photo (desktop only, sticky) */}
             <div className="hidden lg:flex w-full lg:w-[42%] sticky top-0 h-screen items-center justify-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9, filter: "blur(15px)" }}
                 whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                 viewport={{ once: true, amount: 0.2 }}

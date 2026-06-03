@@ -14,12 +14,12 @@ export default function Timeline() {
 
   const itemVariants: any = {
     hidden: { opacity: 0, y: 40, scale: 0.96, filter: "blur(4px)" },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
       filter: "blur(0px)",
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
     },
   };
 

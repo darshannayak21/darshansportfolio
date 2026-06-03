@@ -76,12 +76,6 @@ export default function Hero({ isLoaded }: HeroProps) {
           speed={0.3}
           {...({ backgroundColor: "#000000" } as any)}
         />
-        <MeshGradient
-          className="absolute inset-0 w-full h-full opacity-60"
-          colors={["#000000", "#000000", "#ff5500", "#000000"]}
-          speed={0.2}
-          {...({ wireframe: true, backgroundColor: "transparent" } as any)}
-        />
       </div>
 
       {/* Content */}

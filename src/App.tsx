@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
@@ -22,6 +22,7 @@ let hasShownLoader = false;
 export default function App() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(!hasShownLoader);
+  const lenisRef = useRef<any>(null);
 
   // Minimum loading screen time
   useEffect(() => {
@@ -58,9 +59,13 @@ export default function App() {
       }
     } else if (location.hash && !isLoading) {
       // If navigating internally with a hash after loaded
-      const el = document.querySelector(location.hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (lenisRef.current?.lenis) {
+        lenisRef.current.lenis.scrollTo(location.hash, { offset: 0 });
+      } else {
+        const el = document.querySelector(location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     }
   }, [location.hash, isLoading]);
@@ -78,60 +83,38 @@ export default function App() {
       clearTimeout(timer);
     };
   }, []);
-  // Navigation handler — uses a dynamic custom scroll to account for GSAP height changes mid-scroll
+
+  // Sync GSAP with Lenis for smooth ScrollTrigger animations
+  useEffect(() => {
+    if (!lenisRef.current?.lenis) return;
+    
+    const lenis = lenisRef.current.lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    
+    gsap.ticker.lagSmoothing(0);
+    
+    return () => {
+      lenis.off('scroll', ScrollTrigger.update);
+    };
+  }, [isLoading]);
+
+  // Navigation handler using robust Lenis scrollTo instead of buggy manual requestAnimationFrame loop
   const handleNavigate = useCallback((target: string) => {
-    const el = document.querySelector(target);
-    if (!el) return;
-
-    const duration = 1200; // 1.2 seconds for a premium smooth feel
-    const startY = window.scrollY;
-    let startTime: number | null = null;
-    let isUserScrolling = false;
-
-    // Allow user to break the animation if they start scrolling manually
-    const cancelLock = () => { isUserScrolling = true; };
-    window.addEventListener("wheel", cancelLock, { once: true });
-    window.addEventListener("touchstart", cancelLock, { once: true });
-
-    const easeInOutQuart = (t: number) => {
-      return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-    };
-
-    const animateScroll = (currentTime: number) => {
-      if (isUserScrolling) return; // Abort if user takes over
-
-      if (!startTime) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      let progress = Math.min(timeElapsed / duration, 1);
-      progress = easeInOutQuart(progress);
-
-      // Dynamically recalculate the target's position every frame.
-      const targetY = el.getBoundingClientRect().top + window.scrollY;
-
-      if (progress < 1) {
-        const currentScroll = startY + (targetY - startY) * progress;
-        window.scrollTo(0, currentScroll);
-        requestAnimationFrame(animateScroll);
-      } else {
-        // Lock Phase: GSAP scrub animations have a 1.5s delay. 
-        // We must lock the camera to the target for an extra 2 seconds so it doesn't slide away
-        // as the page shrinks beneath it.
-        window.scrollTo(0, targetY);
-
-        if (timeElapsed < duration + 2000) {
-          requestAnimationFrame(animateScroll);
-        } else {
-          window.removeEventListener("wheel", cancelLock);
-          window.removeEventListener("touchstart", cancelLock);
-        }
+    if (lenisRef.current?.lenis) {
+      lenisRef.current.lenis.scrollTo(target, {
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+    } else {
+      const el = document.querySelector(target);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    };
-
-    requestAnimationFrame(animateScroll);
+    }
   }, []);
 
   return (
-    <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+    <ReactLenis root ref={lenisRef} options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
       <div className="bg-black min-h-screen overflow-x-clip w-full relative">
         <AnimatePresence>
           {isLoading && (
