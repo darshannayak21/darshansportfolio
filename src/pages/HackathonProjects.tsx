@@ -45,7 +45,7 @@ export default function HackathonProjects() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/stella.png"
+                  src="/images/projects/stella.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="STELLA Dashboard"
                 />
@@ -81,7 +81,7 @@ export default function HackathonProjects() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/shrimati.png"
+                  src="/images/projects/shrimati.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="Shrimati Setu Device"
                 />
@@ -117,7 +117,7 @@ export default function HackathonProjects() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/remotion.png"
+                  src="/images/projects/remotion.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="ReMotion Interface"
                 />

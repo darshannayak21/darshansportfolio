@@ -45,7 +45,7 @@ export default function AiSystems() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/rain.png"
+                  src="/images/projects/rain.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="RainGuard Navigation Dashboard"
                 />
@@ -81,7 +81,7 @@ export default function AiSystems() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/f1.png"
+                  src="/images/projects/f1.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="F1 Race Prediction Dashboard"
                 />
@@ -117,7 +117,7 @@ export default function AiSystems() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/helmet.png"
+                  src="/images/projects/helmet.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="TrafficGuard AI Dashboard"
                 />
@@ -153,7 +153,7 @@ export default function AiSystems() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/drone.png"
+                  src="/images/projects/drone.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="VisionGuard AI Drone Tracking"
                 />

@@ -45,7 +45,7 @@ export default function ExperimentalBuilds() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/rapid.png"
+                  src="/images/projects/rapid.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="Rapid Crisis Dashboard"
                 />
@@ -81,7 +81,7 @@ export default function ExperimentalBuilds() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/blue.png"
+                  src="/images/projects/blue.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="BlueTrust Dashboard"
                 />
@@ -117,7 +117,7 @@ export default function ExperimentalBuilds() {
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-5 flex-1 min-h-0">
                 <img
-                  src="/images/projects/rag.png"
+                  src="/images/projects/rag.webp"
                   className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
                   alt="SAHS RAG Architecture"
                 />

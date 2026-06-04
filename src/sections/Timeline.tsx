@@ -36,10 +36,10 @@ export default function Timeline() {
           </motion.p>
           <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
             <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <img src="/images/timeline/vit1.png" alt="VIT Code Apex 1" className="w-full h-full object-cover" />
+              <img src="/images/timeline/vit1.webp" alt="VIT Code Apex 1" className="w-full h-full object-cover" />
             </div>
             <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <img src="/images/timeline/vit2.png" alt="VIT Code Apex 2" className="w-full h-full object-cover" />
+              <img src="/images/timeline/vit2.webp" alt="VIT Code Apex 2" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>
@@ -57,7 +57,7 @@ export default function Timeline() {
           </motion.p>
           <motion.div variants={itemVariants} className="grid grid-cols-1 gap-4">
             <div className="h-32 md:h-56 lg:h-80 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <img src="/images/timeline/pragya.png" alt="Pragyantara Hackathon" className="w-full h-full object-cover" />
+              <img src="/images/timeline/pragya.webp" alt="Pragyantara Hackathon" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>
@@ -74,7 +74,7 @@ export default function Timeline() {
             Recognized for building a highly impactful, production-ready project that demonstrated exceptional real-world utility and feasibility among thousands of national-level participants.
           </motion.p>
           <motion.div variants={itemVariants} className="mt-4">
-            <img src="/images/timeline/SIT.png" alt="National Project Expo" className="w-full md:w-3/4 lg:w-2/3 h-auto rounded-2xl shadow-lg object-contain" />
+            <img src="/images/timeline/SIT.webp" alt="National Project Expo" className="w-full md:w-3/4 lg:w-2/3 h-auto rounded-2xl shadow-lg object-contain" />
           </motion.div>
         </motion.div>
       ),
@@ -91,10 +91,10 @@ export default function Timeline() {
           </motion.p>
           <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4">
             <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <img src="/images/timeline/pict1.png" alt="TechFiesta InC 1" className="w-full h-full object-cover" />
+              <img src="/images/timeline/pict1.webp" alt="TechFiesta InC 1" className="w-full h-full object-cover" />
             </div>
             <div className="h-24 md:h-44 lg:h-60 w-full rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04)]">
-              <img src="/images/timeline/pict2.png" alt="TechFiesta InC 2" className="w-full h-full object-cover" />
+              <img src="/images/timeline/pict2.webp" alt="TechFiesta InC 2" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>

@@ -31,12 +31,12 @@ const categories: ProjectCategory[] = [
     detailRight:
       "Built with robust architectures that merge state-of-the-art neural networks with intuitive dashboards. Key features include GPU-accelerated ALPR, attention-based LSTMs for time-series prediction, and stacking ensembles deployed via dynamic interfaces.",
     images: [
-      "/images/projects/rain.png",
-      "/images/projects/f1.png",
-      "/images/projects/helmet.png",
-      "/images/projects/flood.png",
-      "/images/projects/drone.png",
-      "/images/projects/f12.png",
+      "/images/projects/rain.webp",
+      "/images/projects/f1.webp",
+      "/images/projects/helmet.webp",
+      "/images/projects/flood.webp",
+      "/images/projects/drone.webp",
+      "/images/projects/f12.webp",
     ],
   },
   {
@@ -51,12 +51,12 @@ const categories: ProjectCategory[] = [
     detailRight:
       "Our architecture emphasizes real-time responsiveness and scalable cloud infrastructure. Whether deploying computer vision for physical rehabilitation or ensuring zero-latency emergency alerts, these systems bridge the gap between rapid prototypes and life-saving technologies.",
     images: [
-      "/images/projects/remotion.png",
-      "/images/projects/stella.png",
-      "/images/projects/shrimati.png",
-      "/images/projects/remotion.png",
-      "/images/projects/stella.png",
-      "/images/projects/shrimati.png",
+      "/images/projects/remotion.webp",
+      "/images/projects/stella.webp",
+      "/images/projects/shrimati.webp",
+      "/images/projects/remotion.webp",
+      "/images/projects/stella.webp",
+      "/images/projects/shrimati.webp",
     ],
   },
   {
@@ -71,12 +71,12 @@ const categories: ProjectCategory[] = [
     detailRight:
       "Built with a focus on scalability and impact. Each experiment tests the boundaries of current technologies, integrating Gemini AI, custom IoT endpoints, and blockchain verification layers to create robust, production-ready concepts.",
     images: [
-      "/images/projects/rag.png",
-      "/images/projects/blue.png",
-      "/images/projects/rapid.png",
-      "/images/projects/rag.png",
-      "/images/projects/blue.png",
-      "/images/projects/rapid.png",
+      "/images/projects/rag.webp",
+      "/images/projects/blue.webp",
+      "/images/projects/rapid.webp",
+      "/images/projects/rag.webp",
+      "/images/projects/blue.webp",
+      "/images/projects/rapid.webp",
     ],
   },
 ];
