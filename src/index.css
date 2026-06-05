@@ -93,42 +93,107 @@
 
   /* ── Light Mode Global Overrides ── */
   /* Target specific section backgrounds instead of all elements to avoid breaking buttons */
-  .light section.bg-black { background-color: #f8f8f8 !important; }
-  .light section.bg-\[#050505\] { background-color: #f8f8f8 !important; }
-  .light section.bg-\[#111\] { background-color: #e8e8e8 !important; }
-  
+  .light section.bg-black {
+    background-color: #f8f8f8 !important;
+  }
+
+  .light section.bg-\[#050505\] {
+    background-color: #f8f8f8 !important;
+  }
+
+  .light section.bg-\[#111\] {
+    background-color: #e8e8e8 !important;
+  }
+
   /* Text color overrides scoped to sections so buttons can style themselves */
-  .light section .text-white { color: #111; }
-  .light section .text-white\/80 { color: rgba(17, 17, 17, 0.8); }
-  .light section .text-white\/70 { color: rgba(17, 17, 17, 0.7); }
-  .light section .text-white\/60 { color: rgba(17, 17, 17, 0.6); }
-  .light section .text-white\/50 { color: rgba(17, 17, 17, 0.5); }
-  .light section .text-white\/40 { color: rgba(17, 17, 17, 0.4); }
-  .light section .text-white\/30 { color: rgba(17, 17, 17, 0.25); }
+  .light section .text-white {
+    color: #111;
+  }
+
+  .light section .text-white\/80 {
+    color: rgba(17, 17, 17, 0.8);
+  }
+
+  .light section .text-white\/70 {
+    color: rgba(17, 17, 17, 0.7);
+  }
+
+  .light section .text-white\/60 {
+    color: rgba(17, 17, 17, 0.6);
+  }
+
+  .light section .text-white\/50 {
+    color: rgba(17, 17, 17, 0.5);
+  }
+
+  .light section .text-white\/40 {
+    color: rgba(17, 17, 17, 0.4);
+  }
+
+  .light section .text-white\/30 {
+    color: rgba(17, 17, 17, 0.25);
+  }
 
   /* Background opacities */
-  .light section .bg-white\/\[0\.08\] { background-color: rgba(0, 0, 0, 0.06); }
-  .light section .bg-white\/\[0\.06\] { background-color: rgba(0, 0, 0, 0.04); }
-  .light section .bg-white\/\[0\.05\] { background-color: rgba(0, 0, 0, 0.04); }
-  .light section .bg-white\/5 { background-color: rgba(0, 0, 0, 0.05); }
-  .light section .bg-white\/10 { background-color: rgba(0, 0, 0, 0.06); }
-  .light section .border-white\/\[0\.06\] { border-color: rgba(0, 0, 0, 0.08); }
-  .light section .border-white\/\[0\.05\] { border-color: rgba(0, 0, 0, 0.06); }
-  .light section .border-white\/10 { border-color: rgba(0, 0, 0, 0.08); }
+  .light section .bg-white\/\[0\.08\] {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .light section .bg-white\/\[0\.06\] {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .light section .bg-white\/\[0\.05\] {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .light section .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .light section .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .light section .border-white\/\[0\.06\] {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .light section .border-white\/\[0\.05\] {
+    border-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .light section .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
 
   /* Work section panels */
-  .light .project-panel { background-color: #f8f8f8 !important; }
+  .light .project-panel {
+    background-color: #f8f8f8 !important;
+  }
 
   /* Keep orange accent elements as-is */
-  .light .text-\[#ff5500\] { color: #ff5500; }
-  .light .bg-\[#ff5500\] { background-color: #ff5500; }
+  .light .text-\[#ff5500\] {
+    color: #ff5500;
+  }
+
+  .light .bg-\[#ff5500\] {
+    background-color: #ff5500;
+  }
 
   /* Ensure CTA and special buttons keep their styling */
-  .light .bg-\[#fff8eb\] { background-color: #fff8eb; }
+  .light .bg-\[#fff8eb\] {
+    background-color: #fff8eb;
+  }
 
   /* Fix the white text in Work section buttons */
-  .light .text-black { color: #000; }
-  .light .bg-white { background-color: #fff; }
+  .light .text-black {
+    color: #000;
+  }
+
+  .light .bg-white {
+    background-color: #fff;
+  }
 
   ::selection {
     background: rgba(255, 85, 0, 0.3);
@@ -182,20 +247,24 @@
   .bento-hover::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0%;
-    height: 0%;
+    top: 0; bottom: 0;
+    /* Start exactly at the right edge of the box */
+    left: 100%;
+    /* Extra width to guarantee coverage of the top-left gap caused by the skew */
+    width: calc(100% + 600px);
     background: #ff5500;
     z-index: 0;
-    transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                height 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border-radius: inherit;
+    transform-origin: bottom left;
+    /* Skew to create `\` edge. Translate slightly right to ensure it's fully off-screen. */
+    transform: skewX(-45deg) translate3d(50px, 0, 0);
+    /* Apple's elegant easeOutExpo curve for a buttery smooth glide */
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .bento-hover:hover::before {
-    width: 100%;
-    height: 100%;
+    /* Translate left by almost its entire massive width. 
+       This completely fills the top-left corner while leaving a safe overhang on the right. */
+    transform: skewX(-45deg) translate3d(calc(-100% + 50px), 0, 0);
   }
 }
 
