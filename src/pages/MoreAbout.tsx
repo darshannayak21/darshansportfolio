@@ -592,7 +592,7 @@ export default function MoreAbout() {
               <div className="lg:col-span-7 relative">
 
                 {/* Timeline Line */}
-                <div ref={timelineRef} className="absolute left-[15px] md:left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-white/20 via-white/20 to-transparent z-0">
+                <div ref={timelineRef} className={`absolute left-[15px] top-2 bottom-2 w-[2px] ${dark ? 'bg-gradient-to-b from-white/20 via-white/20' : 'bg-gradient-to-b from-black/10 via-black/10'} to-transparent z-0`}>
                   <motion.div
                     style={{ height: lineHeight }}
                     className="absolute top-0 left-0 w-full bg-[#ff5500] rounded-full shadow-[0_0_8px_rgba(255,85,0,0.8)]"
@@ -605,17 +605,17 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.2}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-[#ff5500] ring-4 ring-[#222222] group-hover:scale-125 transition-transform duration-300" />
+                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
                       </div>
-                      <div className="bg-white/[0.07] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500">
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display font-bold text-lg md:text-xl text-white">MIT World Peace University, Pune</h4>
+                          <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>MIT World Peace University, Pune</h4>
                           <span className="font-body text-[11px] md:text-xs font-semibold text-[#ff5500] bg-[#ff5500]/10 px-3 py-1 rounded-full w-fit">2023 – Present</span>
                         </div>
                         <div className="flex items-center gap-3 mb-4">
-                          <span className="font-body text-xs md:text-sm font-medium text-white/70">Integrated B.Tech Computer Science & Engineering (AI & Data Science)</span>
+                          <span className={`font-body text-xs md:text-sm font-medium ${dark ? 'text-white/70' : 'text-gray-700'}`}>Integrated B.Tech Computer Science & Engineering (AI & Data Science)</span>
                         </div>
-                        <p className="font-body text-sm text-white/50">Current Degree</p>
+                        <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-gray-500'}`}>Current Degree</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -624,14 +624,14 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.3}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-white/30 ring-4 ring-[#222222] group-hover:bg-[#ff5500] transition-colors duration-300" />
+                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
                       </div>
-                      <div className="bg-white/[0.07] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500">
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display font-bold text-lg md:text-xl text-white">BK Birla Centre of Education, Pune</h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold text-white/50 bg-white/10 px-3 py-1 rounded-full w-fit">2021 – 2023</span>
+                          <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>BK Birla Centre of Education, Pune</h4>
+                          <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2021 – 2023</span>
                         </div>
-                        <p className="font-body text-xs md:text-sm font-medium text-white/70 mb-1">Secondary Education (Grade 9–10)</p>
+                        <p className={`font-body text-xs md:text-sm font-medium mb-1 ${dark ? 'text-white/70' : 'text-gray-700'}`}>Secondary Education (Grade 9–10)</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -640,15 +640,15 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.4}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-white/30 ring-4 ring-[#222222] group-hover:bg-[#ff5500] transition-colors duration-300" />
+                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
                       </div>
-                      <div className="bg-white/[0.07] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500">
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display font-bold text-lg md:text-xl text-white">British International School of Phnom Penh</h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold text-white/50 bg-white/10 px-3 py-1 rounded-full w-fit">2010 – 2021</span>
+                          <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>British International School of Phnom Penh</h4>
+                          <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2010 – 2021</span>
                         </div>
-                        <p className="font-body text-xs md:text-sm font-medium text-white/70 mb-3">Primary & Middle School (Kindergarten – Grade 8)</p>
-                        <p className="font-body text-sm text-white/50">International education experience that helped develop a global perspective.</p>
+                        <p className={`font-body text-xs md:text-sm font-medium mb-3 ${dark ? 'text-white/70' : 'text-gray-700'}`}>Primary & Middle School (Kindergarten – Grade 8)</p>
+                        <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-gray-500'}`}>International education experience that helped develop a global perspective.</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -657,15 +657,15 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.5}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-white/30 ring-4 ring-[#222222] group-hover:bg-[#ff5500] transition-colors duration-300" />
+                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
                       </div>
-                      <div className="bg-white/[0.07] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500">
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display font-bold text-lg md:text-xl text-white">Global Indian International School, Singapore</h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold text-white/50 bg-white/10 px-3 py-1 rounded-full w-fit">2014 – 2016</span>
+                          <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>Global Indian International School, Singapore</h4>
+                          <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2014 – 2016</span>
                         </div>
-                        <p className="font-body text-xs md:text-sm font-medium text-white/70 mb-3">Primary School (Grade 2 – 3)</p>
-                        <p className="font-body text-sm text-white/50">Strong early academic foundation.</p>
+                        <p className={`font-body text-xs md:text-sm font-medium mb-3 ${dark ? 'text-white/70' : 'text-gray-700'}`}>Primary School (Grade 2 – 3)</p>
+                        <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-gray-500'}`}>Strong early academic foundation.</p>
                       </div>
                     </div>
                   </ScrollReveal>
