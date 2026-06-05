@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface TextRevealByWordProps {
   text: string;
@@ -19,6 +20,8 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   header,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -38,7 +41,7 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
         <p
           className={
-            "flex flex-wrap text-[1.75rem] font-bold text-white/30 sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl leading-[1.35] mt-auto lg:mt-0"
+            `flex flex-wrap text-[1.75rem] font-bold ${dark ? 'text-white/30' : 'text-gray-900/20'} sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl leading-[1.35] mt-auto lg:mt-0`
           }
         >
           {words.map((word, i) => {
@@ -64,12 +67,14 @@ interface WordProps {
 
 const Word: FC<WordProps> = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
   return (
     <span className="xl:lg-3 relative mx-1 lg:mx-2.5">
       <span className={"absolute opacity-30"}>{children}</span>
       <motion.span
         style={{ opacity: opacity }}
-        className={"text-white"}
+        className={dark ? "text-white" : "text-black"}
       >
         {children}
       </motion.span>

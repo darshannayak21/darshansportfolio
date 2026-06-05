@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { TextEffect } from "@/components/ui/text-effect";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,8 @@ export default function Hero({ isLoaded }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -66,15 +69,15 @@ export default function Hero({ isLoaded }: HeroProps) {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
+      className={`relative min-h-[100dvh] flex flex-col items-center justify-center ${dark ? 'bg-[#050505]' : 'bg-[#f8f8f8]'} overflow-hidden`}
     >
       {/* Interactive Mesh Gradient Background */}
       <div className="absolute inset-0 z-0">
         <MeshGradient
           className="absolute inset-0 w-full h-full"
-          colors={["#000000", "#000000", "#000000", "#ff5500", "#000000"]}
+          colors={dark ? ["#000000", "#000000", "#000000", "#ff5500", "#000000"] : ["#ffffff", "#ffffff", "#ff5500", "#ffffff", "#111111"]}
           speed={0.3}
-          {...({ backgroundColor: "#000000" } as any)}
+          {...({ backgroundColor: dark ? "#000000" : "#ffffff" } as any)}
         />
       </div>
 
@@ -86,7 +89,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           per="char"
           preset="blur"
           trigger={isLoaded}
-          className="font-display text-[clamp(4rem,10vw,8rem)] font-bold text-white leading-[1.1] tracking-[-0.04em] mb-4 pointer-events-auto"
+          className={`font-display text-[clamp(4rem,10vw,8rem)] font-bold ${dark ? 'text-white' : 'text-gray-900'} leading-[1.1] tracking-[-0.04em] mb-4 pointer-events-auto`}
         >
           Darshan Nayak
         </TextEffect>
@@ -97,9 +100,9 @@ export default function Hero({ isLoaded }: HeroProps) {
           preset="blur"
           trigger={isLoaded}
           delay={1.2}
-          className="font-body text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/80 font-light mb-6 pointer-events-auto"
+          className={`font-body text-[clamp(1.2rem,2.5vw,1.8rem)] ${dark ? 'text-white/80' : 'text-black font-medium'} mb-6 pointer-events-auto`}
         >
-          Aspiring AI Engineer and Creative Problem Solver  
+          Aspiring AI Engineer and Creative Problem Solver
         </TextEffect>
 
         <TextEffect
@@ -108,7 +111,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           preset="fade"
           trigger={isLoaded}
           delay={1.8}
-          className="font-body text-base md:text-lg text-white/50 max-w-[500px] leading-relaxed mb-10 pointer-events-auto"
+          className={`font-body text-base md:text-lg ${dark ? 'text-white/50' : 'text-black font-medium'} max-w-[500px] leading-relaxed mb-10 pointer-events-auto`}
         >
           From embedded electronics to intelligent agents — engineering AI systems that think, adapt, and make a real difference.
         </TextEffect>
@@ -116,7 +119,7 @@ export default function Hero({ isLoaded }: HeroProps) {
         <div ref={ctaRef} className="pointer-events-auto mt-6">
           <LiquidButton
             size="xl"
-            className="text-white/90 group-hover:text-white font-body tracking-wide"
+            className={`font-body tracking-wide ${dark ? 'text-white/90 group-hover:text-[#ffffff]' : 'text-[#000000] font-medium group-hover:text-[#000000]'}`}
             onClick={() => {
               document
                 .getElementById("work")
@@ -135,7 +138,7 @@ export default function Hero({ isLoaded }: HeroProps) {
       >
         <ChevronDown
           size={20}
-          className="text-white/40 animate-bounce-subtle"
+          className={`${dark ? 'text-white/40' : 'text-gray-400'} animate-bounce-subtle`}
         />
       </div>
     </section>

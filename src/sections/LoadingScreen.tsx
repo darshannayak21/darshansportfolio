@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -9,6 +10,8 @@ const letters = "DARSHAN".split("");
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [visible, setVisible] = useState(true);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,7 +25,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+          className={`fixed inset-0 z-[100] ${dark ? 'bg-black' : 'bg-white'} flex items-center justify-center`}
           exit={{
             clipPath: [
               "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -43,7 +46,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             {letters.map((letter, i) => (
               <motion.span
                 key={i}
-                className="font-display text-[clamp(3rem,10vw,8rem)] font-bold text-white tracking-[0.05em] inline-block"
+                className={`font-display text-[clamp(3rem,10vw,8rem)] font-bold ${dark ? 'text-white' : 'text-black'} tracking-[0.05em] inline-block`}
                 initial={{ x: -30, opacity: 0 }}
                 animate={{
                   x: 0,

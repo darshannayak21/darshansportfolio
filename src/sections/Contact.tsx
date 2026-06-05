@@ -6,6 +6,7 @@ import ContactPopup from "@/components/ui/contact-popup";
 import { AnimatedDock } from "@/components/ui/animated-dock";
 import { Typewriter } from "@/components/ui/typewriter";
 import { Github, Linkedin } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +42,8 @@ export default function Contact() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLAnchorElement>(null);
   const mockupRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -159,7 +162,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="bg-black relative"
+      className={`${dark ? 'bg-black' : 'bg-[#f8f8f8]'} relative`}
     >
       <style dangerouslySetInnerHTML={{ __html: PHONE_STYLES }} />
       <div className="w-full px-6 md:px-12 lg:px-20 py-[clamp(80px,15vh,160px)]">
@@ -171,7 +174,7 @@ export default function Contact() {
 
             <h2
               ref={headlineRef}
-              className="font-display text-[clamp(2rem,4.5vw,4.5rem)] font-bold text-white leading-[1.1] mb-2 flex items-center justify-center flex-wrap"
+              className={`font-display text-[clamp(2rem,4.5vw,4.5rem)] font-bold ${dark ? 'text-white' : 'text-[#000000]'} leading-[1.1] mb-2 flex items-center justify-center flex-wrap`}
             >
               {headlineWords.map((word, i) => (
                 <span key={i} className="word inline-block mr-[0.3em]">
@@ -200,7 +203,7 @@ export default function Contact() {
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20 items-center">
 
             {/* Left Column - Clean Premium Box */}
-            <div className="w-full h-full min-h-[580px] lg:col-span-7 bg-[#050505] border border-white/[0.08] shadow-2xl rounded-[2.5rem] p-10 md:p-14 lg:p-16 flex flex-col relative overflow-hidden">
+            <div className={`w-full h-full min-h-[580px] lg:col-span-7 ${dark ? 'bg-[#050505] border-white/[0.08]' : 'bg-[#f0f0f0] border-black/10'} border shadow-2xl rounded-[2.5rem] p-10 md:p-14 lg:p-16 flex flex-col relative overflow-hidden`}>
 
               {/* Extremely subtle top highlight */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent"></div>
@@ -211,7 +214,7 @@ export default function Contact() {
               <div className="flex-1 flex flex-col items-start justify-center text-left relative z-10">
                 <p
                   ref={subRef}
-                  className="font-body text-[1.1rem] md:text-xl text-white/80 leading-relaxed tracking-wide mb-12"
+                  className={`font-body text-[1.1rem] md:text-xl ${dark ? 'text-white/80' : 'text-[#000000]/80'} leading-relaxed tracking-wide mb-12`}
                 >
                   I am always open to exploring new projects, creative collaborations, and exciting opportunities. Whether you have a specific vision in mind or just want to connect and say hello, feel free to drop a message. I'll make sure to get back to you as soon as possible!
                 </p>
@@ -223,7 +226,7 @@ export default function Contact() {
                 <a
                   ref={emailRef}
                   href="mailto:ndarshan507@gmail.com"
-                  className="font-mono text-base md:text-lg text-white/40 hover:text-white transition-colors duration-300"
+                  className={`font-mono text-base md:text-lg ${dark ? 'text-white/40 hover:text-white' : 'text-[#000000]/60 hover:text-[#000000]'} transition-colors duration-300`}
                 >
                   ndarshan507@gmail.com
                 </a>

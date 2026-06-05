@@ -1,7 +1,8 @@
 "use client"
 
 import { cva } from "class-variance-authority"
-import { motion, type HTMLMotionProps } from "framer-motion" // Adjusted to use framer-motion which is the standard package name for motion
+import { motion, type HTMLMotionProps } from "framer-motion"
+import { useTheme } from "@/components/ThemeProvider"
 
 import { cn } from "@/lib/utils"
 
@@ -42,6 +43,9 @@ export function WaveLoader({
   className,
   ...props
 }: HTMLMotionProps<"div"> & WaveLoaderProps) {
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
+
   return (
     <div className={cn(waveLoaderVariants({ messagePlacement }))}>
       <div className={cn("flex gap-1 items-center justify-center")}>
@@ -50,7 +54,7 @@ export function WaveLoader({
           .map((_, index) => (
             <motion.div
               key={index}
-              className={cn("w-2 h-5 bg-white origin-bottom", className)} 
+              className={cn(`w-2 h-5 ${dark ? 'bg-white' : 'bg-black'} origin-bottom`, className)} 
               animate={{ scaleY: [1, 1.5, 1] }}
               transition={{
                 duration: 1,
@@ -61,7 +65,7 @@ export function WaveLoader({
             />
           ))}
       </div>
-      {message && <div className="text-white font-mono font-bold tracking-widest">{message}</div>}
+      {message && <div className={`${dark ? 'text-white' : 'text-black'} font-mono font-bold tracking-widest`}>{message}</div>}
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import { useTheme } from "../ThemeProvider"
 
 interface MenuProps {
   trigger: React.ReactNode
@@ -55,11 +56,14 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ children, onClick, disabled = false, icon, isActive = false }: MenuItemProps) {
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
+
   return (
     <button
       className={`relative flex items-center justify-center w-full h-full rounded-full group
-        ${disabled ? "text-gray-500 cursor-not-allowed" : "text-white hover:text-[#ff5500]"}
-        ${isActive ? "bg-white/10 text-[#ff5500]" : ""}
+        ${disabled ? "text-gray-500 cursor-not-allowed" : `${dark ? 'text-white' : 'text-black'} hover:text-[#ff5500]`}
+        ${isActive ? (dark ? "bg-white/10 text-[#ff5500]" : "bg-black/10 text-[#ff5500]") : ""}
       `}
       role="menuitem"
       onClick={onClick}
@@ -80,6 +84,8 @@ export function MenuItem({ children, onClick, disabled = false, icon, isActive =
 export function MenuContainer({ children }: { children: React.ReactNode }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const childrenArray = React.Children.toArray(children)
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded)
@@ -110,7 +116,7 @@ export function MenuContainer({ children }: { children: React.ReactNode }) {
         <div className="relative">
           {/* First item - always visible */}
           <div 
-            className="relative w-14 h-14 bg-[#1c1c1c] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] cursor-pointer rounded-full group will-change-transform z-50 flex items-center justify-center text-white hover:text-[#ff5500] transition-colors duration-300"
+            className={`relative w-14 h-14 ${dark ? 'bg-[#1c1c1c] border-white/10' : 'bg-[#f0f0f0] border-black/10'} border shadow-[0_8px_32px_rgba(0,0,0,0.6)] cursor-pointer rounded-full group will-change-transform z-50 flex items-center justify-center transition-colors duration-300`}
             onClick={handleToggle}
           >
             {childrenArray[0]}
@@ -120,7 +126,7 @@ export function MenuContainer({ children }: { children: React.ReactNode }) {
           {childrenArray.slice(1).map((child: any, index) => (
             <div 
               key={index} 
-              className="absolute top-0 left-0 w-14 h-14 bg-[#1c1c1c] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)] rounded-full flex items-center justify-center will-change-transform"
+              className={`absolute top-0 left-0 w-14 h-14 ${dark ? 'bg-[#1c1c1c] border-white/10' : 'bg-[#f0f0f0] border-black/10'} border shadow-[0_8px_32px_rgba(0,0,0,0.6)] rounded-full flex items-center justify-center will-change-transform`}
               style={{
                 transform: `translateY(${isExpanded ? (index + 1) * 64 : 0}px)`,
                 opacity: isExpanded ? 1 : 0,

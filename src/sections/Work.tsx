@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
+import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,6 +183,9 @@ function ProjectPanel({
   category: ProjectCategory;
   index: number;
 }) {
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
+
   return (
     <div className="project-panel w-full bg-black flex flex-col pt-10 md:pt-16">
       {/* ── HEADER (The "Smaller Bar") ── */}
@@ -199,7 +203,7 @@ function ProjectPanel({
                 </span>
               ))}
             </div>
-            <Link to={category.link} className="group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium text-black bg-white border border-white rounded-full px-5 py-2 hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-2 tracking-wide">
+            <Link to={category.link} className={`group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium ${dark ? 'text-black bg-white border-white hover:bg-black hover:text-[#ffffff]' : 'text-[#ffffff] bg-[#333] border-transparent hover:bg-black hover:text-[#ffffff]'} border rounded-full px-5 py-2 transition-all duration-300 flex items-center gap-2 tracking-wide`}>
               See all projects
               <svg
                 width="12"

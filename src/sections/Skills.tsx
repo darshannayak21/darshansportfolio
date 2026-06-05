@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import IntegrationHero from "@/components/ui/integration-hero";
 import { motion } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
   const slideUpVariants: any = {
     hidden: { opacity: 0, y: 40 },
@@ -30,7 +33,7 @@ export default function Skills() {
             variants={slideUpVariants}
             className="flex justify-center mb-8"
           >
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-black">
+            <span className={`font-mono text-xs uppercase tracking-[0.15em] ${dark ? 'text-[#000000]' : 'text-[#ffffff]'}`}>
               // SKILLS
             </span>
           </motion.div>
@@ -40,7 +43,7 @@ export default function Skills() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={slideUpVariants}
-            className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-black mb-8"
+            className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-[#000000]' : 'text-[#ffffff]'} mb-8`}
           >
             Expertise
           </motion.h2>
@@ -50,7 +53,7 @@ export default function Skills() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={slideUpVariants}
-            className="max-w-3xl mx-auto text-lg md:text-xl text-black/80 font-body leading-relaxed mb-16"
+            className={`max-w-3xl mx-auto text-lg md:text-xl ${dark ? 'text-[#000000]/80' : 'text-[#ffffff]/90'} font-body leading-relaxed mb-16`}
           >
             I build intelligent digital experiences at the intersection of AI, full-stack development, and embedded systems. My work combines machine learning, modern web technologies, electronics, and UI/UX design to create scalable, data-driven, and user-focused solutions.
 

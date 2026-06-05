@@ -80,7 +80,7 @@ const FlowArt: React.FC<FlowArtProps> = ({
 
       const mm = gsap.matchMedia();
 
-      // Mobile view: slide from right
+      // Mobile view: slant slide up (matching desktop feel)
       mm.add("(max-width: 767px)", () => {
         sections.forEach((section, i) => {
           gsap.set(section, { zIndex: i + 1 });
@@ -89,14 +89,14 @@ const FlowArt: React.FC<FlowArtProps> = ({
           if (!inner) return;
 
           if (i > 0) {
-            gsap.set(inner, { x: '100vw', rotation: 0 });
+            gsap.set(inner, { rotation: 20, transformOrigin: 'bottom left', x: 0 });
             gsap.to(inner, {
-              x: 0,
+              rotation: 0,
               ease: 'none',
               scrollTrigger: {
                 trigger: section,
                 start: 'top bottom',
-                end: 'top top',
+                end: 'top 25%',
                 scrub: true,
               },
             });

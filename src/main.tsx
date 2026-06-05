@@ -1,6 +1,7 @@
 import { StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import './index.css'
 import { WaveLoader } from '@/components/ui/wave-loader'
 
@@ -15,7 +16,7 @@ const ExperimentalBuilds = lazy(() => import('./pages/ExperimentalBuilds.tsx'))
 
 // A simple loading fallback for lazy routes
 const PageLoader = () => (
-  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black dark:bg-black">
     <div className="scale-125 md:scale-150">
       <WaveLoader bars={5} />
     </div>
@@ -30,16 +31,18 @@ if (window.location.pathname !== '/') {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/moreabout" element={<MoreAbout />} />
-          <Route path="/aisystems" element={<AiSystems />} />
-          <Route path="/hackathonprojects" element={<HackathonProjects />} />
-          <Route path="/experimental" element={<ExperimentalBuilds />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/moreabout" element={<MoreAbout />} />
+            <Route path="/aisystems" element={<AiSystems />} />
+            <Route path="/hackathonprojects" element={<HackathonProjects />} />
+            <Route path="/experimental" element={<ExperimentalBuilds />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 )
