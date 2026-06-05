@@ -141,9 +141,9 @@ export default function FloatingPillNavbar({
         <div className="pointer-events-auto">
           <button
             onClick={() => handleNav("#contact")}
-            className={`flex items-center justify-center rounded-full ${dark ? 'bg-white/10 text-[#ffffff]' : 'bg-[#333] text-[#ffffff]'} hover:bg-[#ff5500] hover:text-[#ffffff] hover:animate-vibrate origin-center transition-colors duration-300
+            className={`flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 backdrop-blur-md ${dark ? 'bg-white/[0.06] text-white' : 'bg-black/[0.06] text-black'} hover:bg-[#ff5500] hover:text-white hover:border-[#ff5500] dark:hover:bg-[#ff5500] hover:animate-vibrate origin-center transition-all duration-300
               ${scrolled
-                ? "px-4 md:px-6 py-2.5 md:py-3 shadow-[0_8px_32px_rgba(255,248,235,0.15)]"
+                ? "px-4 md:px-6 py-2.5 md:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(255,248,235,0.15)]"
                 : "px-4 md:px-6 py-3 md:py-[14px]"
               }
             `}
