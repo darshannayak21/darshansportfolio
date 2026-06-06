@@ -1,4 +1,3 @@
-import SectionLabel from "@/components/SectionLabel";
 import { TextRevealByWord } from "@/components/ui/text-reveal";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -20,9 +19,11 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex justify-center w-full pt-40 pb-0 -mb-8 px-6 md:px-12 lg:px-0 relative z-10"
+            className="hidden lg:flex justify-center w-full pt-24 pb-0 -mb-16 px-6 md:px-12 lg:px-0 relative z-10"
           >
-            <SectionLabel text="ABOUT ME" className="block text-center" />
+            <h2 className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-white' : 'text-black'}`}>
+              About Me
+            </h2>
           </motion.div>
           <div className="flex flex-col lg:flex-row items-start gap-0 lg:gap-16 px-6 md:px-12 lg:px-0">
             {/* Left side — Text Reveal */}
@@ -38,7 +39,9 @@ export default function About() {
                       viewport={{ once: true }}
                       transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <SectionLabel text="ABOUT ME" className="mb-4 block" />
+                      <h2 className={`font-display text-[clamp(2rem,5vw,3rem)] font-bold ${dark ? 'text-white' : 'text-black'} mb-4`}>
+                        About Me
+                      </h2>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}

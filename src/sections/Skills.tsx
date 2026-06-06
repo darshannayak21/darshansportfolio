@@ -23,20 +23,8 @@ export default function Skills() {
       ref={sectionRef}
       className="bg-[#ff5500] border-t border-black/10 overflow-hidden"
     >
-      <div className="w-full px-6 md:px-12 lg:px-20 pt-16 md:pt-24 pb-[clamp(80px,12vh,120px)]">
+      <div className="w-full px-6 md:px-12 lg:px-20 pt-10 md:pt-16 pb-[clamp(80px,12vh,120px)]">
         <div className="max-w-[1400px] mx-auto text-center">
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={slideUpVariants}
-            className="flex justify-center mb-8"
-          >
-            <span className={`font-mono text-xs uppercase tracking-[0.15em] ${dark ? 'text-[#000000]' : 'text-[#ffffff]'}`}>
-              // SKILLS
-            </span>
-          </motion.div>
 
           <motion.h2 
             initial="hidden"

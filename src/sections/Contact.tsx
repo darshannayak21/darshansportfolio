@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionLabel from "@/components/SectionLabel";
+
 import ContactPopup from "@/components/ui/contact-popup";
 import { AnimatedDock } from "@/components/ui/animated-dock";
 import { Typewriter } from "@/components/ui/typewriter";
@@ -170,7 +170,6 @@ export default function Contact() {
 
           {/* Centered Top Content */}
           <div className="text-center mb-16">
-            <SectionLabel text="CONTACT" className="mb-6 inline-block" />
 
             <h2
               ref={headlineRef}

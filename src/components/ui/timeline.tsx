@@ -6,7 +6,7 @@ import {
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/ThemeProvider";
-import SectionLabel from "@/components/SectionLabel";
+
 
 interface TimelineEntry {
   title: string;
@@ -46,9 +46,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <div className="w-full flex justify-center mb-6">
-          <SectionLabel text="ACHIEVEMENTS" className="inline-block" />
-        </div>
         <h2 className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-white' : 'text-[#000000]'} mb-4 tracking-tight max-w-4xl`}>
           Key Milestones
         </h2>

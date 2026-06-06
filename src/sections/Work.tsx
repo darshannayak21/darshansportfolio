@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionLabel from "@/components/SectionLabel";
 import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -93,16 +92,36 @@ function ImageMarquee({
   speed?: number;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [imagesReady, setImagesReady] = useState(false);
+
+  // Wait for all images inside the track to finish loading before starting the animation
+  const handleTrackRef = useCallback((node: HTMLDivElement | null) => {
+    (trackRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+    if (!node) return;
+
+    const imgs = node.querySelectorAll('img');
+    if (imgs.length === 0) { setImagesReady(true); return; }
+
+    let loaded = 0;
+    const total = imgs.length;
+    const check = () => { loaded++; if (loaded >= total) setImagesReady(true); };
+
+    imgs.forEach((img) => {
+      if (img.complete && img.naturalWidth > 0) { check(); }
+      else { img.addEventListener('load', check, { once: true }); img.addEventListener('error', check, { once: true }); }
+    });
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track || !imagesReady) return;
 
     let tween: gsap.core.Tween;
     let handleMouseEnter: () => void;
     let handleMouseLeave: () => void;
 
-    const timer = setTimeout(() => {
+    // Small rAF delay to ensure layout has settled
+    const raf = requestAnimationFrame(() => {
       const totalWidth = track.scrollWidth / 2;
       if (totalWidth <= 0) return;
 
@@ -134,10 +153,10 @@ function ImageMarquee({
       // For mobile support
       track.addEventListener("touchstart", handleMouseEnter, { passive: true });
       track.addEventListener("touchend", handleMouseLeave);
-    }, 100);
+    });
 
     return () => {
-      clearTimeout(timer);
+      cancelAnimationFrame(raf);
       if (tween) tween.kill();
       if (track && handleMouseEnter && handleMouseLeave) {
         track.removeEventListener("mouseenter", handleMouseEnter);
@@ -146,14 +165,14 @@ function ImageMarquee({
         track.removeEventListener("touchend", handleMouseLeave);
       }
     };
-  }, [direction, speed]);
+  }, [direction, speed, imagesReady]);
 
   const doubled = [...images, ...images];
 
   return (
     <div className="marquee-strip w-full">
       <div
-        ref={trackRef}
+        ref={handleTrackRef}
         className="flex gap-4 md:gap-5 will-change-transform"
         style={{ width: "max-content" }}
       >
@@ -166,7 +185,6 @@ function ImageMarquee({
               src={src}
               alt="Project preview"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              loading="lazy"
             />
           </div>
         ))}
@@ -327,7 +345,6 @@ export default function Work() {
       {/* Section Header */}
       <div className="px-5 md:px-10 lg:px-16 mb-10">
         <div className="max-w-[1400px] mx-auto text-center">
-          <SectionLabel text="PROJECTS" className="mb-6 block" />
           <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white">
             Selected Work
           </h2>
