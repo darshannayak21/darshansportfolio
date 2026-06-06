@@ -124,6 +124,11 @@ export default function MoreAbout() {
           className="min-h-[100vh] md:min-h-[120vh] relative"
           style={{ backgroundColor: dark ? '#0A0A0A' : '#f0f0f0', color: dark ? '#fff' : '#111' }}
         >
+          {/* Watermark Number */}
+          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
+            01
+          </div>
+
           {/* Sticky Visual Container */}
           <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-none">
 
@@ -226,10 +231,15 @@ export default function MoreAbout() {
         <FlowSection
           id="interests"
           aria-label="Current Interests"
-          className="min-h-[100vh] md:min-h-[120vh]"
+          className="min-h-[100vh] md:min-h-[120vh] relative"
           style={{ backgroundColor: dark ? '#121212' : '#e8e8e8', color: dark ? '#fff' : '#111' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full pb-16 md:pb-32">
+          {/* Watermark Number */}
+          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
+            02
+          </div>
+
+          <div className="relative z-10 flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full pb-16 md:pb-32">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
               Current<br />Interests
             </h1>
@@ -394,10 +404,15 @@ export default function MoreAbout() {
         <FlowSection
           id="work"
           aria-label="Work Experience"
-          className="min-h-[100vh] md:min-h-[120vh]"
-          style={{ backgroundColor: dark ? '#1A1A1A' : '#e0e0e0', color: dark ? '#fff' : '#111' }}
+          className="min-h-[100vh] md:min-h-[120vh] relative"
+          style={{ backgroundColor: dark ? '#0A0A0A' : '#f0f0f0', color: dark ? '#fff' : '#111' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
+          {/* Watermark Number */}
+          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
+            03
+          </div>
+
+          <div className="relative z-10 flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
               Work<br />Experience
             </h1>
@@ -548,10 +563,15 @@ export default function MoreAbout() {
         <FlowSection
           id="journey"
           aria-label="My Journey"
-          className="min-h-[100vh] md:min-h-[120vh]"
-          style={{ backgroundColor: dark ? '#222222' : '#d8d8d8', color: dark ? '#fff' : '#111' }}
+          className="min-h-[100vh] md:min-h-[120vh] relative"
+          style={{ backgroundColor: dark ? '#121212' : '#e8e8e8', color: dark ? '#fff' : '#111' }}
         >
-          <div className="flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
+          {/* Watermark Number */}
+          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
+            04
+          </div>
+
+          <div className="relative z-10 flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
 
             {/* Section Header */}
             <ScrollReveal direction="up" delay={0.1}>

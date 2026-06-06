@@ -93,7 +93,7 @@ export default function About() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
-            <Link to="/moreabout#more-about" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#0A0A0A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#f0f0f0] border-black/[0.06] hover:border-black/[0.12]'}`}>
+            <Link to="/moreabout#more-about" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#1A1A1A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e8e8e8] border-black/[0.06] hover:border-black/[0.12]'}`}>
               <div className="relative z-10">
                 <h3 className={`font-display text-2xl font-bold mb-2 leading-tight ${dark ? 'text-white' : 'text-gray-900'}`}>More about<br />Me!</h3>
                 <p className={`font-body text-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>Beyond code: Art, Sports & Global upbringing</p>
@@ -112,7 +112,7 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
-            <Link to="/moreabout#interests" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#121212] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e8e8e8] border-black/[0.06] hover:border-black/[0.12]'}`}>
+            <Link to="/moreabout#interests" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#1A1A1A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e8e8e8] border-black/[0.06] hover:border-black/[0.12]'}`}>
               <div className="relative z-10">
                 <h3 className={`font-display text-2xl font-bold mb-2 ${dark ? 'text-white' : 'text-gray-900'}`}>Current Interests</h3>
                 <p className={`font-body text-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>AI Memory, Human-Centered Systems & Vision</p>
@@ -131,7 +131,7 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-2 md:row-span-2"
           >
-            <Link to="/moreabout#work" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 md:p-10 flex flex-col justify-end transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#1A1A1A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e0e0e0] border-black/[0.06] hover:border-black/[0.12]'}`}>
+            <Link to="/moreabout#work" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 md:p-10 flex flex-col justify-end transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#1A1A1A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e8e8e8] border-black/[0.06] hover:border-black/[0.12]'}`}>
               <div className="relative z-10">
                 <h3 className={`font-display text-4xl md:text-5xl font-bold mb-3 ${dark ? 'text-white' : 'text-gray-900'}`}>Work Experience</h3>
                 <p className={`font-body text-lg max-w-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>Internships, Published Research & 10+ Hackathons.</p>
@@ -150,7 +150,7 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-2 md:row-span-1"
           >
-            <Link to="/moreabout#journey" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#222222] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#d8d8d8] border-black/[0.06] hover:border-black/[0.12]'}`}>
+            <Link to="/moreabout#journey" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] block ${dark ? 'bg-[#1A1A1A] border-white/[0.04] hover:border-white/[0.08]' : 'bg-[#e8e8e8] border-black/[0.06] hover:border-black/[0.12]'}`}>
               <div className="relative z-10">
                 <h3 className={`font-display text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-gray-900'}`}>My Journey</h3>
                 <p className={`font-body ${dark ? 'text-white/70' : 'text-gray-600'}`}>A global education shaping a passion for Artificial Intelligence.</p>
