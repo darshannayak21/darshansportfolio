@@ -548,7 +548,7 @@ export default function MoreAbout() {
                     <h3 className="font-display font-semibold text-2xl md:text-3xl text-white mb-2 tracking-tight">Here's my resume for you to look at.</h3>
                     <p className="font-body text-sm md:text-base text-white/50">Discover my complete story, achievements, and what drives my passion for AI and technology.</p>
                   </div>
-                  <a href="/Darshans%20Resume-2.pdf" download="Darshans_Resume.pdf" target="_blank" rel="noreferrer" className="shrink-0 flex items-center justify-center gap-2.5 px-8 py-4 bg-[#ff5500] text-white font-body font-semibold text-sm md:text-base rounded-full hover:bg-[#e04d00] hover:scale-105 transition-all duration-300 shadow-lg">
+                  <a href="/Darshans%20Resume.pdf" download="Darshans_Resume.pdf" target="_blank" rel="noreferrer" className="shrink-0 flex items-center justify-center gap-2.5 px-8 py-4 bg-[#ff5500] text-white font-body font-semibold text-sm md:text-base rounded-full hover:bg-[#e04d00] hover:scale-105 transition-all duration-300 shadow-lg">
                     Download Resume
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
                   </a>
