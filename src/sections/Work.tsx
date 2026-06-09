@@ -206,10 +206,25 @@ function ProjectPanel({
 
   return (
     <div className="project-panel w-full bg-black flex flex-col pt-10 md:pt-16">
-      {/* ── HEADER (The "Smaller Bar") ── */}
-      <div className="project-header mb-6 md:mb-10">
-        {/* Tags + See Full Case */}
-        <div className="px-5 md:px-10 lg:px-16 mb-6 md:mb-8">
+      {/* ── HEADER ── */}
+      <div className="project-header mb-6 md:mb-10 flex flex-col">
+
+        {/* Title — shown first on mobile, second on desktop */}
+        <div className="px-5 md:px-10 lg:px-16 mb-4 md:mb-6 order-1 md:order-2">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="mb-0 md:mb-10 max-w-[1100px]">
+              <h3 className="font-display text-[clamp(1.5rem,3.5vw,2.8rem)] leading-[1.1] text-white tracking-tight">
+                <span className="font-bold">{category.titleBold}</span>{" "}
+                <span className="font-normal text-white/70">
+                  {category.titleNormal}
+                </span>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Tags + See All Projects — shown second on mobile, first on desktop */}
+        <div className="px-5 md:px-10 lg:px-16 mb-4 md:mb-8 order-2 md:order-1">
           <div className="max-w-[1400px] mx-auto flex items-start justify-between gap-4">
             <div className="flex flex-wrap gap-2">
               {category.tags.map((tag) => (
@@ -238,18 +253,10 @@ function ProjectPanel({
           </div>
         </div>
 
-        {/* Title + Description */}
-        <div className="px-5 md:px-10 lg:px-16">
+        {/* Description — shown third on both, different content per breakpoint */}
+        <div className="px-5 md:px-10 lg:px-16 order-3">
           <div className="max-w-[1400px] mx-auto">
-            <div className="mb-6 md:mb-10 max-w-[1100px]">
-              <h3 className="font-display text-[clamp(1.5rem,3.5vw,2.8rem)] leading-[1.1] text-white tracking-tight">
-                <span className="font-bold">{category.titleBold}</span>{" "}
-                <span className="font-normal text-white/70">
-                  {category.titleNormal}
-                </span>
-              </h3>
-            </div>
-
+            {/* Desktop: 3-column layout with empty first col */}
             <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-12">
               <div />
               <p className="font-body text-[13px] lg:text-[14px] text-white/50 leading-[1.6]">
@@ -259,9 +266,13 @@ function ProjectPanel({
                 {category.detailRight}
               </p>
             </div>
-            <div className="md:hidden">
-              <p className="font-body text-[13px] text-white/50 leading-[1.6]">
-                {category.description}
+            {/* Mobile: both detail paragraphs stacked */}
+            <div className="md:hidden space-y-3">
+              <p className="font-body text-[12px] text-white/50 leading-[1.6]">
+                {category.detailLeft}
+              </p>
+              <p className="font-body text-[12px] text-white/50 leading-[1.6]">
+                {category.detailRight}
               </p>
             </div>
           </div>
@@ -297,7 +308,7 @@ export default function Work() {
 
     const ctx = gsap.context(() => {
       panels.forEach((panel) => {
-        // Entrance animation — fast and early
+        // Entrance animation — fast and immediate, same as before
         gsap.fromTo(
           panel,
           { opacity: 0, y: 20 },
@@ -314,21 +325,35 @@ export default function Work() {
           }
         );
 
-        // Push-up: collapse the marquee quickly, then recalculate page positions
-        const marqueeWrapper = panel.querySelector(".marquee-wrapper");
+        // Scroll-scrubbed collapse — tied directly to scroll position
+        // This creates the buttery smooth poch.studio effect where the
+        // marquee area shrinks proportionally as you scroll (1:1 feel)
+        const marqueeWrapper = panel.querySelector<HTMLElement>(".marquee-wrapper");
         if (marqueeWrapper) {
-          gsap.to(marqueeWrapper, {
-            height: 0,
-            duration: 0.6,
-            ease: "power3.inOut",
-            onComplete: () => ScrollTrigger.refresh(),
-            onReverseComplete: () => ScrollTrigger.refresh(),
-            scrollTrigger: {
-              trigger: marqueeWrapper,
-              start: "top 25%",
-              toggleActions: "play none none reverse",
-            },
-          });
+          // Store the natural height so we can animate from it
+          const naturalHeight = marqueeWrapper.offsetHeight;
+          gsap.set(marqueeWrapper, { overflow: "hidden" });
+
+          // Trigger earlier on mobile since panels are shorter
+          const isMobile = window.innerWidth < 768;
+
+          gsap.fromTo(
+            marqueeWrapper,
+            { height: naturalHeight, opacity: 1 },
+            {
+              height: 0,
+              opacity: 0,
+              ease: "power1.inOut",
+              scrollTrigger: {
+                trigger: marqueeWrapper,
+                start: isMobile ? "top 45%" : "top 50%",
+                end: isMobile ? "top 10%" : "top 5%",
+                scrub: isMobile ? 0.8 : 1.2,
+                onLeave: () => ScrollTrigger.refresh(),
+                onEnterBack: () => ScrollTrigger.refresh(),
+              },
+            }
+          );
         }
       });
     }, section);

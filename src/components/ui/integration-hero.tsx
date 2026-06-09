@@ -1,23 +1,23 @@
 "use client";
 
 const ICONS_ROW1 = [
-  "https://cdn-icons-png.flaticon.com/512/5968/5968854.png",
-  "https://cdn-icons-png.flaticon.com/512/732/732221.png",
-  "https://cdn-icons-png.flaticon.com/512/733/733609.png",
-  "https://cdn-icons-png.flaticon.com/512/732/732084.png",
-  "https://cdn-icons-png.flaticon.com/512/733/733585.png",
-  "https://cdn-icons-png.flaticon.com/512/281/281763.png",
-  "https://cdn-icons-png.flaticon.com/512/888/888879.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
 ];
 
 const ICONS_ROW2 = [
-  "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-  "https://cdn-icons-png.flaticon.com/512/906/906324.png",
-  "https://cdn-icons-png.flaticon.com/512/888/888841.png",
-  "https://cdn-icons-png.flaticon.com/512/5968/5968875.png",
-  "https://cdn-icons-png.flaticon.com/512/906/906361.png",
-  "https://cdn-icons-png.flaticon.com/512/732/732190.png",
-  "https://cdn-icons-png.flaticon.com/512/888/888847.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
 ];
 
 // Utility to repeat icons enough times
@@ -61,10 +61,10 @@ export default function IntegrationHero() {
           100% { transform: translateX(0); }
         }
         .animate-scroll-left {
-          animation: scroll-left 15s linear infinite;
+          animation: scroll-left 6s linear infinite;
         }
         .animate-scroll-right {
-          animation: scroll-right 15s linear infinite;
+          animation: scroll-right 6s linear infinite;
         }
         @media (min-width: 768px) {
           .animate-scroll-left {
