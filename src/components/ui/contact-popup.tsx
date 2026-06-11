@@ -1,23 +1,17 @@
 "use client"
 
-import { useState, useEffect, lazy, Suspense } from "react"
+import { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { X, Check, ArrowRight, Mail, MapPin } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-
-// Lazy-load the heavy WebGL shader — only needed when popup is opened
-const LazyMeshGradient = lazy(() =>
-  import("@paper-design/shaders-react").then((mod) => ({
-    default: mod.MeshGradient,
-  }))
-);
+import { MeshGradient } from "@paper-design/shaders-react"
 
 export default function ContactPopup() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [formStep, setFormStep] = useState<"idle" | "submitting" | "success">("idle")
 
   const handleExpand = () => setIsExpanded(true)
-  
+
   const handleClose = () => {
     setIsExpanded(false)
     setTimeout(() => setFormStep("idle"), 500)
@@ -29,7 +23,7 @@ export default function ContactPopup() {
 
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    
+
     // Web3Forms Access Key
     formData.append("access_key", "747afde0-50a2-4432-ba4d-915f04d66e39");
 
@@ -112,17 +106,15 @@ export default function ContactPopup() {
                   transition={{ duration: 0.3 }}
                   className="absolute inset-0 pointer-events-none"
                 >
-                  <Suspense fallback={<div className="absolute inset-0 bg-[#ff5500]" />}>
-                    <LazyMeshGradient
-                      speed={0.6}
-                      colors={["#ff5500", "#ea580c", "#c2410c", "#7c2d12"]}
-                      distortion={0.8}
-                      swirl={0.1}
-                      grainMixer={0.15}
-                      grainOverlay={0}
-                      style={{ height: "100%", width: "100%" }}
-                    />
-                  </Suspense>
+                  <MeshGradient
+                    speed={0.6}
+                    colors={["#ff5500", "#ea580c", "#c2410c", "#7c2d12"]}
+                    distortion={0.8}
+                    swirl={0.1}
+                    grainMixer={0.15}
+                    grainOverlay={0}
+                    style={{ height: "100%", width: "100%" }}
+                  />
                 </motion.div>
 
                 {/* Close Button */}
@@ -182,9 +174,9 @@ export default function ContactPopup() {
                   {/* Right Side: Form */}
                   <div className="flex-1 flex items-center justify-center p-4 sm:p-12 lg:p-16 bg-black/10 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
                     <div className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl">
-                      
+
                       {formStep === "success" ? (
-                        <motion.div 
+                        <motion.div
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="flex flex-col items-center justify-center text-center h-[400px] space-y-6"
@@ -196,7 +188,7 @@ export default function ContactPopup() {
                             <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
                             <p className="text-orange-100">Thanks for reaching out. I'll get back to you soon.</p>
                           </div>
-                          <button 
+                          <button
                             onClick={handleClose}
                             className="px-6 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors text-sm font-medium"
                           >
@@ -260,10 +252,10 @@ export default function ContactPopup() {
                             className="w-full flex items-center justify-center px-8 py-3.5 rounded-lg bg-white text-[#ff5500] font-bold hover:bg-orange-50 focus:ring-4 focus:ring-white/30 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                           >
                             {formStep === "submitting" ? (
-                               <span className="flex items-center gap-2">
-                                 <span className="h-4 w-4 border-2 border-[#ff5500] border-t-transparent rounded-full animate-spin"></span>
-                                 Sending...
-                               </span>
+                              <span className="flex items-center gap-2">
+                                <span className="h-4 w-4 border-2 border-[#ff5500] border-t-transparent rounded-full animate-spin"></span>
+                                Sending...
+                              </span>
                             ) : "Send Message"}
                           </button>
                         </form>

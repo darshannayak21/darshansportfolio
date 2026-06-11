@@ -275,7 +275,6 @@ export default function Contact() {
                       muted
                       playsInline
                       autoPlay
-                      preload="none"
                     >
                       <source src="/images/screenrecording.mp4" type="video/mp4" />
                       Your browser does not support the video tag.

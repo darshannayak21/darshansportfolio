@@ -1,20 +1,13 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
+import { MeshGradient } from "@paper-design/shaders-react";
 import { TextEffect } from "@/components/ui/text-effect";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Lazy-load the heavy WebGL shader so it doesn't block initial page render
-// on slow mobile data connections (this is ~395KB of shader code)
-const LazyMeshGradient = lazy(() =>
-  import("@paper-design/shaders-react").then((mod) => ({
-    default: mod.MeshGradient,
-  }))
-);
 
 interface HeroProps {
   isLoaded: boolean;
@@ -26,23 +19,6 @@ export default function Hero({ isLoaded }: HeroProps) {
   const scrollCueRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
   const dark = theme === 'dark';
-
-  // Detect if the connection can handle heavy WebGL shaders
-  // Skip MeshGradient on slow connections (2G/3G) to prevent Safari timeout
-  const [canLoadShader, setCanLoadShader] = useState(false);
-  useEffect(() => {
-    // Use Network Information API if available
-    const conn = (navigator as any).connection;
-    if (conn) {
-      const dominated = conn.saveData || conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g';
-      setCanLoadShader(!dominated);
-    } else {
-      // If the API is not available (Safari), load after a short delay
-      // This ensures the page renders first, then the shader loads
-      const timer = setTimeout(() => setCanLoadShader(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -95,20 +71,14 @@ export default function Hero({ isLoaded }: HeroProps) {
       ref={sectionRef}
       className={`relative min-h-[100dvh] flex flex-col items-center justify-center ${dark ? 'bg-[#050505]' : 'bg-[#f8f8f8]'} overflow-hidden`}
     >
-      {/* Interactive Mesh Gradient Background — lazy loaded and skipped on slow connections */}
+      {/* Interactive Mesh Gradient Background */}
       <div className="absolute inset-0 z-0">
-        {canLoadShader && (
-          <Suspense fallback={
-            <div className={`absolute inset-0 ${dark ? 'bg-[#050505]' : 'bg-[#f8f8f8]'}`} />
-          }>
-            <LazyMeshGradient
-              className="absolute inset-0 w-full h-full"
-              colors={dark ? ["#000000", "#000000", "#000000", "#ff5500", "#000000"] : ["#ffffff", "#ffffff", "#ff5500", "#ffffff", "#111111"]}
-              speed={0.3}
-              {...({ backgroundColor: dark ? "#000000" : "#ffffff" } as any)}
-            />
-          </Suspense>
-        )}
+        <MeshGradient
+          className="absolute inset-0 w-full h-full"
+          colors={dark ? ["#000000", "#000000", "#000000", "#ff5500", "#000000"] : ["#ffffff", "#ffffff", "#ff5500", "#ffffff", "#111111"]}
+          speed={0.3}
+          {...({ backgroundColor: dark ? "#000000" : "#ffffff" } as any)}
+        />
       </div>
 
       {/* Content */}
