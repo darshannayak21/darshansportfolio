@@ -53,6 +53,7 @@ export default function About() {
                       <img
                         src="/darshan.png"
                         alt="Darshan Nayak"
+                        loading="lazy"
                         className="w-full h-auto object-cover grayscale"
                       />
                     </motion.div>
@@ -73,6 +74,7 @@ export default function About() {
                 <img
                   src="/darshan.png"
                   alt="Darshan Nayak"
+                  loading="lazy"
                   className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </motion.div>
