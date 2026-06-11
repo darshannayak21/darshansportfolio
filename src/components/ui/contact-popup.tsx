@@ -1,10 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
 import { createPortal } from "react-dom"
 import { X, Check, ArrowRight, Mail, MapPin } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MeshGradient } from "@paper-design/shaders-react"
+
+// Lazy-load the heavy WebGL shader — only needed when popup is opened
+const LazyMeshGradient = lazy(() =>
+  import("@paper-design/shaders-react").then((mod) => ({
+    default: mod.MeshGradient,
+  }))
+);
 
 export default function ContactPopup() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -106,15 +112,17 @@ export default function ContactPopup() {
                   transition={{ duration: 0.3 }}
                   className="absolute inset-0 pointer-events-none"
                 >
-                  <MeshGradient
-                    speed={0.6}
-                    colors={["#ff5500", "#ea580c", "#c2410c", "#7c2d12"]}
-                    distortion={0.8}
-                    swirl={0.1}
-                    grainMixer={0.15}
-                    grainOverlay={0}
-                    style={{ height: "100%", width: "100%" }}
-                  />
+                  <Suspense fallback={<div className="absolute inset-0 bg-[#ff5500]" />}>
+                    <LazyMeshGradient
+                      speed={0.6}
+                      colors={["#ff5500", "#ea580c", "#c2410c", "#7c2d12"]}
+                      distortion={0.8}
+                      swirl={0.1}
+                      grainMixer={0.15}
+                      grainOverlay={0}
+                      style={{ height: "100%", width: "100%" }}
+                    />
+                  </Suspense>
                 </motion.div>
 
                 {/* Close Button */}
