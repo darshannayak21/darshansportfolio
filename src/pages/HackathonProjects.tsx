@@ -13,11 +13,11 @@ export default function HackathonProjects() {
   return (
     <div className={`${dark ? 'bg-[#1c1c1c] text-white' : 'bg-[#f8f8f8] text-black'} min-h-screen relative p-6 md:p-12 overflow-hidden`}>
       {/* Back Button */}
-      <Link
-        to="/#work"
+      <Link 
+        to="/#work" 
         className={`fixed top-6 right-6 z-[100] group flex items-center justify-center gap-2 ${dark ? 'bg-black/30 hover:bg-black/50 border-white/10' : 'bg-black/10 hover:bg-black/20 border-black/10'} backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.1)] border px-6 py-3 rounded-full font-mono text-sm uppercase tracking-wider transition-all duration-300`}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${dark ? 'text-white' : 'text-black'} group-hover:-translate-x-1 transition-all duration-300`}><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${dark ? 'text-white' : 'text-black'} group-hover:-translate-x-1 transition-all duration-300`}><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         <span className={`${dark ? 'text-white' : 'text-black'} transition-colors duration-300 font-bold`}>Back</span>
       </Link>
 
@@ -26,10 +26,10 @@ export default function HackathonProjects() {
           Hackathon Winning Projects
         </h1>
         <div className="w-20 h-1 bg-[#ff5500] mb-12"></div>
-
+        
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 pb-20 justify-items-center">
-
+          
           {/* Card 1: STELLA */}
           <CardContainer className="inter-var w-full">
             <CardBody className="bg-[#0a0a0a] relative group/card shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/80 border-white/[0.1] w-full max-w-[24rem] h-[34rem] rounded-2xl p-6 border flex flex-col">
