@@ -1,3 +1,21 @@
+// ──── REFRESH = ALWAYS START AT THE VERY TOP ────
+// These run at the absolute earliest point in JS execution, before React
+// mounts, before any component renders. This guarantees that on ANY refresh
+// (F5, Ctrl+R, browser refresh button), the user always starts at scroll 0.
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
+
+// If the user refreshes on a subpage, redirect to the root URL
+if (window.location.pathname !== '/') {
+  window.history.replaceState(null, '', '/');
+}
+// Clear any lingering hash so we don't scroll to a section on refresh
+if (window.location.hash) {
+  window.history.replaceState(null, '', window.location.pathname);
+}
+
 import { StrictMode, Suspense, lazy, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
@@ -46,17 +64,6 @@ function RouteCleanup({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-// If the user lands on any subpage via a hard refresh or direct link, 
-// force the URL back to the root hero section before React Router initializes.
-if (window.location.pathname !== '/') {
-  window.history.replaceState(null, '', '/');
-}
-
-// Prevent browser from restoring stale scroll positions
-if ("scrollRestoration" in window.history) {
-  window.history.scrollRestoration = "manual";
-}
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
@@ -76,4 +83,3 @@ createRoot(document.getElementById('root')!).render(
     </ThemeProvider>
   </StrictMode>,
 )
-
