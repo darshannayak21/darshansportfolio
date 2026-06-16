@@ -88,7 +88,7 @@ export default function MoreAbout() {
           const topPosition = element.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({ top: topPosition, behavior: 'instant' });
         }
-      }, 50);
+      }, 20);
     } else {
       // Force absolute top for the first section to avoid layout offset glitches
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -224,6 +224,19 @@ export default function MoreAbout() {
               </ScrollReveal>
             </div>
 
+          </div>
+
+          {/* Scroll Down Hint */}
+          <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
+            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
+            <motion.svg
+              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+              className={dark ? 'text-white/40' : 'text-black/30'}
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </motion.svg>
           </div>
         </FlowSection>
 
@@ -398,6 +411,19 @@ export default function MoreAbout() {
               </ScrollReveal>
             </div>
           </div>
+
+          {/* Scroll Down Hint */}
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
+            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
+            <motion.svg
+              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+              className={dark ? 'text-white/40' : 'text-black/30'}
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </motion.svg>
+          </div>
         </FlowSection>
 
         {/* Work Experience Section */}
@@ -556,6 +582,19 @@ export default function MoreAbout() {
               </ScrollReveal>
 
             </div>
+          </div>
+
+          {/* Scroll Down Hint */}
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
+            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
+            <motion.svg
+              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+              className={dark ? 'text-white/40' : 'text-black/30'}
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </motion.svg>
           </div>
         </FlowSection>
 

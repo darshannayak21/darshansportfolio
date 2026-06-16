@@ -43,10 +43,12 @@ export default function App() {
         window.addEventListener("load", finishLoading);
         return () => window.removeEventListener("load", finishLoading);
       }
-    }, 1500);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const isFirstMount = useRef(true);
 
   // Force scroll to top on refresh/load
   useLayoutEffect(() => {
@@ -60,18 +62,32 @@ export default function App() {
       if (window.location.hash) {
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
       }
-    } else if (location.hash && !isLoading) {
-      // If navigating internally with a hash after loaded
-      if (lenisRef.current?.lenis) {
-        lenisRef.current.lenis.scrollTo(location.hash, { offset: 0 });
-      } else {
-        const el = document.querySelector(location.hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+    } else {
+      // If the App just mounted (e.g., coming back from another page)
+      if (isFirstMount.current) {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       }
+
+      if (location.hash && !isLoading) {
+        // If navigating internally with a hash after loaded
+        const timer = setTimeout(() => {
+          if (lenisRef.current?.lenis) {
+            lenisRef.current.lenis.scrollTo(location.hash, { offset: -150, duration: 0.8 });
+          } else {
+            const el = document.querySelector(location.hash);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }
+        }, isFirstMount.current ? 50 : 0);
+        
+        isFirstMount.current = false;
+        return () => clearTimeout(timer);
+      }
+      isFirstMount.current = false;
     }
   }, [location.hash, isLoading]);
+
 
   // Recalculate all ScrollTrigger positions once everything is loaded
   useEffect(() => {
@@ -124,7 +140,7 @@ export default function App() {
             <motion.div
               initial={{ y: 0 }}
               exit={{ y: "-100%" }}
-              transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+              transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
               className={`fixed inset-0 z-[9999] flex items-center justify-center ${dark ? 'bg-black' : 'bg-white'}`}
             >
               <div className="scale-125 md:scale-150">
