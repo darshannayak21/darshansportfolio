@@ -206,7 +206,7 @@ export default function MoreAbout() {
               {/* Right Side: Hobbies Text */}
               <ScrollReveal direction="right" delay={0.2} className="w-full md:w-[55%]">
                 <div className="flex flex-col justify-center">
-                    <div className={`${dark ? 'bg-[#0a0a0a]/40 border-white/10' : 'bg-white/60 border-black/10'} backdrop-blur-md border rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]`}>
+                  <div className={`${dark ? 'bg-[#0a0a0a]/40 border-white/10' : 'bg-white/60 border-black/10'} backdrop-blur-md border rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]`}>
                     <h3 className={`font-display text-2xl md:text-4xl font-bold ${dark ? 'text-white' : 'text-gray-900'} mb-4 md:mb-6 tracking-tight`}>
                       Beyond Code
                     </h3>

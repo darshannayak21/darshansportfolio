@@ -60,18 +60,47 @@ export default function App() {
       if (window.location.hash) {
         window.history.replaceState(null, "", window.location.pathname + window.location.search);
       }
-    } else if (location.hash && !isLoading) {
-      // If navigating internally with a hash after loaded
-      if (lenisRef.current?.lenis) {
-        lenisRef.current.lenis.scrollTo(location.hash, { offset: 0 });
-      } else {
-        const el = document.querySelector(location.hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
     }
-  }, [location.hash, isLoading]);
+  }, []);
+
+  // Handle hash-based navigation (e.g. returning from subpages via /#work, /#bento-grid)
+  // Strategy: instantly jump to top first, then scroll DOWN to the target section.
+  // This guarantees a top-to-bottom scroll direction and avoids getting stuck
+  // on pinned/scrubbed GSAP elements when scrolling upward.
+  useEffect(() => {
+    if (!location.hash || isLoading) return;
+
+    const lenis = lenisRef.current?.lenis;
+
+    // Step 1: Instantly teleport to the very top (no animation)
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo(0, 0);
+
+    // Step 2: Let the layout settle and ScrollTriggers recalculate at position 0
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh(true);
+
+      // Step 3: Now smoothly scroll DOWN to the target section (top-to-bottom)
+      requestAnimationFrame(() => {
+        if (lenis) {
+          lenis.scrollTo(location.hash, {
+            offset: 0,
+            duration: 1.4,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        } else {
+          const el = document.querySelector(location.hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    }, 120);
+
+    return () => clearTimeout(timer);
+  }, [location.hash, location.key, isLoading]);
 
   // Recalculate all ScrollTrigger positions once everything is loaded
   useEffect(() => {
@@ -90,12 +119,12 @@ export default function App() {
   // Sync GSAP with Lenis for smooth ScrollTrigger animations
   useEffect(() => {
     if (!lenisRef.current?.lenis) return;
-    
+
     const lenis = lenisRef.current.lenis;
     lenis.on('scroll', ScrollTrigger.update);
-    
+
     gsap.ticker.lagSmoothing(0);
-    
+
     return () => {
       lenis.off('scroll', ScrollTrigger.update);
     };
