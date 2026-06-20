@@ -14,7 +14,6 @@ import Work from "@/sections/Work";
 import Skills from "@/sections/Skills";
 import Timeline from "@/sections/Timeline";
 import Contact from "@/sections/Contact";
-import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,8 +23,6 @@ export default function App() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(!hasShownLoader);
   const lenisRef = useRef<any>(null);
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
 
   // Minimum loading screen time
   useEffect(() => {
@@ -110,8 +107,6 @@ export default function App() {
     const lenis = lenisRef.current.lenis;
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.lagSmoothing(0);
-
     return () => {
       lenis.off('scroll', ScrollTrigger.update);
     };
@@ -133,15 +128,15 @@ export default function App() {
   }, []);
 
   return (
-    <ReactLenis root ref={lenisRef} options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
-      <div className={`${dark ? 'bg-black' : 'bg-[#f8f8f8]'} min-h-screen overflow-x-clip w-full relative`}>
+    <ReactLenis root ref={lenisRef} options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+      <div className="bg-[#f8f8f8] min-h-screen overflow-x-clip w-full relative">
         <AnimatePresence>
           {isLoading && (
             <motion.div
               initial={{ y: 0 }}
               exit={{ y: "-100%" }}
               transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-              className={`fixed inset-0 z-[9999] flex items-center justify-center ${dark ? 'bg-black' : 'bg-white'}`}
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
             >
               <div className="scale-125 md:scale-150">
                 <WaveLoader bars={5} />

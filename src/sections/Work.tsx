@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -201,8 +200,6 @@ function ProjectPanel({
   category: ProjectCategory;
   index: number;
 }) {
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
 
   return (
     <div className="project-panel w-full bg-black flex flex-col pt-10 md:pt-16">
@@ -236,7 +233,7 @@ function ProjectPanel({
                 </span>
               ))}
             </div>
-            <Link to={category.link} className={`group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium ${dark ? 'text-black bg-white border-white hover:bg-black hover:text-[#ffffff]' : 'text-[#ffffff] bg-[#333] border-transparent hover:bg-black hover:text-[#ffffff]'} border rounded-full px-5 py-2 transition-all duration-300 flex items-center gap-2 tracking-wide`}>
+            <Link to={category.link} className="group flex-shrink-0 font-body text-[11px] md:text-[12px] font-medium text-[#ffffff] bg-[#333] border-transparent hover:bg-black hover:text-[#ffffff] border rounded-full px-5 py-2 transition-all duration-300 flex items-center gap-2 tracking-wide">
               See all projects
               <svg
                 width="12"
@@ -343,14 +340,12 @@ export default function Work() {
             {
               height: 0,
               opacity: 0,
-              ease: "power1.inOut",
+              ease: "none",
               scrollTrigger: {
                 trigger: marqueeWrapper,
                 start: isMobile ? "top 45%" : "top 50%",
                 end: isMobile ? "top 10%" : "top 5%",
-                scrub: isMobile ? 0.8 : 1.2,
-                onLeave: () => ScrollTrigger.refresh(),
-                onEnterBack: () => ScrollTrigger.refresh(),
+                scrub: true,
               },
             }
           );
