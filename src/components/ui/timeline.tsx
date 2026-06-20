@@ -46,12 +46,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto pt-16 pb-8 px-4 md:px-8 lg:px-10">
-        <h2 className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-white' : 'text-[#000000]'} mb-4 tracking-tight max-w-4xl`}>
-          Key Milestones
-        </h2>
-        <p className={`${dark ? 'text-white/60' : 'text-[#000000]/70'} font-body text-sm md:text-base max-w-sm`}>
-          A timeline of my journey and major achievements.
-        </p>
+        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 md:gap-8">
+          <h2 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-semibold text-[#000000] tracking-tight">
+            Key Milestones
+          </h2>
+          <p className="text-[#000000]/50 font-body text-sm md:text-base">
+            A timeline of my journey and major achievements.
+          </p>
+        </div>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

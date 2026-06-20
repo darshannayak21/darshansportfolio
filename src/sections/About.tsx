@@ -19,11 +19,14 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex justify-center w-full pt-24 pb-0 -mb-16 px-6 md:px-12 lg:px-0 relative z-10"
+            className="hidden lg:flex justify-between items-baseline w-full pt-24 pb-0 -mb-16 px-6 md:px-12 lg:px-0 relative z-10 gap-8"
           >
-            <h2 className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-white' : 'text-black'}`}>
+            <h2 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-semibold text-black tracking-tight">
               About Me
             </h2>
+            <p className="text-black/50 font-body text-sm md:text-base shrink-0">
+              Who I am and what drives me.
+            </p>
           </motion.div>
           <div className="flex flex-col lg:flex-row items-start gap-0 lg:gap-16 px-6 md:px-12 lg:px-0">
             {/* Left side — Text Reveal */}
@@ -42,16 +45,20 @@ export default function About() {
                   </a>
                 }
                 header={
-                  <div className="flex lg:hidden flex-col items-center pt-16 pb-0">
+                  <div className="flex lg:hidden flex-col items-start pt-16 pb-0">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex flex-col gap-2 w-full mb-6"
                     >
-                      <h2 className={`font-display text-[clamp(1.75rem,5vw,2.5rem)] font-semibold ${dark ? 'text-white' : 'text-[#1d1d1f]'} mb-6`}>
+                      <h2 className="font-display text-[2.25rem] font-semibold text-[#1d1d1f] tracking-tight">
                         About Me
                       </h2>
+                      <p className="text-[#1d1d1f]/50 font-body text-sm">
+                        Who I am and what drives me.
+                      </p>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}

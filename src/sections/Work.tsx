@@ -369,10 +369,15 @@ export default function Work() {
     >
       {/* Section Header */}
       <div className="px-5 md:px-10 lg:px-16 mb-10">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold text-white">
-            Selected Work
-          </h2>
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 md:gap-8">
+            <h2 className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-semibold text-white tracking-tight">
+              Selected Work
+            </h2>
+            <p className="text-white/50 font-body text-sm md:text-base">
+              A curated collection of my recent projects.
+            </p>
+          </div>
         </div>
       </div>
 

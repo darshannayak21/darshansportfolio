@@ -50,9 +50,8 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
         <div className="flex flex-col px-1 mt-10 pb-16">
           <p
-            className={`font-body text-[1.05rem] leading-[1.6] font-normal tracking-[-0.01em] ${
-              dark ? 'text-white/85' : 'text-[#1d1d1f]'
-            }`}
+            className={`font-body text-[1.05rem] leading-[1.6] font-normal tracking-[-0.01em] ${dark ? 'text-white/85' : 'text-[#1d1d1f]'
+              }`}
           >
             {text}
           </p>
