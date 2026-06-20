@@ -134,7 +134,7 @@ export default function App() {
     // If scrolling to sections BELOW the Work section, the marquees will contract to 0 height
     // during the scroll. This shrinks the document, pulling the target UP.
     // We must compensate by subtracting their CURRENT remaining height from the scroll target!
-    if (target === "#skills" || target === "#timeline" || target === "#contact") {
+    if (target === "#skills" || target === "#timeline" || target === "#achievements" || target === "#contact") {
       const marquees = document.querySelectorAll(".marquee-wrapper");
       marquees.forEach((m) => {
         offset -= (m as HTMLElement).offsetHeight;

@@ -40,116 +40,84 @@ export default function Contact() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLAnchorElement>(null);
   const mockupRef = useRef<HTMLDivElement>(null);
+  const leftBoxRef = useRef<HTMLDivElement>(null);
+  const rightBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    const ctx = gsap.context(() => {
-      // Headline words stagger in
-      if (headlineRef.current) {
-        const words = headlineRef.current.querySelectorAll(".word");
-        gsap.fromTo(
-          words,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: headlineRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-      }
+    const ctx = gsap.context(() => {}, section);
 
-      // Subline
-      if (subRef.current) {
-        gsap.fromTo(
-          subRef.current,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: subRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-      }
+    let sectionAnimated = false;
+    let leftAnimated = false;
+    let rightAnimated = false;
 
-      // CTA
-      if (ctaRef.current) {
-        gsap.fromTo(
-          ctaRef.current,
-          { opacity: 0, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            delay: 0.5,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ctaRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-      }
+    const observerOptions = { threshold: 0.05 }; // Triggers when element is 5% in view
 
-      // Email
-      if (emailRef.current) {
-        gsap.fromTo(
-          emailRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.5,
-            delay: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: emailRef.current,
-              start: "top 90%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
+    // 1. Headline Observer
+    const sectionObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !sectionAnimated) {
+        sectionAnimated = true;
+        ctx.add(() => {
+          if (headlineRef.current) {
+            const words = headlineRef.current.querySelectorAll(".word");
+            gsap.fromTo(
+              words,
+              { opacity: 0, y: 50 },
+              { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: "power3.out" }
+            );
+          }
+        });
       }
+    }, observerOptions);
 
-      // Mobile Phone Mockup
-      if (mockupRef.current) {
-        gsap.fromTo(
-          mockupRef.current,
-          { y: 300, opacity: 0, scale: 0.8, rotationX: 15 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            rotationX: 0,
-            duration: 1.2,
-            delay: 0.2, // Drastically reduced delay so phone pops up instantly
-            ease: "expo.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 60%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
+    // 2. Left Box Text Observer
+    const leftObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !leftAnimated) {
+        leftAnimated = true;
+        ctx.add(() => {
+          const tl = gsap.timeline();
+          if (subRef.current) {
+            tl.fromTo(subRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0);
+          }
+          if (ctaRef.current) {
+            tl.fromTo(ctaRef.current, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+          }
+          if (emailRef.current) {
+            tl.fromTo(emailRef.current, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.3);
+          }
+        });
       }
-    }, section);
+    }, observerOptions);
 
-    return () => ctx.revert();
+    // 3. Right Box Phone Observer
+    const rightObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !rightAnimated) {
+        rightAnimated = true;
+        ctx.add(() => {
+          if (mockupRef.current) {
+            gsap.fromTo(
+              mockupRef.current,
+              { y: 300, opacity: 0, scale: 0.8, rotationX: 15 },
+              { y: 0, opacity: 1, scale: 1, rotationX: 0, duration: 1.2, ease: "expo.out" }
+            );
+          }
+        });
+      }
+    }, observerOptions);
+
+    // Start observing
+    sectionObserver.observe(section);
+    if (leftBoxRef.current) leftObserver.observe(leftBoxRef.current);
+    if (rightBoxRef.current) rightObserver.observe(rightBoxRef.current);
+
+    return () => {
+      sectionObserver.disconnect();
+      leftObserver.disconnect();
+      rightObserver.disconnect();
+      ctx.revert();
+    };
   }, []);
 
   const headlineWords = "Let's Build Something".split(" ");
@@ -191,7 +159,7 @@ export default function Contact() {
           {/* Main Layout Grid */}
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20 items-center">
             {/* Left Column - Clean Premium Box */}
-            <div className="w-full h-full min-h-[580px] lg:col-span-7 bg-[#f0f0f0] border-black/10 border shadow-2xl rounded-[2.5rem] p-10 md:p-14 lg:p-16 flex flex-col relative overflow-hidden">
+            <div ref={leftBoxRef} className="w-full h-full min-h-[580px] lg:col-span-7 bg-[#f0f0f0] border-black/10 border shadow-2xl rounded-[2.5rem] p-10 md:p-14 lg:p-16 flex flex-col relative overflow-hidden">
               {/* Extremely subtle top highlight */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent"></div>
 
@@ -243,7 +211,7 @@ export default function Contact() {
             </div>
 
             {/* Right Column - Mobile Phone Mockup */}
-            <div className="flex lg:col-span-5 items-center justify-center relative w-full h-[580px] perspective-[1000px] mt-10 lg:mt-0 transform scale-90 sm:scale-100">
+            <div ref={rightBoxRef} className="flex lg:col-span-5 items-center justify-center relative w-full h-[580px] perspective-[1000px] mt-10 lg:mt-0 transform scale-90 sm:scale-100">
               <div
                 ref={mockupRef}
                 className="relative w-[280px] h-[580px] rounded-[3rem] iphone-bezel flex flex-col will-change-transform transform-style-3d opacity-0"
