@@ -21,7 +21,7 @@ export default function FloatingPillNavbar({
 }: FloatingPillNavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const dark = theme === 'dark';
 
   useEffect(() => {
