@@ -1,18 +1,18 @@
-import { StrictMode, Suspense, lazy } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import './index.css'
-import { WaveLoader } from '@/components/ui/wave-loader'
+import { StrictMode, Suspense, lazy } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import "./index.css";
+import { WaveLoader } from "@/components/ui/wave-loader";
 
 // Eager load the main app to ensure hero/loader shows immediately
-import App from './App.tsx'
+import App from "./App.tsx";
 
 // Lazy load the subpages to optimize the main bundle
-const MoreAbout = lazy(() => import('./pages/MoreAbout.tsx'))
-const AiSystems = lazy(() => import('./pages/AiSystems.tsx'))
-const HackathonProjects = lazy(() => import('./pages/HackathonProjects.tsx'))
-const ExperimentalBuilds = lazy(() => import('./pages/ExperimentalBuilds.tsx'))
+const MoreAbout = lazy(() => import("./pages/MoreAbout.tsx"));
+const AiSystems = lazy(() => import("./pages/AiSystems.tsx"));
+const HackathonProjects = lazy(() => import("./pages/HackathonProjects.tsx"));
+const ExperimentalBuilds = lazy(() => import("./pages/ExperimentalBuilds.tsx"));
 
 // A simple loading fallback for lazy routes
 const PageLoader = () => (
@@ -23,13 +23,13 @@ const PageLoader = () => (
   </div>
 );
 
-// If the user lands on any subpage via a hard refresh or direct link, 
+// If the user lands on any subpage via a hard refresh or direct link,
 // force the URL back to the root hero section before React Router initializes.
-if (window.location.pathname !== '/') {
-  window.history.replaceState(null, '', '/');
+if (window.location.pathname !== "/") {
+  window.history.replaceState(null, "", "/");
 }
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
       <BrowserRouter>
@@ -45,4 +45,4 @@ createRoot(document.getElementById('root')!).render(
       </BrowserRouter>
     </ThemeProvider>
   </StrictMode>,
-)
+);

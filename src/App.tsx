@@ -1,9 +1,15 @@
-import { useCallback, useEffect, useLayoutEffect, useState, useRef } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useRef,
+} from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ReactLenis } from 'lenis/react';
+import { ReactLenis } from "lenis/react";
 
 import FloatingPillNavbar from "@/components/FloatingPillNavbar";
 import Footer from "@/components/Footer";
@@ -34,7 +40,7 @@ export default function App() {
     };
 
     const timer = setTimeout(() => {
-      if (document.readyState === 'complete') {
+      if (document.readyState === "complete") {
         finishLoading();
       } else {
         window.addEventListener("load", finishLoading);
@@ -57,7 +63,11 @@ export default function App() {
     if (!hasShownLoader) {
       window.scrollTo(0, 0);
       if (window.location.hash) {
-        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        window.history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
       }
     } else {
       // If the App just mounted (e.g., coming back from another page)
@@ -67,16 +77,22 @@ export default function App() {
 
       if (location.hash && !isLoading) {
         // If navigating internally with a hash after loaded
-        const timer = setTimeout(() => {
-          if (lenisRef.current?.lenis) {
-            lenisRef.current.lenis.scrollTo(location.hash, { offset: -150, duration: 0.8 });
-          } else {
-            const el = document.querySelector(location.hash);
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth", block: "start" });
+        const timer = setTimeout(
+          () => {
+            if (lenisRef.current?.lenis) {
+              lenisRef.current.lenis.scrollTo(location.hash, {
+                offset: -150,
+                duration: 0.8,
+              });
+            } else {
+              const el = document.querySelector(location.hash);
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             }
-          }
-        }, isFirstMount.current ? 50 : 0);
+          },
+          isFirstMount.current ? 50 : 0,
+        );
 
         isFirstMount.current = false;
         return () => clearTimeout(timer);
@@ -84,7 +100,6 @@ export default function App() {
       isFirstMount.current = false;
     }
   }, [location.hash, isLoading]);
-
 
   // Recalculate all ScrollTrigger positions once everything is loaded
   useEffect(() => {
@@ -105,30 +120,48 @@ export default function App() {
     if (!lenisRef.current?.lenis) return;
 
     const lenis = lenisRef.current.lenis;
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on("scroll", ScrollTrigger.update);
 
     return () => {
-      lenis.off('scroll', ScrollTrigger.update);
+      lenis.off("scroll", ScrollTrigger.update);
     };
   }, [isLoading]);
 
   // Navigation handler using robust Lenis scrollTo instead of buggy manual requestAnimationFrame loop
   const handleNavigate = useCallback((target: string) => {
+    let offset = 0;
+
+    // If scrolling to sections BELOW the Work section, the marquees will contract to 0 height
+    // during the scroll. This shrinks the document, pulling the target UP.
+    // We must compensate by subtracting their CURRENT remaining height from the scroll target!
+    if (target === "#skills" || target === "#timeline" || target === "#contact") {
+      const marquees = document.querySelectorAll(".marquee-wrapper");
+      marquees.forEach((m) => {
+        offset -= (m as HTMLElement).offsetHeight;
+      });
+    }
+
     if (lenisRef.current?.lenis) {
       lenisRef.current.lenis.scrollTo(target, {
+        offset: offset,
         duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
     } else {
       const el = document.querySelector(target);
       if (el) {
+        // Fallback for native smooth scroll
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }, []);
 
   return (
-    <ReactLenis root ref={lenisRef} options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis
+      root
+      ref={lenisRef}
+      options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}
+    >
       <div className="bg-[#f8f8f8] min-h-screen overflow-x-clip w-full relative">
         <AnimatePresence>
           {isLoading && (

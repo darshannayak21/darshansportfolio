@@ -1,16 +1,9 @@
 import { TextRevealByWord } from "@/components/ui/text-reveal";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useTheme } from "@/components/ThemeProvider";
-
 export default function About() {
-  const { theme } = useTheme();
-  const dark = theme === "dark";
   return (
-    <section
-      id="about"
-      className={`flex flex-col ${dark ? 'bg-black' : 'bg-[#f8f8f8]'}`}
-    >
+    <section id="about" className="flex flex-col bg-[#f8f8f8]">
       {/* ── Text Reveal Area ── */}
       <div className="w-full">
         <div className="max-w-[1400px] mx-auto lg:px-20">
@@ -62,7 +55,11 @@ export default function About() {
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                      whileInView={{
+                        opacity: 1,
+                        scale: 1,
+                        filter: "blur(0px)",
+                      }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
                       className="w-full max-w-[260px] mx-auto overflow-hidden rounded-none mb-6"
@@ -99,9 +96,11 @@ export default function About() {
       </div>
 
       {/* ── Bento Grid ── */}
-      <div id="bento-grid" className="w-full px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto pb-24">
+      <div
+        id="bento-grid"
+        className="w-full px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto pb-24"
+      >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[220px]">
-
           {/* Research & Exploration */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
@@ -110,13 +109,35 @@ export default function About() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
-            <Link to="/moreabout#more-about" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block ${dark ? 'bg-[#1c1c1e]/80 backdrop-blur-2xl border-white/[0.04] hover:border-white/[0.08] hover:bg-[#2c2c2e]/80 shadow-2xl' : 'bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]'}`}>
+            <Link
+              to="/moreabout#more-about"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+            >
               <div className="relative z-10">
-                <h3 className={`font-display tracking-tight text-2xl font-bold mb-2 leading-tight ${dark ? 'text-white' : 'text-gray-900'}`}>More about<br />Me!</h3>
-                <p className={`font-body text-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>Beyond code: Art, Sports & Global upbringing</p>
+                <h3 className="font-display tracking-tight text-2xl font-bold mb-2 leading-tight text-gray-900">
+                  More about
+                  <br />
+                  Me!
+                </h3>
+                <p className="font-body text-sm text-gray-600">
+                  Beyond code: Art, Sports & Global upbringing
+                </p>
               </div>
-              <div className={`relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 ${dark ? 'border-white/10 group-hover:bg-white/10' : 'border-black/10 group-hover:bg-black/5'}`}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={dark ? 'text-white' : 'text-gray-900'}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-900"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
             </Link>
           </motion.div>
@@ -129,13 +150,33 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-1 md:row-span-1"
           >
-            <Link to="/moreabout#interests" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block ${dark ? 'bg-[#1c1c1e]/80 backdrop-blur-2xl border-white/[0.04] hover:border-white/[0.08] hover:bg-[#2c2c2e]/80 shadow-2xl' : 'bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]'}`}>
+            <Link
+              to="/moreabout#interests"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+            >
               <div className="relative z-10">
-                <h3 className={`font-display tracking-tight text-2xl font-bold mb-2 ${dark ? 'text-white' : 'text-gray-900'}`}>Current Interests</h3>
-                <p className={`font-body text-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>AI Memory, Human-Centered Systems & Vision</p>
+                <h3 className="font-display tracking-tight text-2xl font-bold mb-2 text-gray-900">
+                  Current Interests
+                </h3>
+                <p className="font-body text-sm text-gray-600">
+                  AI Memory, Human-Centered Systems & Vision
+                </p>
               </div>
-              <div className={`absolute z-10 bottom-6 right-6 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 ${dark ? 'border-white/10 group-hover:bg-white/10' : 'border-black/10 group-hover:bg-black/5'}`}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={dark ? 'text-white' : 'text-gray-900'}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <div className="absolute z-10 bottom-6 right-6 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-900"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
             </Link>
           </motion.div>
@@ -148,13 +189,33 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-2 md:row-span-2"
           >
-            <Link to="/moreabout#work" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 md:p-10 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block ${dark ? 'bg-[#1c1c1e]/80 backdrop-blur-2xl border-white/[0.04] hover:border-white/[0.08] hover:bg-[#2c2c2e]/80 shadow-2xl' : 'bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]'}`}>
+            <Link
+              to="/moreabout#work"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 md:p-10 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+            >
               <div className="relative z-10">
-                <h3 className={`font-display tracking-tight text-4xl md:text-5xl font-bold mb-3 ${dark ? 'text-white' : 'text-gray-900'}`}>Experiences</h3>
-                <p className={`font-body text-lg max-w-sm ${dark ? 'text-white/60' : 'text-gray-600'}`}>Internships, Published Research & 10+ Hackathons.</p>
+                <h3 className="font-display tracking-tight text-4xl md:text-5xl font-bold mb-3 text-gray-900">
+                  Experiences
+                </h3>
+                <p className="font-body text-lg max-w-sm text-gray-600">
+                  Internships, Published Research & 10+ Hackathons.
+                </p>
               </div>
-              <div className={`absolute z-10 top-8 right-8 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 ${dark ? 'border-white/10 group-hover:bg-white/10' : 'border-black/10 group-hover:bg-black/5'}`}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={dark ? 'text-white' : 'text-gray-900'}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <div className="absolute z-10 top-8 right-8 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-900"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
             </Link>
           </motion.div>
@@ -167,17 +228,37 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-1 md:col-span-2 md:row-span-1"
           >
-            <Link to="/moreabout#journey" className={`bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block ${dark ? 'bg-[#1c1c1e]/80 backdrop-blur-2xl border-white/[0.04] hover:border-white/[0.08] hover:bg-[#2c2c2e]/80 shadow-2xl' : 'bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]'}`}>
+            <Link
+              to="/moreabout#journey"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+            >
               <div className="relative z-10">
-                <h3 className={`font-display tracking-tight text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-gray-900'}`}>My Journey and Education</h3>
-                <p className={`font-body ${dark ? 'text-white/70' : 'text-gray-600'}`}>A global education shaping a passion for Artificial Intelligence.</p>
+                <h3 className="font-display tracking-tight text-3xl font-bold mb-2 text-gray-900">
+                  My Journey and Education
+                </h3>
+                <p className="font-body text-gray-600">
+                  A global education shaping a passion for Artificial
+                  Intelligence.
+                </p>
               </div>
-              <div className={`relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 ${dark ? 'border-white/10 group-hover:bg-white/10' : 'border-black/10 group-hover:bg-black/5'}`}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={dark ? 'text-white' : 'text-gray-900'}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-900"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </div>
             </Link>
           </motion.div>
-
         </div>
       </div>
     </section>

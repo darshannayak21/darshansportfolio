@@ -6,8 +6,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
 
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/components/ThemeProvider";
-
 interface TextRevealByWordProps {
   text: string;
   className?: string;
@@ -24,15 +22,13 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   footer,
 }) => {
   const targetRef = useRef<HTMLDivElement | null>(null);
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -50,8 +46,7 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
         <div className="flex flex-col px-1 mt-10 pb-16">
           <p
-            className={`font-body text-[1.05rem] leading-[1.6] font-normal tracking-[-0.01em] ${dark ? 'text-white/85' : 'text-[#1d1d1f]'
-              }`}
+            className={`font-body text-[1.05rem] leading-[1.6] font-normal tracking-[-0.01em] ${"text-[#1d1d1f]"}`}
           >
             {text}
           </p>
@@ -74,9 +69,7 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
         <div className="flex flex-col">
           <p
-            className={
-              `flex flex-wrap text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold ${dark ? 'text-white/30' : 'text-gray-900/20'} leading-[1.35] mt-auto lg:mt-0`
-            }
+            className={`flex flex-wrap text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-gray-900/20 leading-[1.35] mt-auto lg:mt-0`}
           >
             {words.map((word, i) => {
               const start = i / words.length;
@@ -103,15 +96,10 @@ interface WordProps {
 
 const Word: FC<WordProps> = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
   return (
     <span className="xl:lg-3 relative mx-1 lg:mx-2.5">
       <span className={"absolute opacity-30"}>{children}</span>
-      <motion.span
-        style={{ opacity: opacity }}
-        className={dark ? "text-white" : "text-black"}
-      >
+      <motion.span style={{ opacity: opacity }} className="text-black">
         {children}
       </motion.span>
     </span>

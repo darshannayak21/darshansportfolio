@@ -9,8 +9,8 @@ export default function Skills() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
-    }
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+    },
   };
 
   const skillCategories = [
@@ -23,8 +23,8 @@ export default function Skills() {
         "Computer Vision (OpenCV, YOLOv8)",
         "NLP & RAG Architectures",
         "Deep Learning & CNNs",
-        "Gemini AI / Vertex AI"
-      ]
+        "Gemini AI / Vertex AI",
+      ],
     },
     {
       title: "Web & Full-Stack",
@@ -34,8 +34,8 @@ export default function Skills() {
         "JavaScript / TypeScript",
         "Firebase / Supabase",
         "REST APIs / Socket.io",
-        "MongoDB / PostgreSQL"
-      ]
+        "MongoDB / PostgreSQL",
+      ],
     },
     {
       title: "Systems & Tools",
@@ -45,9 +45,9 @@ export default function Skills() {
         "Docker",
         "Figma / UI Design",
         "Cloud Deployment",
-        "Linux / Shell"
-      ]
-    }
+        "Linux / Shell",
+      ],
+    },
   ];
 
   return (
@@ -58,11 +58,10 @@ export default function Skills() {
     >
       <div className="w-full px-6 md:px-12 lg:px-20 pt-12 md:pt-24 pb-[clamp(60px,10vh,120px)]">
         <div className="max-w-[1400px] mx-auto">
-
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
             variants={slideUpVariants}
             className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 md:gap-8 mb-8 md:mb-12"
           >
@@ -80,7 +79,7 @@ export default function Skills() {
                 key={category.title}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "0px 0px -10% 0px" }}
                 variants={slideUpVariants}
                 className="flex flex-col"
               >
@@ -90,7 +89,10 @@ export default function Skills() {
                 <div className="w-full h-px bg-[#ffffff]/10 mb-4 md:mb-6"></div>
                 <ul className="space-y-2 md:space-y-3">
                   {category.skills.map((skill) => (
-                    <li key={skill} className="font-body text-xs md:text-sm text-[#ffffff]/80">
+                    <li
+                      key={skill}
+                      className="font-body text-xs md:text-sm text-[#ffffff]/80"
+                    >
                       {skill}
                     </li>
                   ))}
@@ -98,7 +100,6 @@ export default function Skills() {
               </motion.div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

@@ -34,7 +34,7 @@ export default function Hero({ isLoaded }: HeroProps) {
             duration: 0.8,
             ease: "power3.out",
           },
-          2.5 // Delay CTA button slightly so it appears after the text effects
+          2.5, // Delay CTA button slightly so it appears after the text effects
         );
       }
     });
@@ -53,7 +53,7 @@ export default function Hero({ isLoaded }: HeroProps) {
       onUpdate: (self) => {
         if (scrollCueRef.current) {
           scrollCueRef.current.style.opacity = String(
-            Math.max(0, 1 - self.scroll() / 100)
+            Math.max(0, 1 - self.scroll() / 100),
           );
         }
       },
@@ -80,7 +80,6 @@ export default function Hero({ isLoaded }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 text-center flex flex-col items-center justify-center pointer-events-none">
-
         <TextEffect
           as="h1"
           per="char"
@@ -110,7 +109,8 @@ export default function Hero({ isLoaded }: HeroProps) {
           delay={1.8}
           className="font-body text-base md:text-lg text-white/50 max-w-[500px] leading-relaxed mb-10 pointer-events-auto"
         >
-          From embedded electronics to intelligent agents — engineering AI systems that think, adapt, and make a real difference.
+          From embedded electronics to intelligent agents — engineering AI
+          systems that think, adapt, and make a real difference.
         </TextEffect>
 
         <div ref={ctaRef} className="pointer-events-auto mt-6 dark">

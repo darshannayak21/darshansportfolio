@@ -251,7 +251,7 @@ function ProjectPanel({
         </div>
 
         {/* Description — shown third on both, different content per breakpoint */}
-        <div className="px-5 md:px-10 lg:px-16 order-3">
+        <div className="project-description px-5 md:px-10 lg:px-16 order-3">
           <div className="max-w-[1400px] mx-auto">
             {/* Desktop: 3-column layout with empty first col */}
             <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-12">
@@ -303,36 +303,61 @@ export default function Work() {
     const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
     if (panels.length === 0) return;
 
-    const ctx = gsap.context(() => {
+    // Bulletproof scroll listener for exact entrance timing, 
+    // immune to initial layout bunching and GSAP marker shifts.
+    const handleScroll = () => {
       panels.forEach((panel) => {
-        // Entrance animation — fast and immediate, same as before
-        gsap.fromTo(
-          panel,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: panel,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
+        if (panel.dataset.animated === "true") return;
+        const rect = panel.getBoundingClientRect();
+        
+        // Unify the entrance threshold to 90% for all sections. 
+        // This ensures the panel is fully visible BEFORE its marquee hits the 80% contraction point.
+        const triggerPoint = window.innerHeight * 0.9;
+        
+        if (rect.top < triggerPoint) {
+          panel.dataset.animated = "true";
+          gsap.fromTo(
+            panel,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.4,
+              ease: "power2.out",
+            }
+          );
+        }
+      });
+    };
 
-        // Scroll-scrubbed collapse — tied directly to scroll position
-        // This creates the buttery smooth poch.studio effect where the
-        // marquee area shrinks proportionally as you scroll (1:1 feel)
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Small delay to allow initial layout to settle before first check
+    setTimeout(handleScroll, 100);
+
+    const ctx = gsap.context(() => {
+      // Pre-calculate heights to perfectly predict the layout shift
+      const marqueeHeights = panels.map((panel) => {
+        const wrapper = panel.querySelector<HTMLElement>(".marquee-wrapper");
+        return wrapper ? wrapper.offsetHeight : 0;
+      });
+
+      panels.forEach((panel, i) => {
         const marqueeWrapper = panel.querySelector<HTMLElement>(".marquee-wrapper");
-        if (marqueeWrapper) {
-          // Store the natural height so we can animate from it
-          const naturalHeight = marqueeWrapper.offsetHeight;
+        const descriptionEl = panel.querySelector<HTMLElement>(".project-description");
+        
+        if (marqueeWrapper && descriptionEl) {
+          const naturalHeight = marqueeHeights[i];
           gsap.set(marqueeWrapper, { overflow: "hidden" });
 
-          // Trigger earlier on mobile since panels are shorter
-          const isMobile = window.innerWidth < 768;
+          // Mathematically predict the layout shift caused by ALL previous sections contracting.
+          // By adding the shiftOffset, we force the trigger to fire EARLIER in the scroll,
+          // perfectly compensating for the fact that the element will be pulled up the page.
+          const shiftOffset = marqueeHeights.slice(0, i).reduce((sum, height) => sum + height, 0);
+
+          // 1st section stays at "top top". 
+          // 2nd & 3rd sections trigger slightly earlier ("top 15%") so they don't have to scroll as far down.
+          const viewportTrigger = i === 0 ? "top" : "15%";
+          const startValue = shiftOffset === 0 ? `top ${viewportTrigger}` : `top ${viewportTrigger}+=${shiftOffset}`;
 
           gsap.fromTo(
             marqueeWrapper,
@@ -342,9 +367,9 @@ export default function Work() {
               opacity: 0,
               ease: "none",
               scrollTrigger: {
-                trigger: marqueeWrapper,
-                start: isMobile ? "top 45%" : "top 50%",
-                end: isMobile ? "top 10%" : "top 5%",
+                trigger: descriptionEl,
+                start: startValue,
+                end: () => "+=" + naturalHeight,
                 scrub: true,
               },
             }
@@ -353,7 +378,10 @@ export default function Work() {
       });
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

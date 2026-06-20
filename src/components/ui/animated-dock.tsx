@@ -1,6 +1,6 @@
-"use client" 
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import { useRef } from "react";
 import {
   MotionValue,
@@ -9,26 +9,26 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
- 
+
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
 const cn = (...args: any[]) => twMerge(clsx(args));
- 
+
 export interface AnimatedDockProps {
   className?: string;
   items: DockItemData[];
 }
- 
+
 export interface DockItemData {
   link: string;
   Icon: React.ReactNode;
   target?: string;
 }
- 
+
 export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
   const mouseX = useMotionValue(Infinity);
- 
+
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -53,12 +53,12 @@ export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
     </motion.div>
   );
 };
- 
+
 interface DockItemProps {
   mouseX: MotionValue<number>;
   children: React.ReactNode;
 }
- 
+
 export const DockItem = ({ mouseX, children }: DockItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
