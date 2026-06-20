@@ -42,14 +42,14 @@ export default function About() {
                   </a>
                 }
                 header={
-                  <div className="flex lg:hidden flex-col items-center pt-32 pb-0">
+                  <div className="flex lg:hidden flex-col items-center pt-16 pb-0">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <h2 className={`font-display text-[clamp(2rem,5vw,3rem)] font-bold ${dark ? 'text-white' : 'text-black'} mb-4`}>
+                      <h2 className={`font-display text-[clamp(1.75rem,5vw,2.5rem)] font-semibold ${dark ? 'text-white' : 'text-[#1d1d1f]'} mb-6`}>
                         About Me
                       </h2>
                     </motion.div>
@@ -58,7 +58,7 @@ export default function About() {
                       whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full max-w-[260px] overflow-hidden rounded-none"
+                      className="w-full max-w-[260px] overflow-hidden rounded-none mb-6"
                     >
                       <img
                         src="/darshan.png"

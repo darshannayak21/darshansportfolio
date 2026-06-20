@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import type { FC, ReactNode } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
@@ -15,6 +15,8 @@ interface TextRevealByWordProps {
   footer?: ReactNode;
 }
 
+const MOBILE_BREAKPOINT = 1024; // lg breakpoint
+
 const TextRevealByWord: FC<TextRevealByWordProps> = ({
   text,
   className,
@@ -24,6 +26,14 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { theme } = useTheme();
   const dark = theme === 'dark';
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -31,6 +41,28 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   });
   const words = text.split(" ");
 
+  // ── Mobile: static text, no scroll effect ──
+  if (isMobile) {
+    return (
+      <div className="relative z-0">
+        {/* Optional header (e.g., mobile photo) */}
+        {header && <div className="flex-shrink-0">{header}</div>}
+
+        <div className="flex flex-col px-1 mt-10 pb-16">
+          <p
+            className={`font-body text-[1.05rem] leading-[1.6] font-normal tracking-[-0.01em] ${
+              dark ? 'text-white/85' : 'text-[#1d1d1f]'
+            }`}
+          >
+            {text}
+          </p>
+          {footer && <div className="mt-8 ml-0">{footer}</div>}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Desktop: scroll-based word reveal ──
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
       <div
