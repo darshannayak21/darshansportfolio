@@ -5,7 +5,6 @@ import { ChevronDown } from "lucide-react";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { TextEffect } from "@/components/ui/text-effect";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { useTheme } from "@/components/ThemeProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +16,6 @@ export default function Hero({ isLoaded }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
 
   useEffect(() => {
     if (!isLoaded) return;

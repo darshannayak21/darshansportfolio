@@ -1,11 +1,8 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@/components/ThemeProvider";
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { theme } = useTheme();
-  const dark = theme === 'dark';
 
   const slideUpVariants: any = {
     hidden: { opacity: 0, y: 40 },
@@ -73,7 +70,7 @@ export default function Skills() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-            {skillCategories.map((category, index) => (
+            {skillCategories.map((category) => (
               <motion.div 
                 key={category.title}
                 initial="hidden"
