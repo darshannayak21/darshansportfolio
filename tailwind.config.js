@@ -53,8 +53,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Inter Tight"', 'system-ui', 'sans-serif'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"DM Sans"', 'system-ui', 'sans-serif'],
+        body: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"DM Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {

@@ -225,7 +225,7 @@ export default function Contact() {
                 <a
                   ref={emailRef}
                   href="mailto:ndarshan507@gmail.com"
-                  className={`font-mono text-base md:text-lg ${dark ? 'text-white/40 hover:text-white' : 'text-[#000000]/60 hover:text-[#000000]'} transition-colors duration-300`}
+                  className={`font-body text-base md:text-lg text-[#0066cc] hover:text-[#0055b3] font-medium transition-colors duration-300`}
                 >
                   ndarshan507@gmail.com
                 </a>

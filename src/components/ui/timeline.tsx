@@ -45,7 +45,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className={`w-full ${dark ? 'bg-[#050505]' : 'bg-[#f8f8f8]'} font-sans md:px-10`}
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto pt-16 pb-8 px-4 md:px-8 lg:px-10">
         <h2 className={`font-display text-[clamp(2.5rem,6vw,5rem)] font-bold ${dark ? 'text-white' : 'text-[#000000]'} mb-4 tracking-tight max-w-4xl`}>
           Key Milestones
         </h2>
@@ -58,9 +58,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex justify-start pt-10 md:pt-20 md:gap-10"
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-32 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className={`h-10 absolute left-3 md:left-3 w-10 rounded-full ${dark ? 'bg-[#0a0a0a]' : 'bg-[#e8e8e8]'} flex items-center justify-center`}>
                 <div className={`h-4 w-4 rounded-full bg-[#ff5500] shadow-[0_0_10px_#ff5500] border ${dark ? 'border-white/20' : 'border-black/10'} p-2`} />
               </div>

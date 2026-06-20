@@ -80,7 +80,7 @@ export default function App() {
             }
           }
         }, isFirstMount.current ? 50 : 0);
-        
+
         isFirstMount.current = false;
         return () => clearTimeout(timer);
       }
@@ -106,12 +106,12 @@ export default function App() {
   // Sync GSAP with Lenis for smooth ScrollTrigger animations
   useEffect(() => {
     if (!lenisRef.current?.lenis) return;
-    
+
     const lenis = lenisRef.current.lenis;
     lenis.on('scroll', ScrollTrigger.update);
-    
+
     gsap.ticker.lagSmoothing(0);
-    
+
     return () => {
       lenis.off('scroll', ScrollTrigger.update);
     };

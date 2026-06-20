@@ -15,10 +15,10 @@ export default function AiSystems() {
       {/* Back Button */}
       <Link 
         to="/#work" 
-        className={`fixed top-6 right-6 z-[100] group flex items-center justify-center gap-2 ${dark ? 'bg-black/30 hover:bg-black/50 border-white/10' : 'bg-black/10 hover:bg-black/20 border-black/10'} backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.1)] border px-6 py-3 rounded-full font-mono text-sm uppercase tracking-wider transition-all duration-300`}
+        className={`fixed top-6 right-6 z-[100] group flex items-center justify-center gap-2 ${dark ? 'bg-[#1d1d1f]/80 hover:bg-[#2c2c2e]/80 text-white border-white/[0.08]' : 'bg-[#ffffff]/80 hover:bg-[#f5f5f7]/80 text-[#1d1d1f] border-black/[0.04] shadow-[0_4px_14px_rgba(0,0,0,0.05)]'} backdrop-blur-2xl border px-4 py-2 rounded-full font-body text-[14px] font-medium transition-all duration-300 active:scale-95`}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${dark ? 'text-white' : 'text-black'} group-hover:-translate-x-1 transition-all duration-300`}><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        <span className={`${dark ? 'text-white' : 'text-black'} transition-colors duration-300 font-bold`}>Back</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:-translate-x-0.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Back</span>
       </Link>
 
       <div className="max-w-[1400px] mx-auto pt-24 md:pt-32">

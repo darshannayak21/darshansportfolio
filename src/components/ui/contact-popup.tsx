@@ -68,7 +68,7 @@ export default function ContactPopup() {
               style={{ borderRadius: "100px" }}
               layout
               layoutId="cta-card"
-              className="absolute inset-0 bg-[#ff5500]"
+              className="absolute inset-0 bg-[#1c1c1e]"
             />
             <motion.button
               initial={{ opacity: 0, scale: 0.9 }}
@@ -77,7 +77,7 @@ export default function ContactPopup() {
               exit={{ opacity: 0, scale: 0.8 }}
               layout={false}
               onClick={handleExpand}
-              className="relative flex items-center gap-2 h-14 px-8 py-3 text-lg font-medium text-white tracking-wide hover:opacity-90 transition-opacity"
+              className="relative flex items-center gap-2 h-14 px-8 py-3 text-lg font-medium text-[#ffffff] tracking-wide hover:opacity-90 transition-opacity"
             >
               Get in Touch
               <ArrowRight className="w-5 h-5" />
@@ -96,7 +96,7 @@ export default function ContactPopup() {
                 transition={{ type: "spring", bounce: 0, duration: 0.4 }}
                 style={{ borderRadius: "24px" }}
                 layout
-                className="relative flex h-full w-full overflow-hidden bg-[#ff5500] sm:rounded-[24px] shadow-2xl"
+                className="relative flex h-full w-full overflow-hidden bg-[#0a0a0a] sm:rounded-[24px] shadow-2xl"
               >
                 {/* Mesh Gradient Background */}
                 <motion.div
@@ -108,7 +108,7 @@ export default function ContactPopup() {
                 >
                   <MeshGradient
                     speed={0.6}
-                    colors={["#ff5500", "#ea580c", "#c2410c", "#7c2d12"]}
+                    colors={["#111111", "#1c1c1e", "#0a0a0a", "#2c2c2e"]}
                     distortion={0.8}
                     swirl={0.1}
                     grainMixer={0.15}
@@ -140,7 +140,7 @@ export default function ContactPopup() {
                       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                         Let's create together.
                       </h2>
-                      <p className="text-orange-100 text-lg max-w-md">
+                      <p className="text-white/80 text-lg max-w-md">
                         Have a project in mind? I'm currently open for new opportunities and exciting collaborations.
                       </p>
                     </div>
@@ -148,22 +148,22 @@ export default function ContactPopup() {
                     <div className="space-y-6">
                       <div className="flex gap-4 items-start">
                         <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
-                          <Mail className="w-6 h-6 text-orange-200" />
+                          <Mail className="w-6 h-6 text-white/80" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-lg">Direct Email</h3>
-                          <p className="text-orange-100/80 text-sm leading-relaxed mt-1">
+                          <p className="text-white/60 text-sm leading-relaxed mt-1">
                             Drop me a line anytime. I usually reply within 24 hours.
                           </p>
                         </div>
                       </div>
                       <div className="flex gap-4 items-start">
                         <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10">
-                          <MapPin className="w-6 h-6 text-orange-200" />
+                          <MapPin className="w-6 h-6 text-white/80" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-lg">Location</h3>
-                          <p className="text-orange-100/80 text-sm leading-relaxed mt-1">
+                          <p className="text-white/60 text-sm leading-relaxed mt-1">
                             Based remotely, available worldwide.
                           </p>
                         </div>
@@ -182,11 +182,11 @@ export default function ContactPopup() {
                           className="flex flex-col items-center justify-center text-center h-[400px] space-y-6"
                         >
                           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg shadow-white/30">
-                            <Check className="w-10 h-10 text-[#ff5500]" />
+                            <Check className="w-10 h-10 text-black" />
                           </div>
                           <div>
                             <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                            <p className="text-orange-100">Thanks for reaching out. I'll get back to you soon.</p>
+                            <p className="text-white/80">Thanks for reaching out. I'll get back to you soon.</p>
                           </div>
                           <button
                             onClick={handleClose}
@@ -199,12 +199,12 @@ export default function ContactPopup() {
                         <form onSubmit={handleSubmit} className="space-y-5">
                           <div className="space-y-1">
                             <h3 className="text-xl font-semibold text-white">Send a Message</h3>
-                            <p className="text-sm text-orange-200">Fill out the form below to get in touch.</p>
+                            <p className="text-sm text-white">Fill out the form below to get in touch.</p>
                           </div>
 
                           <div className="space-y-4">
                             <div>
-                              <label htmlFor="name" className="block text-xs font-medium text-orange-200 mb-1.5 uppercase tracking-wider">
+                              <label htmlFor="name" className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
                                 Full Name
                               </label>
                               <input
@@ -213,12 +213,12 @@ export default function ContactPopup() {
                                 id="name"
                                 name="name"
                                 placeholder="Jane Doe"
-                                className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all text-sm"
+                                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent transition-all text-sm"
                               />
                             </div>
 
                             <div>
-                              <label htmlFor="email" className="block text-xs font-medium text-orange-200 mb-1.5 uppercase tracking-wider">
+                              <label htmlFor="email" className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
                                 Email Address
                               </label>
                               <input
@@ -227,12 +227,12 @@ export default function ContactPopup() {
                                 id="email"
                                 name="email"
                                 placeholder="jane@example.com"
-                                className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all text-sm"
+                                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent transition-all text-sm"
                               />
                             </div>
 
                             <div>
-                              <label htmlFor="message" className="block text-xs font-medium text-orange-200 mb-1.5 uppercase tracking-wider">
+                              <label htmlFor="message" className="block text-xs font-medium text-white/60 mb-1.5 uppercase tracking-wider">
                                 Message
                               </label>
                               <textarea
@@ -241,7 +241,7 @@ export default function ContactPopup() {
                                 name="message"
                                 rows={4}
                                 placeholder="Tell me about your project..."
-                                className="w-full px-4 py-3 rounded-lg bg-orange-950/40 border border-orange-300/20 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all resize-none text-sm"
+                                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent transition-all resize-none text-sm"
                               />
                             </div>
                           </div>
@@ -249,11 +249,11 @@ export default function ContactPopup() {
                           <button
                             disabled={formStep === "submitting"}
                             type="submit"
-                            className="w-full flex items-center justify-center px-8 py-3.5 rounded-lg bg-white text-[#ff5500] font-bold hover:bg-orange-50 focus:ring-4 focus:ring-white/30 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                            className="w-full flex items-center justify-center px-8 py-3.5 rounded-lg bg-white text-black font-bold hover:bg-gray-200 focus:ring-4 focus:ring-white/30 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                           >
                             {formStep === "submitting" ? (
                               <span className="flex items-center gap-2">
-                                <span className="h-4 w-4 border-2 border-[#ff5500] border-t-transparent rounded-full animate-spin"></span>
+                                <span className="h-4 w-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
                                 Sending...
                               </span>
                             ) : "Send Message"}

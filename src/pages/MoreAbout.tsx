@@ -109,10 +109,10 @@ export default function MoreAbout() {
       {/* Back Button */}
       <Link
         to="/#bento-grid"
-        className={`fixed top-6 right-6 z-[100] group flex items-center justify-center gap-2 ${dark ? 'bg-[#0a0a0a]/60 hover:bg-[#0a0a0a]/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-white/10' : 'bg-[#333] hover:bg-[#444] shadow-lg border-transparent'} backdrop-blur-md border px-6 py-3 rounded-full font-mono text-sm uppercase tracking-wider transition-all duration-300`}
+        className={`fixed top-6 right-6 z-[100] group flex items-center justify-center gap-2 ${dark ? 'bg-[#1d1d1f]/80 hover:bg-[#2c2c2e]/80 text-white border-white/[0.08]' : 'bg-[#ffffff]/80 hover:bg-[#f5f5f7]/80 text-[#1d1d1f] border-black/[0.04] shadow-[0_4px_14px_rgba(0,0,0,0.05)]'} backdrop-blur-2xl border px-4 py-2 rounded-full font-body text-[14px] font-medium transition-all duration-300 active:scale-95`}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#ffffff] group-hover:text-[#ff5500] group-hover:-translate-x-1 transition-all duration-300"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
-        <span className="text-[#ffffff] group-hover:text-[#ff5500] transition-colors duration-300">Back</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:-translate-x-0.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        <span>Back</span>
       </Link>
 
       <FlowArt aria-label="More About Sections">
@@ -122,12 +122,9 @@ export default function MoreAbout() {
           id="more-about"
           aria-label="More About Me!"
           className="min-h-[100vh] md:min-h-[120vh] relative"
-          style={{ backgroundColor: dark ? '#0A0A0A' : '#f0f0f0', color: dark ? '#fff' : '#111' }}
+          style={{ backgroundColor: dark ? '#000000' : '#ffffff', color: dark ? '#ffffff' : '#1d1d1f' }}
         >
-          {/* Watermark Number */}
-          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
-            01
-          </div>
+
 
           {/* Sticky Visual Container */}
           <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-none">
@@ -166,9 +163,9 @@ export default function MoreAbout() {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 2.0, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute bottom-6 right-6 md:bottom-auto md:right-12 lg:right-20 md:top-1/2 md:-translate-y-1/2 text-right"
+                className="absolute bottom-16 right-6 md:bottom-auto md:right-12 lg:right-20 md:top-[35%] text-right"
               >
-                <h2 className={`text-[clamp(3rem,10vw,9rem)] font-display font-bold leading-[0.8] tracking-tighter ${dark ? 'text-white' : 'text-gray-900'} mix-blend-difference`}>
+                <h2 className={`text-[clamp(2.5rem,7vw,7rem)] font-display font-bold leading-[0.85] tracking-tight ${dark ? 'text-white' : 'text-gray-900'}`}>
                   Driven<br />by<br />Curiosity
                 </h2>
               </motion.div>
@@ -206,7 +203,7 @@ export default function MoreAbout() {
               {/* Right Side: Hobbies Text */}
               <ScrollReveal direction="right" delay={0.2} className="w-full md:w-[55%]">
                 <div className="flex flex-col justify-center">
-                    <div className={`${dark ? 'bg-[#0a0a0a]/40 border-white/10' : 'bg-white/60 border-black/10'} backdrop-blur-md border rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]`}>
+                  <div className={`${dark ? 'bg-[#1c1c1e]/60 backdrop-blur-3xl border-white/[0.05]' : 'bg-white/80 backdrop-blur-3xl border-black/[0.03] shadow-[0_8px_30px_rgb(0,0,0,0.04)]'} border rounded-2xl md:rounded-[2rem] p-6 md:p-10`}>
                     <h3 className={`font-display text-2xl md:text-4xl font-bold ${dark ? 'text-white' : 'text-gray-900'} mb-4 md:mb-6 tracking-tight`}>
                       Beyond Code
                     </h3>
@@ -226,18 +223,7 @@ export default function MoreAbout() {
 
           </div>
 
-          {/* Scroll Down Hint */}
-          <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
-            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
-            <motion.svg
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              className={dark ? 'text-white/40' : 'text-black/30'}
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </motion.svg>
-          </div>
+
         </FlowSection>
 
         {/* Current Interests Section */}
@@ -245,12 +231,9 @@ export default function MoreAbout() {
           id="interests"
           aria-label="Current Interests"
           className="min-h-[100vh] md:min-h-[120vh] relative"
-          style={{ backgroundColor: dark ? '#121212' : '#e8e8e8', color: dark ? '#fff' : '#111' }}
+          style={{ backgroundColor: dark ? '#0A0A0A' : '#f5f5f7', color: dark ? '#ffffff' : '#1d1d1f' }}
         >
-          {/* Watermark Number */}
-          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
-            02
-          </div>
+
 
           <div className="relative z-10 flex flex-col pt-12 md:pt-24 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full pb-16 md:pb-32">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
@@ -311,7 +294,7 @@ export default function MoreAbout() {
                   { title: "Data Structures & Algorithms", desc: "Sharpening problem-solving fundamentals to build faster, cleaner and more scalable systems.", num: "04" }
                 ].map((card, idx) => (
                   <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                    <div className={`group ${dark ? 'bg-white/[0.07] border-white/15 hover:bg-white/[0.12] hover:border-white/30' : 'bg-black/[0.04] border-black/10 hover:bg-black/[0.08] hover:border-black/20'} backdrop-blur-sm border rounded-2xl p-6 transition-all duration-400 flex flex-col justify-between h-full relative overflow-hidden`}>
+                    <div className={`group ${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/50 hover:border-white/[0.1]' : 'bg-white/70 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg'} border rounded-2xl p-6 transition-all duration-400 flex flex-col justify-between h-full relative overflow-hidden`}>
                       <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#ff5500]/10 to-transparent rounded-bl-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <span className="font-display text-[11px] font-bold tracking-[0.3em] text-[#ff5500]/40 uppercase mb-4">{card.num}</span>
                       <h4 className={`font-display font-bold text-lg md:text-xl mb-3 ${dark ? 'text-white' : 'text-gray-900'} leading-tight`}>{card.title}</h4>
@@ -335,7 +318,7 @@ export default function MoreAbout() {
                   { value: 2022, suffix: "", label: "Journey Started" }
                 ].map((stat, idx) => (
                   <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                    <div className={`${dark ? 'bg-white/[0.07] border-white/15 hover:bg-white/[0.12] hover:border-white/30' : 'bg-black/[0.04] border-black/10 hover:bg-black/[0.08] hover:border-black/20'} backdrop-blur-sm border rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-400`}>
+                    <div className={`${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/50 hover:border-white/[0.1]' : 'bg-white/70 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg'} border rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-400`}>
                       <span className={`font-display text-4xl md:text-5xl lg:text-6xl ${dark ? 'text-white' : 'text-gray-900'} mb-2 md:mb-3 font-light tracking-tight`}>
                         <Counter end={stat.value} suffix={stat.suffix} duration={2000} />
                       </span>
@@ -347,7 +330,7 @@ export default function MoreAbout() {
 
               {/* Featured Articles Box */}
               <ScrollReveal direction="up" delay={0.2}>
-                <div className="bg-white/[0.07] backdrop-blur-sm border border-white/15 rounded-2xl md:rounded-[2rem] p-8 md:p-12 flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16 hover:bg-white/[0.12] hover:border-white/30 transition-all duration-400 group/featured">
+                <div className={`${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-3xl border-white/[0.05] hover:bg-[#2c2c2e]/50 hover:border-white/[0.1]' : 'bg-white/80 backdrop-blur-3xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-md hover:shadow-xl'} border rounded-2xl md:rounded-[2rem] p-8 md:p-12 flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16 transition-all duration-400 group/featured`}>
 
                   {/* Left Side: Title */}
                   <div className="flex flex-col justify-between shrink-0 text-center lg:text-left lg:w-[320px] relative z-10">
@@ -383,8 +366,12 @@ export default function MoreAbout() {
                         <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">An architectural breakdown of building a self-adaptive hybrid search RAG.</p>
                       </div>
 
-                      <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/5 group-hover:bg-white group-hover:text-black transition-all duration-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-300"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+                      <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center text-[#0066cc] font-body text-base font-medium group-hover:text-[#0055b3] transition-colors duration-300">
+                        Read
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-1 group-hover:translate-x-1 transition-transform duration-300">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
                       </div>
                     </a>
 
@@ -401,8 +388,12 @@ export default function MoreAbout() {
                         <p className="font-body text-xs md:text-sm text-white/50 line-clamp-2">A technical deep dive into navigating the unnavigable through real-time systems.</p>
                       </div>
 
-                      <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/5 group-hover:bg-white group-hover:text-black transition-all duration-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-300"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
+                      <div className="mt-6 md:mt-0 shrink-0 relative z-10 flex items-center text-[#0066cc] font-body text-base font-medium group-hover:text-[#0055b3] transition-colors duration-300">
+                        Read
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-1 group-hover:translate-x-1 transition-transform duration-300">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
                       </div>
                     </a>
 
@@ -412,35 +403,21 @@ export default function MoreAbout() {
             </div>
           </div>
 
-          {/* Scroll Down Hint */}
-          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
-            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
-            <motion.svg
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              className={dark ? 'text-white/40' : 'text-black/30'}
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </motion.svg>
-          </div>
+
         </FlowSection>
 
-        {/* Work Experience Section */}
+        {/* Experiences Section */}
         <FlowSection
           id="work"
-          aria-label="Work Experience"
+          aria-label="Experiences"
           className="min-h-[100vh] md:min-h-[120vh] relative"
-          style={{ backgroundColor: dark ? '#0A0A0A' : '#f0f0f0', color: dark ? '#fff' : '#111' }}
+          style={{ backgroundColor: dark ? '#000000' : '#ffffff', color: dark ? '#ffffff' : '#1d1d1f' }}
         >
-          {/* Watermark Number */}
-          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
-            03
-          </div>
+
 
           <div className="relative z-10 flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-10 md:mb-16">
-              Work<br />Experience
+              Experiences
             </h1>
 
             <div className="flex flex-col gap-6 md:gap-8 w-full">
@@ -449,39 +426,39 @@ export default function MoreAbout() {
               <ScrollReveal direction="left" delay={0}>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                   <div className="lg:col-span-7 flex">
-                    <div className="group/card bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden">
+                    <div className={`group/card ${dark ? 'bg-[#1c1c1e]/60 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/60 hover:border-white/[0.1]' : 'bg-white/80 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg'} rounded-2xl p-6 md:p-8 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden`}>
                       {/* Subtle top accent */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#ff5500]/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent ${dark ? 'via-white/20' : 'via-black/10'} to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500`} />
 
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#ff5500]/10 flex items-center justify-center shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#ff5500]"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
+                        <div className={`w-9 h-9 rounded-lg ${dark ? 'bg-white/10 text-white' : 'bg-black/5 text-[#1d1d1f]'} flex items-center justify-center shrink-0`}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
                         </div>
-                        <h3 className="font-display font-bold text-lg md:text-xl text-white tracking-tight">Internships & Freelance</h3>
+                        <h3 className={`font-display font-bold text-lg md:text-xl tracking-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Internships & Freelance</h3>
                       </div>
 
-                      <div className="space-y-5 pl-1 border-l border-[#ff5500]/20 ml-4">
+                      <div className={`space-y-5 pl-1 border-l ${dark ? 'border-white/20' : 'border-black/10'} ml-4`}>
                         <div className="pl-5 relative">
-                          <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-[#ff5500]/50" />
+                          <div className={`absolute left-[-5px] top-1.5 w-2 h-2 rounded-full ${dark ? 'bg-white/50' : 'bg-black/30'}`} />
                           <div className="flex flex-wrap justify-between items-baseline mb-1.5 gap-2">
-                            <h4 className="font-body font-semibold text-white text-sm md:text-base">Software Developer — VSQC</h4>
-                            <span className="font-body text-[11px] md:text-xs text-[#ff5500] bg-[#ff5500]/10 border border-[#ff5500]/20 px-3 py-1 rounded-full">Jan 2026 – Feb 2026</span>
+                            <h4 className={`font-body font-semibold text-sm md:text-base ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Software Developer — VSQC</h4>
+                            <span className={`font-body text-[11px] md:text-xs px-3 py-1 rounded-full ${dark ? 'text-white/70 bg-white/10 border border-white/20' : 'text-black/70 bg-black/5 border border-black/10'}`}>Jan 2026 – Feb 2026</span>
                           </div>
-                          <ul className="font-body text-xs md:text-sm text-white/60 space-y-1">
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Developed and enhanced software features within a collaborative team.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Translated requirements into technical solutions and optimized systems.</li>
+                          <ul className={`font-body text-xs md:text-sm space-y-1 ${dark ? 'text-white/60' : 'text-gray-600'}`}>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Developed and enhanced software features within a collaborative team.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Translated requirements into technical solutions and optimized systems.</li>
                           </ul>
                         </div>
 
                         <div className="pl-5 relative">
-                          <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-[#ff5500]/50" />
+                          <div className={`absolute left-[-5px] top-1.5 w-2 h-2 rounded-full ${dark ? 'bg-white/50' : 'bg-black/30'}`} />
                           <div className="flex flex-wrap justify-between items-baseline mb-1.5 gap-2">
-                            <h4 className="font-body font-semibold text-white text-sm md:text-base">Freelance Web Developer</h4>
-                            <span className="font-body text-[11px] md:text-xs text-[#ff5500] bg-[#ff5500]/10 border border-[#ff5500]/20 px-3 py-1 rounded-full">2024 – Present</span>
+                            <h4 className={`font-body font-semibold text-sm md:text-base ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Freelance Web Developer</h4>
+                            <span className={`font-body text-[11px] md:text-xs px-3 py-1 rounded-full ${dark ? 'text-white/70 bg-white/10 border border-white/20' : 'text-black/70 bg-black/5 border border-black/10'}`}>2024 – Present</span>
                           </div>
-                          <ul className="font-body text-xs md:text-sm text-white/60 space-y-1">
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Delivered end-to-end responsive business websites and UI/UX design.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Collaborated with clients to implement custom technical requirements.</li>
+                          <ul className={`font-body text-xs md:text-sm space-y-1 ${dark ? 'text-white/60' : 'text-gray-600'}`}>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Delivered end-to-end responsive business websites and UI/UX design.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Collaborated with clients to implement custom technical requirements.</li>
                           </ul>
                         </div>
                       </div>
@@ -499,25 +476,25 @@ export default function MoreAbout() {
               <ScrollReveal direction="right" delay={0.1}>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                   <div className="lg:col-span-7 flex">
-                    <div className="group/card bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#ff5500]/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                    <div className={`group/card ${dark ? 'bg-[#1c1c1e]/60 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/60 hover:border-white/[0.1]' : 'bg-white/80 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg'} rounded-2xl p-6 md:p-8 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden`}>
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent ${dark ? 'via-white/20' : 'via-black/10'} to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500`} />
 
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#ff5500]/10 flex items-center justify-center shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#ff5500]"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+                        <div className={`w-9 h-9 rounded-lg ${dark ? 'bg-white/10 text-white' : 'bg-black/5 text-[#1d1d1f]'} flex items-center justify-center shrink-0`}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
                         </div>
-                        <h3 className="font-display font-bold text-lg md:text-xl text-white tracking-tight">Research</h3>
-                        <span className="font-body text-[11px] md:text-xs text-[#ff5500] bg-[#ff5500]/10 border border-[#ff5500]/20 px-3 py-1 rounded-full ml-auto">2025 – Present</span>
+                        <h3 className={`font-display font-bold text-lg md:text-xl tracking-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Research</h3>
+                        <span className={`font-body text-[11px] md:text-xs px-3 py-1 rounded-full ml-auto ${dark ? 'text-white/70 bg-white/10 border border-white/20' : 'text-black/70 bg-black/5 border border-black/10'}`}>2025 – Present</span>
                       </div>
 
-                      <div className="space-y-5 pl-1 border-l border-[#ff5500]/20 ml-4">
+                      <div className={`space-y-5 pl-1 border-l ${dark ? 'border-white/20' : 'border-black/10'} ml-4`}>
                         <div className="pl-5 relative">
-                          <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-[#ff5500]/50" />
-                          <h4 className="font-body font-semibold text-white text-sm md:text-base mb-2">Research Author — GraphMind</h4>
-                          <ul className="font-body text-xs md:text-sm text-white/60 space-y-1">
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Designed a dual-layer knowledge graph architecture for AI memory systems.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Conducted experiments proving higher retrieval accuracy and context efficiency.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Authored findings for publication focusing on agentic AI representation.</li>
+                          <div className={`absolute left-[-5px] top-1.5 w-2 h-2 rounded-full ${dark ? 'bg-white/50' : 'bg-black/30'}`} />
+                          <h4 className={`font-body font-semibold text-sm md:text-base mb-2 ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Research Author — GraphMind</h4>
+                          <ul className={`font-body text-xs md:text-sm space-y-1 ${dark ? 'text-white/60' : 'text-gray-600'}`}>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Designed a dual-layer knowledge graph architecture for AI memory systems.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Conducted experiments proving higher retrieval accuracy and context efficiency.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Authored findings for publication focusing on agentic AI representation.</li>
                           </ul>
                         </div>
                       </div>
@@ -535,25 +512,25 @@ export default function MoreAbout() {
               <ScrollReveal direction="left" delay={0.2}>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                   <div className="lg:col-span-7 flex">
-                    <div className="group/card bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#ff5500]/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                    <div className={`group/card ${dark ? 'bg-[#1c1c1e]/60 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/60 hover:border-white/[0.1]' : 'bg-white/80 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg'} rounded-2xl p-6 md:p-8 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden`}>
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent ${dark ? 'via-white/20' : 'via-black/10'} to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500`} />
 
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#ff5500]/10 flex items-center justify-center shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#ff5500]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                        <div className={`w-9 h-9 rounded-lg ${dark ? 'bg-white/10 text-white' : 'bg-black/5 text-[#1d1d1f]'} flex items-center justify-center shrink-0`}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                         </div>
-                        <h3 className="font-display font-bold text-lg md:text-xl text-white tracking-tight">Competitions</h3>
-                        <span className="font-body text-[11px] md:text-xs text-[#ff5500] bg-[#ff5500]/10 border border-[#ff5500]/20 px-3 py-1 rounded-full ml-auto">2024 – Present</span>
+                        <h3 className={`font-display font-bold text-lg md:text-xl tracking-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Competitions</h3>
+                        <span className={`font-body text-[11px] md:text-xs px-3 py-1 rounded-full ml-auto ${dark ? 'text-white/70 bg-white/10 border border-white/20' : 'text-black/70 bg-black/5 border border-black/10'}`}>2024 – Present</span>
                       </div>
 
-                      <div className="space-y-5 pl-1 border-l border-[#ff5500]/20 ml-4">
+                      <div className={`space-y-5 pl-1 border-l ${dark ? 'border-white/20' : 'border-black/10'} ml-4`}>
                         <div className="pl-5 relative">
-                          <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-[#ff5500]/50" />
-                          <h4 className="font-body font-semibold text-white text-sm md:text-base mb-2">Team Lead / Solo Competitor · 10+ Hackathons</h4>
-                          <ul className="font-body text-xs md:text-sm text-white/60 space-y-1">
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Participated in over 10 national-level hackathons and technical competitions.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Won multiple national hackathons including VIT Code Apex 2.0 and Pragyantara.</li>
-                            <li className="flex items-start gap-2"><span className="text-[#ff5500]/50 mt-0.5 shrink-0">›</span>Built production-ready prototypes under strict 24-hour deadlines.</li>
+                          <div className={`absolute left-[-5px] top-1.5 w-2 h-2 rounded-full ${dark ? 'bg-white/50' : 'bg-black/30'}`} />
+                          <h4 className={`font-body font-semibold text-sm md:text-base mb-2 ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>Team Lead / Solo Competitor · 10+ Hackathons</h4>
+                          <ul className={`font-body text-xs md:text-sm space-y-1 ${dark ? 'text-white/60' : 'text-gray-600'}`}>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Participated in over 10 national-level hackathons and technical competitions.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Won multiple national hackathons including VIT Code Apex 2.0 and Pragyantara.</li>
+                            <li className="flex items-start gap-2"><span className={`mt-0.5 shrink-0 ${dark ? 'text-white/40' : 'text-black/30'}`}>›</span>Built production-ready prototypes under strict 24-hour deadlines.</li>
                           </ul>
                         </div>
                       </div>
@@ -569,14 +546,17 @@ export default function MoreAbout() {
 
               {/* CTA Resume Banner */}
               <ScrollReveal direction="up" delay={0.15}>
-                <div className="mt-4 bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 hover:bg-white/[0.12] hover:border-white/20 transition-all duration-500">
+                <div className={`mt-4 ${dark ? 'bg-[#1c1c1e]/60 backdrop-blur-3xl border-white/[0.05] hover:bg-[#2c2c2e]/70 hover:border-white/[0.1]' : 'bg-[#f5f5f7]/80 backdrop-blur-3xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-md hover:shadow-xl'} rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 transition-all duration-500`}>
                   <div className="flex flex-col text-center md:text-left">
-                    <h3 className="font-display font-semibold text-2xl md:text-3xl text-white mb-2 tracking-tight">Here's my resume for you to look at.</h3>
-                    <p className="font-body text-sm md:text-base text-white/50">Discover my complete story, achievements, and what drives my passion for AI and technology.</p>
+                    <h3 className={`font-display font-semibold text-2xl md:text-3xl mb-2 tracking-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>View my complete resume.</h3>
+                    <p className={`font-body text-sm md:text-base ${dark ? 'text-white/50' : 'text-gray-500'}`}>A detailed overview of my professional experience, technical skills, and research background.</p>
                   </div>
-                  <a href="/Darshans%20Resume.pdf" download="Darshans_Resume.pdf" target="_blank" rel="noreferrer" className="shrink-0 flex items-center justify-center gap-2.5 px-8 py-4 bg-[#ff5500] text-white font-body font-semibold text-sm md:text-base rounded-full hover:bg-[#e04d00] hover:scale-105 transition-all duration-300 shadow-lg">
+                  <a href="/Darshans%20Resume.pdf" download="Darshans_Resume.pdf" target="_blank" rel="noreferrer" className="group shrink-0 flex items-center justify-center gap-2 text-[#0066cc] font-body text-base font-medium transition-all duration-300">
                     Download Resume
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
                   </a>
                 </div>
               </ScrollReveal>
@@ -584,38 +564,24 @@ export default function MoreAbout() {
             </div>
           </div>
 
-          {/* Scroll Down Hint */}
-          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 pointer-events-none">
-            <span className={`font-mono text-[9px] uppercase tracking-[0.25em] ${dark ? 'text-white/40' : 'text-black/30'}`}>More</span>
-            <motion.svg
-              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              className={dark ? 'text-white/40' : 'text-black/30'}
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </motion.svg>
-          </div>
+
         </FlowSection>
 
-        {/* My Journey Section */}
+        {/* My Journey and Education Section */}
         <FlowSection
           id="journey"
-          aria-label="My Journey"
+          aria-label="My Journey and Education"
           className="min-h-[100vh] md:min-h-[120vh] relative"
-          style={{ backgroundColor: dark ? '#121212' : '#e8e8e8', color: dark ? '#fff' : '#111' }}
+          style={{ backgroundColor: dark ? '#0A0A0A' : '#f5f5f7', color: dark ? '#ffffff' : '#1d1d1f' }}
         >
-          {/* Watermark Number */}
-          <div className={`absolute top-0 right-4 md:right-10 text-[35vw] md:text-[25vw] lg:text-[20vw] font-display font-bold z-0 pointer-events-none select-none leading-none tracking-tighter ${dark ? 'text-white/[0.04]' : 'text-black/[0.05]'}`}>
-            04
-          </div>
+
 
           <div className="relative z-10 flex flex-col pt-12 md:pt-24 pb-16 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto w-full">
 
             {/* Section Header */}
             <ScrollReveal direction="up" delay={0.1}>
-              <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-6 md:mb-8 text-white">
-                My<br />Journey
+              <h1 className={`text-[clamp(2.5rem,7vw,6rem)] font-display font-bold leading-[0.9] uppercase tracking-tight mb-6 md:mb-8 ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                My<br />Journey &<br />Education
               </h1>
             </ScrollReveal>
 
@@ -624,23 +590,23 @@ export default function MoreAbout() {
               {/* Left Column: Intro & Philosophy */}
               <div className="lg:col-span-5 flex flex-col space-y-8">
                 <ScrollReveal direction="up" delay={0.2}>
-                  <h3 className="font-display font-bold text-2xl md:text-3xl text-white leading-tight">
+                  <h3 className={`font-display font-bold text-2xl md:text-3xl leading-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>
                     From Curiosity to Building Intelligent Systems
                   </h3>
-                  <p className="font-body text-base md:text-lg text-[#ff5500] font-medium mt-4">
+                  <p className={`font-body text-base md:text-lg font-medium mt-4 ${dark ? 'text-white/70' : 'text-gray-600'}`}>
                     A story of how curiosity evolved into a passion for Artificial Intelligence, software engineering, research, and innovation.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal direction="fade" delay={0.3}>
-                  <div className="space-y-5 font-body text-sm md:text-base text-white/60 leading-relaxed border-l-2 border-white/10 pl-6">
-                    <p className="hover:text-white transition-colors duration-300">
+                  <div className={`space-y-5 font-body text-sm md:text-base leading-relaxed border-l-2 pl-6 ${dark ? 'text-white/60 border-white/10' : 'text-[#1d1d1f]/60 border-black/10'}`}>
+                    <p className={`transition-colors duration-300 ${dark ? 'hover:text-white' : 'hover:text-[#1d1d1f]'}`}>
                       My interest in computer science truly began after 10th grade when I was introduced to the world of Artificial Intelligence and Data Science. I instantly realized this was the future—and the space where I wanted to make my mark.
                     </p>
-                    <p className="hover:text-white transition-colors duration-300">
+                    <p className={`transition-colors duration-300 ${dark ? 'hover:text-white' : 'hover:text-[#1d1d1f]'}`}>
                       The idea of building intelligent systems capable of learning, reasoning, and solving real-world problems fascinated me. What started as curiosity quickly evolved into a passion for creating meaningful technology.
                     </p>
-                    <p className="hover:text-white transition-colors duration-300">
+                    <p className={`transition-colors duration-300 ${dark ? 'hover:text-white' : 'hover:text-[#1d1d1f]'}`}>
                       Since then, I have dedicated myself to mastering AI, software engineering, and innovation through projects, research, hackathons, and real-world development experiences. My goal is to become among the first in my family to pursue a career in Artificial Intelligence while building technologies that create meaningful impact on people's lives.
                     </p>
                   </div>
@@ -654,7 +620,7 @@ export default function MoreAbout() {
                 <div ref={timelineRef} className={`absolute left-[15px] top-2 bottom-2 w-[2px] ${dark ? 'bg-gradient-to-b from-white/20 via-white/20' : 'bg-gradient-to-b from-black/10 via-black/10'} to-transparent z-0`}>
                   <motion.div
                     style={{ height: lineHeight }}
-                    className="absolute top-0 left-0 w-full bg-[#ff5500] rounded-full shadow-[0_0_8px_rgba(255,85,0,0.8)]"
+                    className={`absolute top-0 left-0 w-full rounded-full ${dark ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-black shadow-[0_0_8px_rgba(0,0,0,0.8)]'}`}
                   />
                 </div>
 
@@ -664,12 +630,12 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.2}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
+                        <div className={`w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 ${dark ? 'bg-white ring-black shadow-[0_0_8px_rgba(255,255,255,0.5)]' : 'bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]'}`} />
                       </div>
-                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/70 hover:border-white/[0.1]' : 'bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                           <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>MIT World Peace University, Pune</h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold text-[#ff5500] bg-[#ff5500]/10 px-3 py-1 rounded-full w-fit">2023 – Present</span>
+                          <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/70 bg-white/10 border border-white/20' : 'text-black/70 bg-black/5 border border-black/10'}`}>2023 – Present</span>
                         </div>
                         <div className="flex items-center gap-3 mb-4">
                           <span className={`font-body text-xs md:text-sm font-medium ${dark ? 'text-white/70' : 'text-gray-700'}`}>Integrated B.Tech Computer Science & Engineering (AI & Data Science)</span>
@@ -683,9 +649,9 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.3}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
+                        <div className={`w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 ${dark ? 'bg-white ring-black shadow-[0_0_8px_rgba(255,255,255,0.5)]' : 'bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]'}`} />
                       </div>
-                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/70 hover:border-white/[0.1]' : 'bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                           <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>BK Birla Centre of Education, Pune</h4>
                           <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2021 – 2023</span>
@@ -699,9 +665,9 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.4}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
+                        <div className={`w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 ${dark ? 'bg-white ring-black shadow-[0_0_8px_rgba(255,255,255,0.5)]' : 'bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]'}`} />
                       </div>
-                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/70 hover:border-white/[0.1]' : 'bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                           <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>British International School of Phnom Penh</h4>
                           <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2010 – 2021</span>
@@ -716,9 +682,9 @@ export default function MoreAbout() {
                   <ScrollReveal direction="up" delay={0.5}>
                     <div className="relative pl-12 md:pl-16 group">
                       <div className="absolute left-0 top-1.5 w-8 h-8 flex items-center justify-center">
-                        <div className={`w-3 h-3 rounded-full bg-[#ff5500] ring-4 ${dark ? 'ring-[#111111]' : 'ring-[#e8e8e8]'} group-hover:scale-125 transition-transform duration-300 shadow-[0_0_8px_rgba(255,85,0,0.5)]`} />
+                        <div className={`w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 ${dark ? 'bg-white ring-black shadow-[0_0_8px_rgba(255,255,255,0.5)]' : 'bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]'}`} />
                       </div>
-                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-white/[0.07] border-white/10 hover:bg-white/[0.12] hover:border-white/20' : 'bg-black/[0.03] border-black/10 hover:bg-black/[0.08] hover:border-black/20'}`}>
+                      <div className={`border rounded-2xl p-6 transition-all duration-500 ${dark ? 'bg-[#1c1c1e]/50 backdrop-blur-2xl border-white/[0.05] hover:bg-[#2c2c2e]/70 hover:border-white/[0.1]' : 'bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md'}`}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                           <h4 className={`font-display font-bold text-lg md:text-xl ${dark ? 'text-white' : 'text-gray-900'}`}>Global Indian International School, Singapore</h4>
                           <span className={`font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit ${dark ? 'text-white/50 bg-white/10' : 'text-gray-600 bg-black/10'}`}>2014 – 2016</span>
