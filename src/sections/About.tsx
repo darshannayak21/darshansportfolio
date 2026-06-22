@@ -194,10 +194,10 @@ export default function About() {
               className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 md:p-10 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
             >
               <div className="relative z-10">
-                <h3 className="font-display tracking-tight text-4xl md:text-5xl font-bold mb-3 text-gray-900">
+                <h3 className="font-display tracking-tight text-2xl md:text-5xl font-bold mb-3 text-gray-900">
                   Experiences
                 </h3>
-                <p className="font-body text-lg max-w-sm text-gray-600">
+                <p className="font-body text-sm md:text-lg max-w-sm text-gray-600">
                   Internships, Published Research & 10+ Hackathons.
                 </p>
               </div>
@@ -233,10 +233,10 @@ export default function About() {
               className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
             >
               <div className="relative z-10">
-                <h3 className="font-display tracking-tight text-3xl font-bold mb-2 text-gray-900">
+                <h3 className="font-display tracking-tight text-2xl md:text-3xl font-bold mb-2 text-gray-900">
                   My Journey and Education
                 </h3>
-                <p className="font-body text-gray-600">
+                <p className="font-body text-sm md:text-base text-gray-600">
                   A global education shaping a passion for Artificial
                   Intelligence.
                 </p>

@@ -186,7 +186,7 @@ export default function MoreAbout() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="absolute w-[75vw] h-[75vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#ff5500] mt-48 md:mt-0 opacity-80"
+              className="absolute w-[110vw] h-[110vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#ff5500] mt-24 md:mt-0 md:w-[75vw] md:h-[75vw] opacity-80"
             />
 
             {/* Profile Image */}
@@ -231,7 +231,7 @@ export default function MoreAbout() {
                   delay: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute bottom-16 right-6 md:bottom-auto md:right-12 lg:right-20 md:top-[35%] text-right"
+                className="absolute top-[38%] right-6 md:bottom-auto md:right-12 lg:right-20 md:top-[35%] text-right"
               >
                 <h2 className="text-[clamp(2.5rem,7vw,7rem)] font-display font-bold leading-[0.85] tracking-tight text-gray-900">
                   Driven
@@ -358,30 +358,31 @@ export default function MoreAbout() {
                   </p>
                 </ScrollReveal>
 
-                <div className="space-y-6 mt-8 md:mt-10">
+                <div className="space-y-8 mt-10 md:mt-14">
                   <ScrollReveal direction="fade" delay={0.1}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-[1px] bg-[#ff5500]/40" />
-                      <h3 className="font-mono text-xs tracking-[0.2em] uppercase text-[#ff5500]/70">
-                        Currently Learning & Sharpening
-                      </h3>
-                    </div>
+                    <h3 className="font-body text-[13px] font-medium tracking-[0.08em] uppercase text-black/40">
+                      Currently Learning & Sharpening
+                    </h3>
                   </ScrollReveal>
-                  <div className="space-y-5 lg:space-y-6">
+                  <div className="space-y-6 lg:space-y-7">
                     {[
                       { label: "DSA & Problem Solving", percent: 75 },
                       { label: "Web Development", percent: 85 },
                       { label: "AI & Machine Learning", percent: 80 },
                       { label: "Computer Vision", percent: 78 },
                     ].map((skill, idx) => (
-                      <div key={idx} className="space-y-2">
-                        <div className="flex justify-between font-display text-sm md:text-base font-bold tracking-wide uppercase text-gray-900">
-                          <span>{skill.label}</span>
-                          <span>{skill.percent}%</span>
+                      <div key={idx} className="space-y-2.5">
+                        <div className="flex justify-between items-baseline">
+                          <span className="font-body text-[15px] md:text-base font-medium text-black/80 tracking-tight">
+                            {skill.label}
+                          </span>
+                          <span className="font-body text-[13px] text-black/30 tabular-nums">
+                            {skill.percent}%
+                          </span>
                         </div>
-                        <div className="w-full h-1.5 md:h-2 bg-black/10 rounded-full overflow-hidden">
+                        <div className="w-full h-[3px] bg-black/[0.06] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-[#ff5500] rounded-full transition-all duration-1000 ease-out"
+                            className="h-full bg-black/70 rounded-full transition-all duration-1000 ease-out"
                             style={{ width: `${skill.percent}%` }}
                           />
                         </div>
@@ -392,7 +393,7 @@ export default function MoreAbout() {
               </div>
 
               {/* Right Column: Topic Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                 {[
                   {
                     title: "AI Memory & Knowledge Graphs",
@@ -416,15 +417,14 @@ export default function MoreAbout() {
                   },
                 ].map((card, idx) => (
                   <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                    <div className="group bg-white/70 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg border rounded-2xl p-6 transition-all duration-400 flex flex-col justify-between h-full relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#ff5500]/10 to-transparent rounded-bl-[3rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <span className="font-display text-[11px] font-bold tracking-[0.3em] text-[#ff5500]/40 uppercase mb-4">
+                    <div className="group bg-white/60 backdrop-blur-2xl border-black/[0.04] hover:bg-white hover:border-black/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] border rounded-2xl p-6 md:p-7 transition-all duration-500 flex flex-col justify-between h-full relative overflow-hidden">
+                      <span className="font-body text-[11px] font-medium tracking-[0.15em] text-black/20 uppercase mb-5">
                         {card.num}
                       </span>
-                      <h4 className="font-display font-bold text-lg md:text-xl mb-3 text-gray-900 leading-tight">
+                      <h4 className="font-display font-semibold text-[17px] md:text-lg mb-2.5 text-black/90 leading-snug">
                         {card.title}
                       </h4>
-                      <p className="font-body text-sm md:text-base text-gray-600 leading-relaxed">
+                      <p className="font-body text-[13px] md:text-sm text-black/50 leading-relaxed">
                         {card.desc}
                       </p>
                     </div>

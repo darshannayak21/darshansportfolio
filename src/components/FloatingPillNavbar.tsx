@@ -83,7 +83,7 @@ export default function FloatingPillNavbar({
             icon={
               <div className="relative w-6 h-6">
                 <div
-                  className={`absolute inset-0 transition-all duration-300 ease-in-out origin-center opacity-100 scale-100 rotate-0 [div[data-expanded=true]_&]:opacity-0 [div[data-expanded=true]_&]:scale-0 [div[data-expanded=true]_&]:rotate-180 ${effectiveDark ? "text-[#ffffff]" : "text-black"} group-hover:text-[#ff5500]`}
+                  className={`absolute inset-0 transition-all duration-300 ease-in-out origin-center opacity-100 scale-100 rotate-0 [div[data-expanded=true]_&]:opacity-0 [div[data-expanded=true]_&]:scale-0 [div[data-expanded=true]_&]:rotate-180 text-black group-hover:text-[#ff5500]`}
                 >
                   <MenuIcon size={24} strokeWidth={1.5} />
                 </div>
