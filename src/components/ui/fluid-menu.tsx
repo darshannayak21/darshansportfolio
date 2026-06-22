@@ -138,10 +138,7 @@ export function MenuContainer({ children }: { children: React.ReactNode }) {
                 opacity: isExpanded ? 1 : 0,
                 pointerEvents: isExpanded ? "auto" : "none",
                 zIndex: 40 - index,
-                clipPath:
-                  index === childrenArray.length - 2
-                    ? "circle(50% at 50% 50%)"
-                    : "circle(50% at 50% 55%)",
+
                 transition: `transform ${isExpanded ? "300ms" : "300ms"} cubic-bezier(0.4, 0, 0.2, 1),
                            opacity ${isExpanded ? "300ms" : "350ms"}`,
                 backfaceVisibility: "hidden",

@@ -186,7 +186,7 @@ export default function MoreAbout() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="absolute w-[110vw] h-[110vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#ff5500] mt-24 md:mt-0 md:w-[75vw] md:h-[75vw] opacity-80"
+              className="absolute w-[90vw] h-[90vw] max-w-[450px] max-h-[450px] lg:max-w-[600px] lg:max-h-[600px] rounded-full bg-[#ff5500] mt-56 md:mt-0 md:w-[75vw] md:h-[75vw] opacity-80"
             />
 
             {/* Profile Image */}
@@ -231,7 +231,7 @@ export default function MoreAbout() {
                   delay: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute top-[38%] right-6 md:bottom-auto md:right-12 lg:right-20 md:top-[35%] text-right"
+                className="absolute bottom-4 left-6 right-6 md:bottom-auto md:left-auto md:right-12 lg:right-20 md:top-[35%] text-left md:text-right"
               >
                 <h2 className="text-[clamp(2.5rem,7vw,7rem)] font-display font-bold leading-[0.85] tracking-tight text-gray-900">
                   Driven
@@ -245,7 +245,7 @@ export default function MoreAbout() {
           </div>
 
           {/* Scrolling content */}
-          <div className="relative z-30 w-full px-5 md:px-12 pb-[65vh] md:pb-10 lg:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
+          <div className="relative z-30 w-full px-5 md:px-12 pb-[20vh] md:pb-10 lg:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
             {/* Stylish "More About Me" Paragraphs */}
             <ScrollReveal direction="fade" delay={0}>
               <div className="w-full max-w-5xl mx-auto text-center mb-6 md:mb-8 space-y-6 md:space-y-8 text-gray-700 font-body text-sm md:text-lg lg:text-xl leading-relaxed">

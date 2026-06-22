@@ -69,7 +69,7 @@ export default function AiSystems() {
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-white/80 transition-colors"
                 >
                   View GitHub
                 </CardItem>
@@ -109,7 +109,7 @@ export default function AiSystems() {
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-white/80 transition-colors"
                 >
                   View GitHub
                 </CardItem>
@@ -150,7 +150,7 @@ export default function AiSystems() {
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-white/80 transition-colors"
                 >
                   View GitHub
                 </CardItem>
@@ -190,7 +190,7 @@ export default function AiSystems() {
                   translateZ={20}
                   as="a"
                   href="#"
-                  className="px-5 py-2.5 rounded-full bg-[#ff5500] text-black text-xs font-bold hover:bg-white transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-white text-black text-xs font-bold hover:bg-white/80 transition-colors"
                 >
                   View GitHub
                 </CardItem>

@@ -111,7 +111,7 @@ export default function About() {
           >
             <Link
               to="/moreabout#more-about"
-              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
             >
               <div className="relative z-10">
                 <h3 className="font-display tracking-tight text-2xl font-bold mb-2 leading-tight text-gray-900">
@@ -123,7 +123,7 @@ export default function About() {
                   Beyond code: Art, Sports & Global upbringing
                 </p>
               </div>
-              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end mt-4 transition-colors duration-300 border-black/10 group-hover:bg-black/5">
                 <svg
                   width="18"
                   height="18"
@@ -152,7 +152,7 @@ export default function About() {
           >
             <Link
               to="/moreabout#interests"
-              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-6 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
             >
               <div className="relative z-10">
                 <h3 className="font-display tracking-tight text-2xl font-bold mb-2 text-gray-900">
@@ -162,7 +162,7 @@ export default function About() {
                   AI Memory, Human-Centered Systems & Vision
                 </p>
               </div>
-              <div className="absolute z-10 bottom-6 right-6 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end mt-4 transition-colors duration-300 border-black/10 group-hover:bg-black/5">
                 <svg
                   width="18"
                   height="18"
@@ -201,7 +201,7 @@ export default function About() {
                   Internships, Published Research & 10+ Hackathons.
                 </p>
               </div>
-              <div className="absolute z-10 top-8 right-8 w-10 h-10 rounded-full border flex items-center justify-center transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end mt-4 transition-colors duration-300 border-black/10 group-hover:bg-black/5">
                 <svg
                   width="18"
                   height="18"
@@ -230,7 +230,7 @@ export default function About() {
           >
             <Link
               to="/moreabout#journey"
-              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
+              className="bento-hover h-full w-full group relative overflow-hidden rounded-[2rem] border p-8 flex flex-col justify-end transition-all duration-500 hover:-translate-y-1 block bg-white/90 backdrop-blur-2xl border-black/[0.04] hover:border-black/[0.08] hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]"
             >
               <div className="relative z-10">
                 <h3 className="font-display tracking-tight text-2xl md:text-3xl font-bold mb-2 text-gray-900">
@@ -241,7 +241,7 @@ export default function About() {
                   Intelligence.
                 </p>
               </div>
-              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end transition-colors duration-300 border-black/10 group-hover:bg-black/5">
+              <div className="relative z-10 w-10 h-10 rounded-full border flex items-center justify-center self-end mt-4 transition-colors duration-300 border-black/10 group-hover:bg-black/5">
                 <svg
                   width="18"
                   height="18"
