@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
-import { MeshGradient } from "@paper-design/shaders-react";
+import { ShaderAnimation } from "@/components/ui/shader-animation";
 import { TextEffect } from "@/components/ui/text-effect";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
@@ -34,7 +34,7 @@ export default function Hero({ isLoaded }: HeroProps) {
             duration: 0.8,
             ease: "power3.out",
           },
-          2.5, // Delay CTA button slightly so it appears after the text effects
+          0.7,
         );
       }
     });
@@ -66,16 +66,11 @@ export default function Hero({ isLoaded }: HeroProps) {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-black overflow-hidden"
     >
-      {/* Interactive Mesh Gradient Background */}
+      {/* Shader Background — full brightness, no opacity dampening */}
       <div className="absolute inset-0 z-0">
-        <MeshGradient
-          className="absolute inset-0 w-full h-full"
-          colors={["#000000", "#000000", "#000000", "#ff5500", "#000000"]}
-          speed={0.3}
-          {...({ backgroundColor: "#000000" } as any)}
-        />
+        <ShaderAnimation />
       </div>
 
       {/* Content */}
@@ -95,7 +90,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           per="word"
           preset="blur"
           trigger={isLoaded}
-          delay={1.2}
+          delay={0.2}
           className="font-body text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/80 mb-6 pointer-events-auto"
         >
           Aspiring AI Engineer and Creative Problem Solver
@@ -106,7 +101,7 @@ export default function Hero({ isLoaded }: HeroProps) {
           per="word"
           preset="fade"
           trigger={isLoaded}
-          delay={1.8}
+          delay={0.45}
           className="font-body text-base md:text-lg text-white/50 max-w-[500px] leading-relaxed mb-10 pointer-events-auto"
         >
           From embedded electronics to intelligent agents — engineering AI

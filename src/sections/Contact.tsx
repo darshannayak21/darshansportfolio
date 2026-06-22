@@ -138,7 +138,7 @@ export default function Contact() {
                   {word}
                 </span>
               ))}
-              <span className="word inline-block text-[#ff5500]">
+              <span className="word inline-block text-black/50">
                 <Typewriter
                   text={[
                     "Intelligent.",

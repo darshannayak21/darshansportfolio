@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -33,38 +33,37 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
-);
+  }
+)
 
 export interface ButtonProps
-  extends
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+  asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    );
-  },
-);
-Button.displayName = "Button";
+    )
+  }
+)
+Button.displayName = "Button"
 
-export { Button, buttonVariants, liquidbuttonVariants, LiquidButton };
+export { Button, buttonVariants, liquidbuttonVariants, LiquidButton }
 
 const liquidbuttonVariants = cva(
-  "group inline-flex items-center transition-all duration-700 ease-liquid justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
-        default: "bg-transparent hover:scale-[1.03] text-primary",
+        default: "bg-transparent hover:scale-105 duration-300 transition text-primary",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
@@ -87,8 +86,8 @@ const liquidbuttonVariants = cva(
       variant: "default",
       size: "xxl",
     },
-  },
-);
+  }
+)
 
 function LiquidButton({
   className,
@@ -99,9 +98,9 @@ function LiquidButton({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof liquidbuttonVariants> & {
-    asChild?: boolean;
+    asChild?: boolean
   }) {
-  const Comp = asChild ? Slot : "button";
+  const Comp = asChild ? Slot : "button"
 
   return (
     <>
@@ -109,24 +108,71 @@ function LiquidButton({
         data-slot="button"
         className={cn(
           "relative",
-          liquidbuttonVariants({ variant, size, className }),
+          liquidbuttonVariants({ variant, size, className })
         )}
         {...props}
       >
+        <div className="absolute top-0 left-0 z-0 h-full w-full rounded-full 
+            shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] 
+        transition-all 
+        dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]" />
         <div
-          className="absolute top-0 left-0 z-0 h-full w-full rounded-full overflow-hidden
-            shadow-[0_4px_30px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.8),inset_0_-1px_1px_rgba(0,0,0,0.05),inset_0_0_10px_rgba(255,255,255,0.3)] 
-        transition-all duration-700 ease-liquid
-        dark:shadow-[0_4px_30px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.05),inset_0_-1px_1px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.02)]"
-        >
-          {/* Smooth, slow orange ripple effect on hover */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[250%] bg-[radial-gradient(circle,rgba(255,85,0,0.2)_0%,transparent_60%)] scale-0 opacity-0 transition-all duration-1000 ease-liquid group-hover:scale-100 group-hover:opacity-100 pointer-events-none" />
-        </div>
-        <div className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-full transition-all duration-700 ease-liquid group-hover:bg-black/5 dark:group-hover:bg-white/[0.03] backdrop-blur-md bg-transparent dark:bg-white/5 border border-black/10 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-none" />
+          className="absolute top-0 left-0 isolate -z-10 h-full w-full overflow-hidden rounded-md"
+          style={{ backdropFilter: 'url("#container-glass")' }}
+        />
 
-        <div className="pointer-events-none z-10 ">{children}</div>
+        <div className="pointer-events-none z-10 ">
+          {children}
+        </div>
+        <GlassFilter />
       </Comp>
     </>
+  )
+}
+
+
+function GlassFilter() {
+  return (
+    <svg className="hidden">
+      <defs>
+        <filter
+          id="container-glass"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          colorInterpolationFilters="sRGB"
+        >
+          {/* Generate turbulent noise for distortion */}
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.05 0.05"
+            numOctaves="1"
+            seed="1"
+            result="turbulence"
+          />
+
+          {/* Blur the turbulence pattern slightly */}
+          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+
+          {/* Displace the source graphic with the noise */}
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="blurredNoise"
+            scale="70"
+            xChannelSelector="R"
+            yChannelSelector="B"
+            result="displaced"
+          />
+
+          {/* Apply overall blur on the final result */}
+          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+
+          {/* Output the result */}
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+        </filter>
+      </defs>
+    </svg>
   );
 }
 
@@ -137,11 +183,12 @@ type ColorVariant =
   | "error"
   | "gold"
   | "bronze";
-
-interface MetalButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+ 
+interface MetalButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ColorVariant;
 }
-
+ 
 const colorVariants: Record<
   ColorVariant,
   {
@@ -195,7 +242,7 @@ const colorVariants: Record<
     textShadow: "[text-shadow:_0_-1px_0_rgb(124_45_18_/_100%)]",
   },
 };
-
+ 
 const metalButtonVariants = (
   variant: ColorVariant = "default",
   isPressed: boolean,
@@ -204,7 +251,7 @@ const metalButtonVariants = (
 ) => {
   const colors = colorVariants[variant];
   const transitionStyle = "all 250ms cubic-bezier(0.1, 0.4, 0.2, 1)";
-
+ 
   return {
     wrapper: cn(
       "relative inline-flex transform-gpu rounded-md p-[1.25px] will-change-transform",
@@ -247,7 +294,7 @@ const metalButtonVariants = (
     },
   };
 };
-
+ 
 const ShineEffect = ({ isPressed }: { isPressed: boolean }) => {
   return (
     <div
@@ -260,7 +307,7 @@ const ShineEffect = ({ isPressed }: { isPressed: boolean }) => {
     </div>
   );
 };
-
+ 
 export const MetalButton = React.forwardRef<
   HTMLButtonElement,
   MetalButtonProps
@@ -268,11 +315,11 @@ export const MetalButton = React.forwardRef<
   const [isPressed, setIsPressed] = React.useState(false);
   const [isHovered, setIsHovered] = React.useState(false);
   const [isTouchDevice, setIsTouchDevice] = React.useState(false);
-
+ 
   React.useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
-
+ 
   const buttonText = children || "Button";
   const variants = metalButtonVariants(
     variant,
@@ -280,7 +327,7 @@ export const MetalButton = React.forwardRef<
     isHovered,
     isTouchDevice,
   );
-
+ 
   const handleInternalMouseDown = () => {
     setIsPressed(true);
   };
@@ -305,7 +352,7 @@ export const MetalButton = React.forwardRef<
   const handleInternalTouchCancel = () => {
     setIsPressed(false);
   };
-
+ 
   return (
     <div className={variants.wrapper} style={variants.wrapperStyle}>
       <div className={variants.inner} style={variants.innerStyle}></div>
@@ -331,5 +378,5 @@ export const MetalButton = React.forwardRef<
     </div>
   );
 });
-
+ 
 MetalButton.displayName = "MetalButton";

@@ -611,30 +611,7 @@ export default function MoreAbout() {
                       {/* Subtle top accent */}
                       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
 
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-black/5 text-[#1d1d1f] flex items-center justify-center shrink-0">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect
-                              x="2"
-                              y="7"
-                              width="20"
-                              height="14"
-                              rx="2"
-                              ry="2"
-                            />
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                          </svg>
-                        </div>
+                      <div className="flex items-center mb-6">
                         <h3 className="font-display font-bold text-lg md:text-xl tracking-tight text-[#1d1d1f]">
                           Internships & Freelance
                         </h3>
@@ -643,13 +620,10 @@ export default function MoreAbout() {
                       <div className="space-y-5 pl-1 border-l border-black/10 ml-4">
                         <div className="pl-5 relative">
                           <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-black/30" />
-                          <div className="flex flex-wrap justify-between items-baseline mb-1.5 gap-2">
+                          <div className="flex flex-wrap items-baseline mb-1.5 gap-2">
                             <h4 className="font-body font-semibold text-sm md:text-base text-[#1d1d1f]">
-                              Software Developer — VSQC
+                              Software Developer — VSQC <span className="font-normal text-black/50 ml-1">Jan 2026 – Feb 2026</span>
                             </h4>
-                            <span className="font-body text-[11px] md:text-xs px-3 py-1 rounded-full text-black/70 bg-black/5 border border-black/10">
-                              Jan 2026 – Feb 2026
-                            </span>
                           </div>
                           <ul className="font-body text-xs md:text-sm space-y-1 text-gray-600">
                             <li className="flex items-start gap-2">
@@ -671,13 +645,10 @@ export default function MoreAbout() {
 
                         <div className="pl-5 relative">
                           <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-black/30" />
-                          <div className="flex flex-wrap justify-between items-baseline mb-1.5 gap-2">
+                          <div className="flex flex-wrap items-baseline mb-1.5 gap-2">
                             <h4 className="font-body font-semibold text-sm md:text-base text-[#1d1d1f]">
-                              Freelance Web Developer
+                              Freelance Web Developer <span className="font-normal text-black/50 ml-1">2024 – Present</span>
                             </h4>
-                            <span className="font-body text-[11px] md:text-xs px-3 py-1 rounded-full text-black/70 bg-black/5 border border-black/10">
-                              2024 – Present
-                            </span>
                           </div>
                           <ul className="font-body text-xs md:text-sm space-y-1 text-gray-600">
                             <li className="flex items-start gap-2">
@@ -718,37 +689,20 @@ export default function MoreAbout() {
                     <div className="group/card bg-white/80 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg rounded-2xl p-6 md:p-8 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
 
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-black/5 text-[#1d1d1f] flex items-center justify-center shrink-0">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                          </svg>
-                        </div>
+                      <div className="flex items-center mb-6">
                         <h3 className="font-display font-bold text-lg md:text-xl tracking-tight text-[#1d1d1f]">
                           Research
                         </h3>
-                        <span className="font-body text-[11px] md:text-xs px-3 py-1 rounded-full ml-auto text-black/70 bg-black/5 border border-black/10">
-                          2025 – Present
-                        </span>
                       </div>
 
                       <div className="space-y-5 pl-1 border-l border-black/10 ml-4">
                         <div className="pl-5 relative">
                           <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-black/30" />
-                          <h4 className="font-body font-semibold text-sm md:text-base mb-2 text-[#1d1d1f]">
-                            Research Author — GraphMind
-                          </h4>
+                          <div className="flex flex-wrap items-baseline mb-2 gap-2">
+                            <h4 className="font-body font-semibold text-sm md:text-base text-[#1d1d1f]">
+                              Research Author — GraphMind <span className="font-normal text-black/50 ml-1">2025 – Present</span>
+                            </h4>
+                          </div>
                           <ul className="font-body text-xs md:text-sm space-y-1 text-gray-600">
                             <li className="flex items-start gap-2">
                               <span className="mt-0.5 shrink-0 text-black/30">
@@ -795,36 +749,20 @@ export default function MoreAbout() {
                     <div className="group/card bg-white/80 backdrop-blur-2xl border-black/[0.03] hover:bg-white hover:border-black/[0.06] shadow-sm hover:shadow-lg rounded-2xl p-6 md:p-8 transition-all duration-500 w-full flex flex-col justify-center relative overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
 
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-9 h-9 rounded-lg bg-black/5 text-[#1d1d1f] flex items-center justify-center shrink-0">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                          </svg>
-                        </div>
+                      <div className="flex items-center mb-6">
                         <h3 className="font-display font-bold text-lg md:text-xl tracking-tight text-[#1d1d1f]">
                           Competitions
                         </h3>
-                        <span className="font-body text-[11px] md:text-xs px-3 py-1 rounded-full ml-auto text-black/70 bg-black/5 border border-black/10">
-                          2024 – Present
-                        </span>
                       </div>
 
                       <div className="space-y-5 pl-1 border-l border-black/10 ml-4">
                         <div className="pl-5 relative">
                           <div className="absolute left-[-5px] top-1.5 w-2 h-2 rounded-full bg-black/30" />
-                          <h4 className="font-body font-semibold text-sm md:text-base mb-2 text-[#1d1d1f]">
-                            Team Lead / Solo Competitor · 10+ Hackathons
-                          </h4>
+                          <div className="flex flex-wrap items-baseline mb-2 gap-2">
+                            <h4 className="font-body font-semibold text-sm md:text-base text-[#1d1d1f]">
+                              Team Lead / Solo Competitor · 10+ Hackathons <span className="font-normal text-black/50 ml-1">2024 – Present</span>
+                            </h4>
+                          </div>
                           <ul className="font-body text-xs md:text-sm space-y-1 text-gray-600">
                             <li className="flex items-start gap-2">
                               <span className="mt-0.5 shrink-0 text-black/30">
@@ -987,13 +925,10 @@ export default function MoreAbout() {
                         <div className="w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
                       </div>
                       <div className="border rounded-2xl p-6 transition-all duration-500 bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
                           <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">
-                            MIT World Peace University, Pune
+                            MIT World Peace University, Pune <span className="font-normal text-base text-gray-500 ml-1">2023 – Present</span>
                           </h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit text-black/70 bg-black/5 border border-black/10">
-                            2023 – Present
-                          </span>
                         </div>
                         <div className="flex items-center gap-3 mb-4">
                           <span className="font-body text-xs md:text-sm font-medium text-gray-700">
@@ -1015,13 +950,10 @@ export default function MoreAbout() {
                         <div className="w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
                       </div>
                       <div className="border rounded-2xl p-6 transition-all duration-500 bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
                           <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">
-                            BK Birla Centre of Education, Pune
+                            BK Birla Centre of Education, Pune <span className="font-normal text-base text-gray-500 ml-1">2021 – 2023</span>
                           </h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit text-gray-600 bg-black/10">
-                            2021 – 2023
-                          </span>
                         </div>
                         <p className="font-body text-xs md:text-sm font-medium mb-1 text-gray-700">
                           Secondary Education (Grade 9–10)
@@ -1037,13 +969,10 @@ export default function MoreAbout() {
                         <div className="w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
                       </div>
                       <div className="border rounded-2xl p-6 transition-all duration-500 bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
                           <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">
-                            British International School of Phnom Penh
+                            British International School of Phnom Penh <span className="font-normal text-base text-gray-500 ml-1">2010 – 2021</span>
                           </h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit text-gray-600 bg-black/10">
-                            2010 – 2021
-                          </span>
                         </div>
                         <p className="font-body text-xs md:text-sm font-medium mb-3 text-gray-700">
                           Primary & Middle School (Kindergarten – Grade 8)
@@ -1063,13 +992,10 @@ export default function MoreAbout() {
                         <div className="w-3 h-3 rounded-full ring-4 group-hover:scale-125 transition-transform duration-300 bg-black ring-white shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
                       </div>
                       <div className="border rounded-2xl p-6 transition-all duration-500 bg-[#f5f5f7]/80 backdrop-blur-2xl border-black/[0.03] hover:bg-[#e8e8ed]/90 hover:border-black/[0.06] shadow-sm hover:shadow-md">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
                           <h4 className="font-display font-bold text-lg md:text-xl text-gray-900">
-                            Global Indian International School, Singapore
+                            Global Indian International School, Singapore <span className="font-normal text-base text-gray-500 ml-1">2014 – 2016</span>
                           </h4>
-                          <span className="font-body text-[11px] md:text-xs font-semibold px-3 py-1 rounded-full w-fit text-gray-600 bg-black/10">
-                            2014 – 2016
-                          </span>
                         </div>
                         <p className="font-body text-xs md:text-sm font-medium mb-3 text-gray-700">
                           Primary School (Grade 2 – 3)
