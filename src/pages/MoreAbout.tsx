@@ -172,7 +172,7 @@ export default function MoreAbout() {
         <FlowSection
           id="more-about"
           aria-label="More About Me!"
-          className="min-h-[100vh] md:min-h-[120vh] relative"
+          className="min-h-[125vh] md:min-h-[120vh] relative"
           style={{ backgroundColor: "#ffffff", color: "#1d1d1f" }}
         >
           {/* Sticky Visual Container */}
@@ -245,7 +245,7 @@ export default function MoreAbout() {
           </div>
 
           {/* Scrolling content */}
-          <div className="relative z-30 w-full px-5 md:px-12 pb-[20vh] md:pb-10 lg:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
+          <div className="relative z-30 w-full px-5 md:px-12 pb-[35vh] md:pb-10 lg:pb-12 mt-0 pt-8 md:pt-16 pointer-events-auto">
             {/* Stylish "More About Me" Paragraphs */}
             <ScrollReveal direction="fade" delay={0}>
               <div className="w-full max-w-5xl mx-auto text-center mb-6 md:mb-8 space-y-6 md:space-y-8 text-gray-700 font-body text-sm md:text-lg lg:text-xl leading-relaxed">
