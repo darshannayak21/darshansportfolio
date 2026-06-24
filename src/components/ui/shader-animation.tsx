@@ -40,13 +40,18 @@ export function ShaderAnimation() {
         float lineWidth = 0.002;
 
         vec3 color = vec3(0.0);
-        for(int j = 0; j < 3; j++){
-          for(int i=0; i < 5; i++){
-            color[j] += lineWidth*float(i*i) / abs(fract((t - 0.01*float(j)+float(i)*0.01)*2.0)*2.5 - length(uv) + mod(uv.x+uv.y, 0.2));
-          }
+        
+        for(int i=0; i < 5; i++){
+          color.r += lineWidth*float(i*i) / abs(fract((t - 0.00+float(i)*0.01)*2.0)*2.5 - length(uv) + mod(uv.x+uv.y, 0.2));
+        }
+        for(int i=0; i < 5; i++){
+          color.g += lineWidth*float(i*i) / abs(fract((t - 0.01+float(i)*0.01)*2.0)*2.5 - length(uv) + mod(uv.x+uv.y, 0.2));
+        }
+        for(int i=0; i < 5; i++){
+          color.b += lineWidth*float(i*i) / abs(fract((t - 0.02+float(i)*0.01)*2.0)*2.5 - length(uv) + mod(uv.x+uv.y, 0.2));
         }
         
-        gl_FragColor = vec4(color[0],color[1],color[2],1.0);
+        gl_FragColor = vec4(color, 1.0);
       }
     `
 
